@@ -1,0 +1,7 @@
+Usuario:
+ - Registrar un usuario
+ - Iniciar sesión
+
+Partida:
+ - Obtener las 5 partidas con mejor puntuación
+ - Registrar una partida nueva a partir de un JWT y una puntuación
