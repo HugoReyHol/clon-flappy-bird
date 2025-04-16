@@ -5,7 +5,7 @@ const PIPES = preload("res://obstacles/pipes/pipes.tscn")
 
 @export var speed: int = 20
 @export var speed_add: int = 10
-@export var initial_wait_time: float = 6.5
+@export var initial_wait_time: float = speed / 10
 
 var pipes: Array[Pipe] = []
 var pipe_spawn: int = 320
@@ -13,7 +13,7 @@ var score: int = 0
 
 @onready var game_floor: Area2D = $Floor
 @onready var timer: Timer = $PipeSpawnTimer
-@onready var player: Player = $Player
+@onready var player: CharacterBody2D = $Player
 
 
 # Crea las tuberías y posiciona al jugador
@@ -21,7 +21,7 @@ func _ready() -> void:
 	timer.wait_time = initial_wait_time
 	game_floor.speed = speed
 	game_floor.player_hitted.connect(_on_player_hitted)
-	player.position = Vector2i(72, 256)
+	player.position = Vector2i(72, 200)
 
 
 # Detecta las acciones del jugador

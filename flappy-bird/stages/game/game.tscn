@@ -3,10 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://fn2e83tewp4k" path="res://locations/city/city.tscn" id="1_her1c"]
 [ext_resource type="Script" uid="uid://dggk7ntjd15jh" path="res://stages/game/game.gd" id="1_ossee"]
 [ext_resource type="PackedScene" uid="uid://bab6sp6ru06rf" path="res://obstacles/floor/floor.tscn" id="2_ossee"]
-[ext_resource type="Script" uid="uid://1c5ap5ecvyig" path="res://player/player.gd" id="4_rijih"]
+[ext_resource type="PackedScene" uid="uid://caaqqf8mtqdrr" path="res://player/player.tscn" id="4_rijih"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ossee")
+speed = 60
+speed_add = 15
 
 [node name="City" parent="." instance=ExtResource("1_her1c")]
 position = Vector2(144, 256)
@@ -16,8 +18,7 @@ z_index = 1
 
 [node name="PipeSpawnTimer" type="Timer" parent="."]
 
-[node name="Player" type="CharacterBody2D" parent="."]
-script = ExtResource("4_rijih")
-metadata/_custom_type_script = "uid://1c5ap5ecvyig"
+[node name="Player" parent="." instance=ExtResource("4_rijih")]
+position = Vector2(82, 222)
 
 [connection signal="timeout" from="PipeSpawnTimer" to="." method="_on_pipe_spawn_timer_timeout"]

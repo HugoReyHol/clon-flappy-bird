@@ -47,7 +47,7 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g1dw6"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 collision_mask = 0
 motion_mode = 1
 slide_on_ceiling = false
@@ -55,6 +55,8 @@ floor_stop_on_slope = false
 floor_block_on_wall = false
 platform_floor_layers = 4294967040
 script = ExtResource("1_yw30f")
+sprite = NodePath("Sprite")
+jump_speed = -350
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g6k8r")

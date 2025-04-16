@@ -1,4 +1,3 @@
-class_name Player
 extends CharacterBody2D
 
 
@@ -9,14 +8,14 @@ enum State {
 	RISE,
 }
 
-@export var jump_speed: int = -1000
+@export var sprite: AnimatedSprite2D
+@export var jump_speed: int = -300
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var actual_state: State = State.WAIT
 
-@onready var sprite: AnimatedSprite2D = $Sprite
 
-
+# Al iniciar el player usa la animacion en bucle
 func _ready() -> void:
 	sprite.play("wait_loop")
 
@@ -25,11 +24,11 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	match actual_state:
 		State.WAIT:
-			
+			velocity.y -= gravity * delta
 			pass
 		
 		State.FALL:
-			rotation_degrees = lerp(rotation_degrees, 30.0, 3.0*delta)
+			rotation_degrees = lerp(rotation_degrees, 35.0, 3.5*delta)
 		
 		State.JUMP:
 			sprite.play("jump")
@@ -37,7 +36,7 @@ func _physics_process(delta: float) -> void:
 			actual_state = State.RISE
 		
 		State.RISE:
-			rotation_degrees = lerp(rotation_degrees, -50.0, 10.0*delta)
+			rotation_degrees = lerp(rotation_degrees, -45.0, 10.0*delta)
 			if velocity.y >= 0:
 				actual_state = State.FALL
 	
@@ -47,5 +46,5 @@ func _physics_process(delta: float) -> void:
 
 # Detecta el evento de salto
 func _input(event: InputEvent) -> void:
-	if event.is_action_released("Jump") and actual_state != State.JUMP:
+	if event.is_action_pressed("Jump") and actual_state != State.JUMP:
 		actual_state = State.JUMP
