@@ -56,7 +56,7 @@ floor_block_on_wall = false
 platform_floor_layers = 4294967040
 script = ExtResource("1_yw30f")
 sprite = NodePath("Sprite")
-jump_speed = -350
+jump_speed = -325
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g6k8r")

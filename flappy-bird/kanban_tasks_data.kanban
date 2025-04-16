@@ -22,7 +22,9 @@
 		{
 			"uuid": "3d3279a4-96a1-41d1-9e4f-18f516edac9e",
 			"title": "Doing",
-			"tasks": []
+			"tasks": [
+				"de0aee57-9c19-4e99-8f2a-c3a69f9a47ee"
+			]
 		},
 		{
 			"uuid": "15f8f3ce-aef7-4dc1-a92b-78afc5adedfe",
@@ -119,6 +121,13 @@
 			"uuid": "e6212c30-32c4-4280-99bb-8df3cacc274e",
 			"title": "Hacer que el fondo cambie entre dia y noche",
 			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "de0aee57-9c19-4e99-8f2a-c3a69f9a47ee",
+			"title": "Arreglar timer",
+			"description": "Hacer que la distancian entre las tuberias spawneadas sea constante",
 			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
 			"steps": []
 		}

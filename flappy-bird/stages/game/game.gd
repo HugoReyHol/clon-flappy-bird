@@ -5,7 +5,6 @@ const PIPES = preload("res://obstacles/pipes/pipes.tscn")
 
 @export var speed: int = 20
 @export var speed_add: int = 10
-@export var initial_wait_time: float = speed / 10.0
 
 var pipes: Array[Pipe] = []
 var pipe_spawn: int = 320
@@ -19,7 +18,7 @@ var score: int = 0
 
 # Crea las tuberías y posiciona al jugador
 func _ready() -> void:
-	timer.wait_time = initial_wait_time
+	timer.wait_time = 60.0 / speed * 2
 	game_floor.speed = speed
 	game_floor.player_hitted.connect(_on_player_hitted)
 	player.position = Vector2i(72, 200)
@@ -54,6 +53,13 @@ func _on_pipe_spawn_timer_timeout() -> void:
 func _on_point_scored() -> void:
 	score += 1
 	score_label.score = score
+	
+	if score % 2 == 0:
+		speed += speed_add
+		for pipe in pipes:
+			if pipe != null:
+				pipe.speed = speed
+		game_floor.speed = speed
 
 
 # La funcion que reinicia el juego
