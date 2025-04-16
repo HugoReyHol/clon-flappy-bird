@@ -6,6 +6,7 @@
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ossee")
+pipe_distance = 117
 
 [node name="City" parent="." instance=ExtResource("1_her1c")]
 position = Vector2(144, 256)
