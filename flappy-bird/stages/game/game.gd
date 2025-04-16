@@ -13,6 +13,7 @@ var score: int = 0
 
 @onready var game_floor: Area2D = $Floor
 @onready var timer: Timer = $PipeSpawnTimer
+@onready var player: Player = $Player
 
 
 # Crea las tuberías y posiciona al jugador
@@ -20,6 +21,7 @@ func _ready() -> void:
 	timer.wait_time = initial_wait_time
 	game_floor.speed = speed
 	game_floor.player_hitted.connect(_on_player_hitted)
+	player.position = Vector2i(72, 256)
 
 
 # Detecta las acciones del jugador
