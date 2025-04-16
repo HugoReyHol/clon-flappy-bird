@@ -13,8 +13,8 @@ size = Vector2(20, 230)
 script = ExtResource("1_wwry4")
 min_height = -30
 max_height = 30
-min_space = 20
-max_space = 35
+min_space = 35
+max_space = 40
 
 [node name="UpperPipe" type="Area2D" parent="."]
 collision_layer = 2

@@ -1,4 +1,3 @@
-class_name Floor
 extends Area2D
 
 

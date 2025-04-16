@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0khe3ikpx1co"]
+
+[ext_resource type="PackedScene" uid="uid://fn2e83tewp4k" path="res://locations/city/city.tscn" id="1_her1c"]
+[ext_resource type="Script" uid="uid://dggk7ntjd15jh" path="res://stages/game/game.gd" id="1_ossee"]
+[ext_resource type="PackedScene" uid="uid://bab6sp6ru06rf" path="res://obstacles/floor/floor.tscn" id="2_ossee"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_ossee")
+
+[node name="City" parent="." instance=ExtResource("1_her1c")]
+position = Vector2(144, 256)
+
+[node name="Floor" parent="." instance=ExtResource("2_ossee")]
+z_index = 1

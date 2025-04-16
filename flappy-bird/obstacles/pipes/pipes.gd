@@ -21,6 +21,7 @@ var move: bool = true
 
 # Configura los valores por defecto cuando cargan todos sus nodos
 func _ready() -> void:
+	position.y = 200
 	_set_pipe()
 
 
@@ -31,17 +32,22 @@ func _process(delta: float) -> void:
 	
 	position.x -= speed * delta
 
-
 # Separa las tuberías entre si y cambia su altura
 func _set_pipe() -> void:
-	position = Vector2i(500, 200)
+	position.x = 350
+	upper_pipe.position.y = 0
+	lower_pipe.position.y = 0
 	
 	var space: int = randi_range(min_space, max_space)
-	upper_pipe.position.x -= space
-	lower_pipe.position.x += space 
+	upper_pipe.position.y -= space
+	lower_pipe.position.y += space 
+	print("space: " + str(space))
 	
 	var height: int = randi_range(min_height, max_height)
-	position.x = height
+	position.y += height
+	print("height: " + str(height))
+	
+	print("position: " + str(position))
 
 
 # Emite la señal cuando el jugador cruza las tuberias
@@ -58,4 +64,5 @@ func _on_pipe_body_entered(body: Node2D) -> void:
 # Detecta cuando una tuberia ha salido de pantalla
 func _on_screen_exit_detected() -> void:
 	if position.x <= 0:
+		print("salido")
 		_set_pipe()
