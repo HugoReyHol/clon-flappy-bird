@@ -23,11 +23,13 @@ var score: int:
 
 # Actualiza los numeros mostrados en la label
 func _set_numbers(value: String) -> void:
-	for number in numbers:
-		number.queue_free()
-	
-	for letter in value:
-		var number: TextureRect = TextureRect.new()
-		number.texture = NUMBERS_TEXTURES[letter]
-		numbers.append(number)
-		add_child(number)
+	for i in range(len(value)):
+		if len(numbers) > i:
+			var number: TextureRect = numbers[i]
+			number.texture = NUMBERS_TEXTURES[value[i]]
+		
+		else:
+			var number: TextureRect = TextureRect.new()
+			number.texture = NUMBERS_TEXTURES[value[i]]
+			numbers.append(number)
+			add_child(number)
