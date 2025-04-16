@@ -52,8 +52,8 @@ monitorable = false
 shape = SubResource("RectangleShape2D_wwry4")
 
 [node name="ScreenExitDetector" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(25, 0)
-scale = Vector2(0.1, 0.1)
+position = Vector2(26, 0)
+scale = Vector2(7.62941e-08, 0.1)
 
 [connection signal="body_entered" from="UpperPipe" to="." method="_on_pipe_body_entered"]
 [connection signal="body_entered" from="LowerPipe" to="." method="_on_pipe_body_entered"]

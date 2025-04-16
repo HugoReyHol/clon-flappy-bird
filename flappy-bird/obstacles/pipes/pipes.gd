@@ -15,7 +15,6 @@ signal player_scored
 
 var move: bool = true
 var spawn: int = 350
-var spawn_offset: int = 0
 
 @onready var upper_pipe: Area2D = $UpperPipe
 @onready var lower_pipe: Area2D = $LowerPipe
@@ -24,7 +23,6 @@ var spawn_offset: int = 0
 # Configura los valores por defecto cuando cargan todos sus nodos
 func _ready() -> void:
 	_set_pipe()
-	spawn_offset = 0
 
 
 # Mueve las tuberias de der. a izq.
@@ -37,7 +35,7 @@ func _process(delta: float) -> void:
 
 # Separa las tuberías entre si y cambia su altura
 func _set_pipe() -> void:
-	position = Vector2i(spawn + spawn_offset, 200)
+	position = Vector2i(spawn, 200)
 	upper_pipe.position.y = 0
 	lower_pipe.position.y = 0
 	
@@ -68,4 +66,4 @@ func _on_pipe_body_entered(body: Node2D) -> void:
 func _on_screen_exit_detected() -> void:
 	if position.x <= 0:
 		print("salido")
-		_set_pipe()
+		queue_free()

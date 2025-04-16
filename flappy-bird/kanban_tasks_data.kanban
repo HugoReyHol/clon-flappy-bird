@@ -11,8 +11,8 @@
 			"uuid": "dcbb312b-9aa1-40c6-88df-8fa00d446c01",
 			"title": "Todo",
 			"tasks": [
-				"881f2377-543c-4005-a1a3-10c9cce9b43d",
-				"5d6c21a0-c6a2-4970-8801-4467fb528331"
+				"cfc24a71-bdc6-49ca-9213-290746d0bfdd",
+				"8c1dc533-89cc-4ccd-b6f2-33ac062718b7"
 			]
 		},
 		{
@@ -24,7 +24,10 @@
 			"uuid": "15f8f3ce-aef7-4dc1-a92b-78afc5adedfe",
 			"title": "Done",
 			"tasks": [
-				"369a34ae-7f56-4045-84ed-7ebf6fc6a63f"
+				"369a34ae-7f56-4045-84ed-7ebf6fc6a63f",
+				"5d6c21a0-c6a2-4970-8801-4467fb528331",
+				"881f2377-543c-4005-a1a3-10c9cce9b43d",
+				"2f68b233-a6e3-4d2c-8a39-4908695242b4"
 			]
 		}
 	],
@@ -46,6 +49,27 @@
 		{
 			"uuid": "5d6c21a0-c6a2-4970-8801-4467fb528331",
 			"title": "Process pipes",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "2f68b233-a6e3-4d2c-8a39-4908695242b4",
+			"title": "Conectar señales pipes con game",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "cfc24a71-bdc6-49ca-9213-290746d0bfdd",
+			"title": "Hacer jugador",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "8c1dc533-89cc-4ccd-b6f2-33ac062718b7",
+			"title": "Mostrar puntuacion",
 			"description": "",
 			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
 			"steps": []

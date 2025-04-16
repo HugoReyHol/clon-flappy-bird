@@ -1,5 +1,6 @@
 extends Area2D
 
+signal player_hitted
 
 const MIN_OFFSET: float = 0
 const MAX_OFFSET: float = -48
@@ -26,4 +27,5 @@ func _process(delta: float) -> void:
 
 # Al detectar una colision con el player se emite fin del juego
 func _on_body_entered(body: Node2D) -> void:
+	player_hitted.emit()
 	move = false
