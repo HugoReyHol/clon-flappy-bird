@@ -1,13 +1,14 @@
 class_name Pipe
 extends Node2D
 
+
 signal player_hitted
 signal player_scored
 
 @export var speed: float = 20.0
 @export_category("Pipe height")
-@export var min_height: int = 30
-@export var max_height: int = 150
+@export var min_height: int = -40
+@export var max_height: int = 40
 @export_category("Pipe space")
 @export var min_space: int = 30
 @export var max_space: int = 70
@@ -18,18 +19,29 @@ var move: bool = true
 @onready var lower_pipe: Area2D = $LowerPipe
 
 
+# Configura los valores por defecto cuando cargan todos sus nodos
 func _ready() -> void:
-	_set_pipes()
+	_set_pipe()
 
 
+# Mueve las tuberias de der. a izq.
 func _process(delta: float) -> void:
-	pass
+	if not move:
+		return
+	
+	position.x -= speed * delta
 
 
 # Separa las tuberías entre si y cambia su altura
-func _set_pipes() -> void:
-	var space: int = randi_range(min_space, max_space)
+func _set_pipe() -> void:
+	position = Vector2i(500, 200)
 	
+	var space: int = randi_range(min_space, max_space)
+	upper_pipe.position.x -= space
+	lower_pipe.position.x += space 
+	
+	var height: int = randi_range(min_height, max_height)
+	position.x = height
 
 
 # Emite la señal cuando el jugador cruza las tuberias
@@ -41,3 +53,9 @@ func _on_score_body_exited(body: Node2D) -> void:
 func _on_pipe_body_entered(body: Node2D) -> void:
 	move = false
 	player_hitted.emit()
+
+
+# Detecta cuando una tuberia ha salido de pantalla
+func _on_screen_exit_detected() -> void:
+	if position.x <= 0:
+		_set_pipe()

@@ -1,3 +1,4 @@
+class_name Floor
 extends Area2D
 
 
@@ -9,9 +10,11 @@ const MAX_OFFSET: float = -48
 
 var move: bool = true 
 
+
 # Al cargar la escena empieza en offset 0
 func _ready() -> void:
 	sprite.offset.x = MIN_OFFSET
+
 
 # Si el juego continua se mueve infinitamente el sprite de der. a izq.
 func _process(delta: float) -> void:
@@ -20,6 +23,7 @@ func _process(delta: float) -> void:
 	
 	sprite.offset.x -= speed * delta
 	sprite.offset.x = fmod(sprite.offset.x, MAX_OFFSET)
+
 
 # Al detectar una colision con el player se emite fin del juego
 func _on_body_entered(body: Node2D) -> void:
