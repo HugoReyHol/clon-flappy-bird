@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://fn2e83tewp4k"]
+
+[ext_resource type="Texture2D" uid="uid://bs645485s4fi" path="res://locations/city/sprites/background-day.png" id="1_nropy"]
+[ext_resource type="Script" uid="uid://dxnwrqbrbe1ha" path="res://locations/city/city.gd" id="2_nbyup"]
+
+[node name="City" type="Sprite2D"]
+texture = ExtResource("1_nropy")
+script = ExtResource("2_nbyup")
