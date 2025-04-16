@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bab6sp6ru06rf"]
+
+[ext_resource type="Script" uid="uid://dv2nbokqexlyk" path="res://obstacles/floor/floor.gd" id="1_6w3xo"]
+[ext_resource type="Texture2D" uid="uid://bw7vktvt8yg8p" path="res://obstacles/floor/sprites/base.png" id="1_rgtob"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6w3xo"]
+size = Vector2(288, 112)
+
+[node name="Floor" type="Area2D" node_paths=PackedStringArray("sprite")]
+collision_layer = 2
+monitorable = false
+script = ExtResource("1_6w3xo")
+sprite = NodePath("Sprite")
+speed = 20.0
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(168, 456)
+texture = ExtResource("1_rgtob")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(144, 456)
+shape = SubResource("RectangleShape2D_6w3xo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

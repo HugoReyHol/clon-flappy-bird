@@ -10,12 +10,17 @@
 		{
 			"uuid": "dcbb312b-9aa1-40c6-88df-8fa00d446c01",
 			"title": "Todo",
-			"tasks": []
+			"tasks": [
+				"881f2377-543c-4005-a1a3-10c9cce9b43d",
+				"5d6c21a0-c6a2-4970-8801-4467fb528331"
+			]
 		},
 		{
 			"uuid": "3d3279a4-96a1-41d1-9e4f-18f516edac9e",
 			"title": "Doing",
-			"tasks": []
+			"tasks": [
+				"369a34ae-7f56-4045-84ed-7ebf6fc6a63f"
+			]
 		},
 		{
 			"uuid": "15f8f3ce-aef7-4dc1-a92b-78afc5adedfe",
@@ -23,7 +28,29 @@
 			"tasks": []
 		}
 	],
-	"tasks": [],
+	"tasks": [
+		{
+			"uuid": "881f2377-543c-4005-a1a3-10c9cce9b43d",
+			"title": "Conectar floor contancto con fin juego",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "369a34ae-7f56-4045-84ed-7ebf6fc6a63f",
+			"title": "Set pipes",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "5d6c21a0-c6a2-4970-8801-4467fb528331",
+			"title": "Process pipes",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		}
+	],
 	"layout": {
 		"columns": [
 			[
