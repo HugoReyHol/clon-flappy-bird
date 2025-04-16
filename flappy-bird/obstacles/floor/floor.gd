@@ -26,6 +26,5 @@ func _process(delta: float) -> void:
 
 
 # Al detectar una colision con el player se emite fin del juego
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	player_hitted.emit()
-	move = false

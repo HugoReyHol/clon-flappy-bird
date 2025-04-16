@@ -52,13 +52,12 @@ func _set_pipe() -> void:
 
 
 # Emite la señal cuando el jugador cruza las tuberias
-func _on_score_body_exited(body: Node2D) -> void:
+func _on_score_body_exited(_body: Node2D) -> void:
 	player_scored.emit()
 
 
 # Emite la señal cuando el jugador choca con las tuberias
-func _on_pipe_body_entered(body: Node2D) -> void:
-	move = false
+func _on_pipe_body_entered(_body: Node2D) -> void:
 	player_hitted.emit()
 
 
