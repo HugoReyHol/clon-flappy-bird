@@ -6,6 +6,7 @@ const PIPES = preload("res://obstacles/pipes/pipes.tscn")
 @export var speed: int = 20
 @export var speed_add: int = 10
 @export var pipe_spawn: int = 320
+@export var score_diff_add: int = 15
 
 var pipes: Array[Pipe] = []
 var score: int = 0
@@ -48,7 +49,7 @@ func _on_point_scored() -> void:
 	score += 1
 	score_label.score = score
 	
-	if score % 2 == 0:
+	if score % score_diff_add == 0:
 		speed += speed_add
 		for pipe in pipes:
 			if pipe != null:
@@ -66,5 +67,6 @@ func _on_player_hitted() -> void:
 	get_tree().reload_current_scene()
 
 
+# La funcion que genera las tuberias cuando una entra en pantalla
 func _on_pipe_screen_entered() -> void:
 	_spawn_pipe()

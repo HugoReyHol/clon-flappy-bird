@@ -73,5 +73,6 @@ func _on_screen_exit_detected() -> void:
 		queue_free()
 
 
+# Detecta cuando una tberia ha entrado en pantalla
 func _on_screen_entered_detected() -> void:
 	pipe_entered.emit()
