@@ -4,6 +4,7 @@ extends Node2D
 
 signal player_hitted
 signal player_scored
+signal pipe_entered
 
 @export var speed: float = 20.0
 @export_category("Pipe height")
@@ -14,14 +15,18 @@ signal player_scored
 @export var max_space: int = 70
 
 var move: bool = true
-var spawn: int = 350
+var spawn: int = 400
+var upper_pipe_y: int
+var lower_pipe_y: int
 
-@onready var upper_pipe: Area2D = $UpperPipe
-@onready var lower_pipe: Area2D = $LowerPipe
+@onready var upper_pipe: CollisionShape2D = $UpperCollision
+@onready var lower_pipe: CollisionShape2D = $LowerCollision
 
 
 # Configura los valores por defecto cuando cargan todos sus nodos
 func _ready() -> void:
+	upper_pipe_y = upper_pipe.position.y
+	lower_pipe_y = lower_pipe.position.y
 	_set_pipe()
 
 
@@ -36,8 +41,8 @@ func _process(delta: float) -> void:
 # Separa las tuberías entre si y cambia su altura
 func _set_pipe() -> void:
 	position = Vector2i(spawn, 200)
-	upper_pipe.position.y = 0
-	lower_pipe.position.y = 0
+	upper_pipe.position.y = upper_pipe_y
+	lower_pipe.position.y = lower_pipe_y
 	
 	var space: int = randi_range(min_space, max_space)
 	upper_pipe.position.y -= space
@@ -66,3 +71,7 @@ func _on_screen_exit_detected() -> void:
 	if position.x <= 0:
 		print("salido")
 		queue_free()
+
+
+func _on_screen_entered_detected() -> void:
+	pipe_entered.emit()

@@ -10,14 +10,13 @@
 script = ExtResource("1_ossee")
 speed = 60
 speed_add = 15
+pipe_spawn = 420
 
 [node name="City" parent="." instance=ExtResource("1_her1c")]
 position = Vector2(144, 256)
 
 [node name="Floor" parent="." instance=ExtResource("2_ossee")]
 z_index = 1
-
-[node name="PipeSpawnTimer" type="Timer" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("4_rijih")]
 position = Vector2(82, 222)
@@ -33,5 +32,3 @@ offset_top = 10.0
 offset_bottom = 10.0
 grow_vertical = 1
 size_flags_vertical = 0
-
-[connection signal="timeout" from="PipeSpawnTimer" to="." method="_on_pipe_spawn_timer_timeout"]

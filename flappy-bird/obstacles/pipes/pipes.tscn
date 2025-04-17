@@ -9,39 +9,33 @@ size = Vector2(44, 318)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wwry4"]
 size = Vector2(20, 230)
 
-[node name="Pipe" type="Node2D"]
+[node name="Pipe" type="Area2D"]
+collision_layer = 2
+input_pickable = false
 script = ExtResource("1_wwry4")
 min_height = -100
 max_height = 100
 min_space = 50
 max_space = 60
 
-[node name="UpperPipe" type="Area2D" parent="."]
-collision_layer = 2
-monitorable = false
-
-[node name="UpperSprite" type="Sprite2D" parent="UpperPipe"]
-position = Vector2(0, -160)
-texture = ExtResource("1_pb7om")
-flip_v = true
-
-[node name="UpperCollision" type="CollisionShape2D" parent="UpperPipe"]
+[node name="UpperCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -161)
 shape = SubResource("RectangleShape2D_pb7om")
 
-[node name="LowerPipe" type="Area2D" parent="."]
+[node name="UpperSprite" type="Sprite2D" parent="UpperCollision"]
+position = Vector2(0, 1)
+texture = ExtResource("1_pb7om")
+flip_v = true
+
+[node name="LowerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 161)
 scale = Vector2(1, -1)
-collision_layer = 2
-monitorable = false
+shape = SubResource("RectangleShape2D_pb7om")
 
-[node name="LowerSprite" type="Sprite2D" parent="LowerPipe"]
-position = Vector2(0, -160)
+[node name="LowerSprite" type="Sprite2D" parent="LowerCollision"]
+position = Vector2(0, 1)
 texture = ExtResource("1_pb7om")
 flip_v = true
-
-[node name="LowerCollision" type="CollisionShape2D" parent="LowerPipe"]
-position = Vector2(0, -161)
-shape = SubResource("RectangleShape2D_pb7om")
 
 [node name="Score" type="Area2D" parent="."]
 position = Vector2(18, 0)
@@ -51,11 +45,11 @@ monitorable = false
 [node name="ScoreCollision" type="CollisionShape2D" parent="Score"]
 shape = SubResource("RectangleShape2D_wwry4")
 
-[node name="ScreenExitDetector" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="ScreenDetector" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(26, 0)
-scale = Vector2(7.62941e-08, 0.1)
+scale = Vector2(1e-05, 0.1)
 
-[connection signal="body_entered" from="UpperPipe" to="." method="_on_pipe_body_entered"]
-[connection signal="body_entered" from="LowerPipe" to="." method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_pipe_body_entered"]
 [connection signal="body_exited" from="Score" to="." method="_on_score_body_exited"]
-[connection signal="screen_exited" from="ScreenExitDetector" to="." method="_on_screen_exit_detected"]
+[connection signal="screen_entered" from="ScreenDetector" to="." method="_on_screen_entered_detected"]
+[connection signal="screen_exited" from="ScreenDetector" to="." method="_on_screen_exit_detected"]
