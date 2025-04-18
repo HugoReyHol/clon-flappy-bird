@@ -1,19 +1,24 @@
 extends Sprite2D
 
 
-const BACKGROUND_DAY = preload("res://locations/city/sprites/background-day.png")
-const BACKGROUND_NIGHT = preload("res://locations/city/sprites/background-night.png")
-
 var _day: bool = true
+var mat: ShaderMaterial
+
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 
 # Por defecto inicia con el fondo de día
 func _ready() -> void:
-	texture = BACKGROUND_DAY
+	mat = material
+	mat.set_shader_parameter("mix_amount", 0.0)
 
 
 # Cambia el fondo por el contrario
 func change_time() -> void:
-	_day = !_day
+	if _day:
+		anim_player.play("change_time")
+		
+	else:
+		anim_player.play_backwards("change_time")
 	
-	texture = BACKGROUND_DAY if _day else BACKGROUND_NIGHT
+	_day = !_day

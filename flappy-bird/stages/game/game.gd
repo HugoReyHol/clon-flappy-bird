@@ -15,6 +15,7 @@ var playing: bool = false
 @onready var game_floor: Area2D = $Floor
 @onready var player: CharacterBody2D = $Player
 @onready var score_label: ScoreLabel = $UI/ScoreLabel
+@onready var city: Sprite2D = $City
 
 
 # Crea las tuberías y posiciona al jugador
@@ -55,6 +56,7 @@ func _on_point_scored() -> void:
 			if pipe != null:
 				pipe.speed = speed
 		game_floor.speed = speed
+		city.change_time()
 
 
 # La funcion que reinicia el juego
