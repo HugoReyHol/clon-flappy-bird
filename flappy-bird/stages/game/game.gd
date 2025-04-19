@@ -16,6 +16,7 @@ var playing: bool = false
 @onready var player: CharacterBody2D = $Player
 @onready var score_label: ScoreLabel = $UI/ScoreLabel
 @onready var city: Sprite2D = $City
+@onready var lose_ui: Control = $UI/LoseUI
 
 
 # Crea las tuberías y posiciona al jugador
@@ -67,7 +68,7 @@ func _on_player_hitted() -> void:
 	for pipe in pipes:
 		pipe.move = false
 	
-	get_tree().reload_current_scene()
+	lose_ui.show_ui()
 
 
 # La funcion que genera las tuberias cuando una entra en pantalla
