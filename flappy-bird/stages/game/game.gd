@@ -36,9 +36,12 @@ func _input(event: InputEvent) -> void:
 # Genera las tuberias en el mapa
 func _spawn_pipe():
 	var pipe: Pipe = PIPES.instantiate()
+	
 	pipe.player_scored.connect(_on_point_scored)
 	pipe.player_hitted.connect(_on_player_hitted)
 	pipe.pipe_entered.connect(_on_pipe_screen_entered)
+	pipe.pipe_exited.connect(_on_pipe_screen_exited)
+	
 	pipe.spawn = pipe_spawn
 	pipe.speed = speed
 	add_child(pipe)
@@ -72,3 +75,8 @@ func _on_player_hitted() -> void:
 # La funcion que genera las tuberias cuando una entra en pantalla
 func _on_pipe_screen_entered() -> void:
 	_spawn_pipe()
+
+
+# Funcion para eliminar una tuberia de la lista de tuberias
+func _on_pipe_screen_exited() -> void:
+	pipes.remove_at(0)

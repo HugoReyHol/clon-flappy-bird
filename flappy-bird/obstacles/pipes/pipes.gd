@@ -5,6 +5,7 @@ extends Node2D
 signal player_hitted
 signal player_scored
 signal pipe_entered
+signal pipe_exited()
 
 @export var speed: float = 20.0
 @export_category("Pipe height")
@@ -70,6 +71,7 @@ func _on_pipe_body_entered(_body: Node2D) -> void:
 func _on_screen_exit_detected() -> void:
 	if position.x <= 0:
 		print("salido")
+		pipe_exited.emit()
 		queue_free()
 
 
