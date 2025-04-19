@@ -64,10 +64,16 @@ func _on_point_scored() -> void:
 
 # La funcion que reinicia el juego
 func _on_player_hitted() -> void:
+	if not playing:
+		return
+	
+	playing = false
+	 
 	game_floor.move = false
 	for pipe in pipes:
 		pipe.move = false
 	
+	player.kill()
 	lose_ui.show_ui()
 
 

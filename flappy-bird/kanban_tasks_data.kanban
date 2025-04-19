@@ -21,7 +21,7 @@
 			"uuid": "3d3279a4-96a1-41d1-9e4f-18f516edac9e",
 			"title": "Doing",
 			"tasks": [
-				"e1202c19-3762-4f34-af2d-8a5e7b0e7a6b"
+				"9b07f7cc-4446-4392-a443-4202bba3be8f"
 			]
 		},
 		{
@@ -35,7 +35,8 @@
 				"cfc24a71-bdc6-49ca-9213-290746d0bfdd",
 				"8c1dc533-89cc-4ccd-b6f2-33ac062718b7",
 				"de0aee57-9c19-4e99-8f2a-c3a69f9a47ee",
-				"e6212c30-32c4-4280-99bb-8df3cacc274e"
+				"e6212c30-32c4-4280-99bb-8df3cacc274e",
+				"e1202c19-3762-4f34-af2d-8a5e7b0e7a6b"
 			]
 		}
 	],
@@ -128,6 +129,13 @@
 			"uuid": "de0aee57-9c19-4e99-8f2a-c3a69f9a47ee",
 			"title": "Arreglar timer",
 			"description": "Al final cambiado por detector de pantalla",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "9b07f7cc-4446-4392-a443-4202bba3be8f",
+			"title": "Animación cuando espera por primer input",
+			"description": "",
 			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
 			"steps": []
 		}

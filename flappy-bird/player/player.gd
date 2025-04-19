@@ -6,6 +6,7 @@ enum State {
 	FALL,
 	JUMP,
 	RISE,
+	DEAD,
 }
 
 @export var sprite: AnimatedSprite2D
@@ -24,27 +25,39 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	match actual_state:
 		State.WAIT:
-			velocity.y -= gravity * delta
+			# Añadir animación para de espera
 			pass
 		
 		State.FALL:
+			velocity.y += gravity * delta
 			rotation_degrees = lerp(rotation_degrees, 35.0, 3.5*delta)
+			move_and_slide()
 		
 		State.JUMP:
 			sprite.play("jump")
 			velocity.y = jump_speed
 			actual_state = State.RISE
+			move_and_slide()
 		
 		State.RISE:
+			velocity.y += gravity * delta
 			rotation_degrees = lerp(rotation_degrees, -45.0, 10.0*delta)
 			if velocity.y >= 0:
 				actual_state = State.FALL
-	
-	velocity.y += gravity * delta
-	move_and_slide()
+			move_and_slide()
+		
+		State.DEAD:
+			# Mover al suelo
+			if position.y != 390:
+				position.y = move_toward(position.y, 390, 350*delta)
+			rotation_degrees = lerp(rotation_degrees, 90.0, 8.0*delta)
 
 
 # Detecta el evento de salto
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Jump") and actual_state != State.JUMP:
+	if event.is_action_pressed("Jump") and (actual_state != State.JUMP or actual_state != State.DEAD):
 		actual_state = State.JUMP
+
+
+func kill() -> void:
+	actual_state = State.DEAD
