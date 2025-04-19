@@ -56,8 +56,7 @@ func _on_point_scored() -> void:
 	if score % score_diff_add == 0:
 		speed += speed_add
 		for pipe in pipes:
-			if pipe != null:
-				pipe.speed = speed
+			pipe.speed = speed
 		game_floor.speed = speed
 		city.change_time()
 
@@ -66,8 +65,7 @@ func _on_point_scored() -> void:
 func _on_player_hitted() -> void:
 	game_floor.move = false
 	for pipe in pipes:
-		if pipe != null:
-			pipe.move = false
+		pipe.move = false
 	
 	get_tree().reload_current_scene()
 
