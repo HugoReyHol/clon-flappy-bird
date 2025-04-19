@@ -24,30 +24,27 @@ func _ready() -> void:
 # Calcula el movimiento del jugador en cada frame
 func _physics_process(delta: float) -> void:
 	match actual_state:
-		State.WAIT:
-			# Añadir animación para de espera
-			pass
-		
+		# Rota el personaje cuando cae
 		State.FALL:
-			velocity.y += gravity * delta
+			_handle_gravity(delta)
 			rotation_degrees = lerp(rotation_degrees, 35.0, 3.5*delta)
-			move_and_slide()
 		
+		# Realiza el salto
 		State.JUMP:
 			sprite.play("jump")
 			velocity.y = jump_speed
 			actual_state = State.RISE
 			move_and_slide()
 		
+		# Rota el personaje cuando vuela
 		State.RISE:
-			velocity.y += gravity * delta
+			_handle_gravity(delta)
 			rotation_degrees = lerp(rotation_degrees, -45.0, 10.0*delta)
 			if velocity.y >= 0:
 				actual_state = State.FALL
-			move_and_slide()
 		
+		# Mueve al jugador al suelo y lo rota
 		State.DEAD:
-			# Mover al suelo
 			if position.y != 390:
 				position.y = move_toward(position.y, 390, 350*delta)
 			rotation_degrees = lerp(rotation_degrees, 90.0, 8.0*delta)
@@ -59,5 +56,12 @@ func _input(event: InputEvent) -> void:
 		actual_state = State.JUMP
 
 
+# Funcion para cambiar el estado del player tras perder
 func kill() -> void:
 	actual_state = State.DEAD
+
+
+# Funcion para anadir la velocidad de la gravedad al player
+func _handle_gravity(delta: float) -> void:
+	velocity.y += gravity * delta
+	move_and_slide()
