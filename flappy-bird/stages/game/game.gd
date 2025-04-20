@@ -1,6 +1,12 @@
 extends Node2D
 
 
+enum GameState {
+	WAIT,
+	PLAY,
+	DEAD,
+}
+
 const PIPES = preload("res://obstacles/pipes/pipes.tscn")
 
 @export var speed: int = 20
@@ -10,7 +16,7 @@ const PIPES = preload("res://obstacles/pipes/pipes.tscn")
 
 var pipes: Array[Pipe] = []
 var score: int = 0
-var playing: bool = false
+var game_state: GameState = GameState.WAIT
 
 @onready var game_floor: Area2D = $Floor
 @onready var player: CharacterBody2D = $Player
@@ -29,8 +35,8 @@ func _ready() -> void:
 
 # Detecta las acciones del jugador
 func _input(event: InputEvent) -> void:
-	if event.is_action_released("Jump") and not playing:
-		playing = true
+	if event.is_action_released("Jump") and game_state == GameState.WAIT:
+		game_state = GameState.PLAY
 		_spawn_pipe()
 
 
@@ -64,11 +70,11 @@ func _on_point_scored() -> void:
 
 # La funcion que reinicia el juego
 func _on_player_hitted() -> void:
-	if not playing:
+	if game_state != GameState.PLAY:
 		return
 	
-	playing = false
-	 
+	game_state = GameState.DEAD
+	  
 	game_floor.move = false
 	for pipe in pipes:
 		pipe.move = false

@@ -53,12 +53,14 @@ func _physics_process(delta: float) -> void:
 # Detecta el evento de salto
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Jump") and (actual_state != State.JUMP or actual_state != State.DEAD):
+		print("JUMPED")
 		actual_state = State.JUMP
 
 
 # Funcion para cambiar el estado del player tras perder
 func kill() -> void:
 	actual_state = State.DEAD
+	print("Muerto")
 
 
 # Funcion para anadir la velocidad de la gravedad al player
