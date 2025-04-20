@@ -19,23 +19,29 @@ var score: int = 0
 var game_state: GameState = GameState.WAIT
 
 @onready var game_floor: Area2D = $Floor
-@onready var player: CharacterBody2D = $Player
+@onready var player: Player = $Player
 @onready var score_label: ScoreLabel = $UI/ScoreLabel
 @onready var city: Sprite2D = $City
 @onready var lose_ui: Control = $UI/LoseUI
+@onready var fake_player: AnimatedSprite2D = $FakePlayer
 
 
 # Crea las tuberías y posiciona al jugador
 func _ready() -> void:
+	player.visible = false
 	game_floor.speed = speed
 	game_floor.player_hitted.connect(_on_player_hitted)
-	player.position = Vector2i(72, 200)
+	fake_player.position = Vector2i(72, 200)
 	score_label.score = score
 
 
 # Detecta las acciones del jugador
 func _input(event: InputEvent) -> void:
-	if event.is_action_released("Jump") and game_state == GameState.WAIT:
+	if event.is_action_pressed("Jump") and game_state == GameState.WAIT:
+		player.position = fake_player.position
+		player.visible = true
+		fake_player.queue_free()
+		
 		game_state = GameState.PLAY
 		_spawn_pipe()
 

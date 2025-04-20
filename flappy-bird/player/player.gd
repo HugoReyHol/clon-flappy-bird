@@ -1,8 +1,8 @@
+class_name Player
 extends CharacterBody2D
 
 
 enum State {
-	WAIT,
 	FALL,
 	JUMP,
 	RISE,
@@ -13,7 +13,7 @@ enum State {
 @export var jump_speed: int = -300
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
-var actual_state: State = State.WAIT
+var actual_state: State = State.JUMP
 
 
 # Al iniciar el player usa la animacion en bucle
