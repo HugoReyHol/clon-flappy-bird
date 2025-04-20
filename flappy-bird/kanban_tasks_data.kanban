@@ -20,7 +20,9 @@
 		{
 			"uuid": "3d3279a4-96a1-41d1-9e4f-18f516edac9e",
 			"title": "Doing",
-			"tasks": []
+			"tasks": [
+				"16e81012-0e55-453b-9e1c-34334d8de87c"
+			]
 		},
 		{
 			"uuid": "15f8f3ce-aef7-4dc1-a92b-78afc5adedfe",
@@ -134,6 +136,13 @@
 		{
 			"uuid": "898a356d-139a-45d6-8cf9-883a28497454",
 			"title": "Arreglar error salto estando muerto",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "16e81012-0e55-453b-9e1c-34334d8de87c",
+			"title": "Pantalla de inicio",
 			"description": "",
 			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
 			"steps": []

@@ -16,13 +16,20 @@ const NUMBERS_TEXTURES: Dictionary[String, Resource] = {
 }
 
 var numbers: Array[TextureRect] = []
-var score: int:
-	set(value):
-		_set_numbers(str(value))
+
+
+func reset() -> void:	
+	for number in numbers:
+		number.queue_free()
+		numbers.erase(number)
+	
+	set_numbers(0)
 
 
 # Actualiza los numeros mostrados en la label
-func _set_numbers(value: String) -> void:
+func set_numbers(score: int) -> void:
+	var value: String = str(score)
+	
 	for i in range(len(value)):
 		if len(numbers) > i:
 			var number: TextureRect = numbers[i]

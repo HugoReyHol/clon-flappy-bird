@@ -16,11 +16,6 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var actual_state: State = State.JUMP
 
 
-# Al iniciar el player usa la animacion en bucle
-func _ready() -> void:
-	sprite.play("wait_loop")
-
-
 # Calcula el movimiento del jugador en cada frame
 func _physics_process(delta: float) -> void:
 	match actual_state:

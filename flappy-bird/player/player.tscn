@@ -20,29 +20,6 @@ animations = [{
 "loop": false,
 "name": &"jump",
 "speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_yw30f")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_qjkh3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_g1dw6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_g1dw6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_g1dw6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_g1dw6")
-}],
-"loop": true,
-"name": &"wait_loop",
-"speed": 8.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g1dw6"]
@@ -61,7 +38,7 @@ jump_speed = -325
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g6k8r")
-animation = &"wait_loop"
+animation = &"jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_g1dw6")

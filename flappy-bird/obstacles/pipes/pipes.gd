@@ -67,7 +67,6 @@ func _on_pipe_body_entered(_body: Node2D) -> void:
 func _on_screen_exit_detected() -> void:
 	if position.x <= 0:
 		pipe_exited.emit()
-		queue_free()
 
 
 # Detecta cuando una tberia ha entrado en pantalla
