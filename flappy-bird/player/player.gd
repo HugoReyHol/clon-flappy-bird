@@ -52,7 +52,10 @@ func _physics_process(delta: float) -> void:
 
 # Detecta el evento de salto
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Jump") and (actual_state != State.JUMP or actual_state != State.DEAD):
+	if actual_state == State.DEAD:
+		return
+	
+	if event.is_action_pressed("Jump") and actual_state != State.JUMP:
 		print("JUMPED")
 		actual_state = State.JUMP
 
