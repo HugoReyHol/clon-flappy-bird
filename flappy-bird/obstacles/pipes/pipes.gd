@@ -48,13 +48,9 @@ func _set_pipe() -> void:
 	var space: int = randi_range(min_space, max_space)
 	upper_pipe.position.y -= space
 	lower_pipe.position.y += space 
-	print("space: " + str(space))
 	
 	var height: int = randi_range(min_height, max_height)
 	position.y += height
-	print("height: " + str(height))
-	
-	print("position: " + str(position))
 
 
 # Emite la señal cuando el jugador cruza las tuberias
@@ -70,7 +66,6 @@ func _on_pipe_body_entered(_body: Node2D) -> void:
 # Detecta cuando una tuberia ha salido de pantalla
 func _on_screen_exit_detected() -> void:
 	if position.x <= 0:
-		print("salido")
 		pipe_exited.emit()
 		queue_free()
 

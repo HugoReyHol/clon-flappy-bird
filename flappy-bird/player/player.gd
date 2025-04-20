@@ -56,7 +56,6 @@ func _input(event: InputEvent) -> void:
 		return
 	
 	if event.is_action_pressed("Jump") and actual_state != State.JUMP:
-		print("JUMPED")
 		actual_state = State.JUMP
 
 
