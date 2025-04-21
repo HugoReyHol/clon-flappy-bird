@@ -11,9 +11,8 @@ config_version=5
 [application]
 
 config/name="Flappy Bird"
-run/main_scene="uid://b0khe3ikpx1co"
+run/main_scene="uid://cmrjjs3ank70y"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
 
 [display]
 

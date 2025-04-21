@@ -11,17 +11,21 @@
 			"uuid": "dcbb312b-9aa1-40c6-88df-8fa00d446c01",
 			"title": "Todo",
 			"tasks": [
-				"a903e824-ee78-482c-a598-97dd661bfc7d",
-				"bd06a9d1-837f-4865-a0ae-c8209436b9e9",
 				"8144e5d7-6514-4798-82b0-2714d919c37a",
-				"36f77fa9-8297-4b81-9c67-e321da6303d7"
+				"36f77fa9-8297-4b81-9c67-e321da6303d7",
+				"e6d0848e-63cf-4b09-b96c-366168a968a4",
+				"4cdea3e2-e75f-4361-bbc6-6486fb8ea9fb",
+				"db82bd02-0a50-4596-8061-0b10ac875ca2",
+				"bb7744d5-ec5c-4fdc-a0ec-e1a92e4ddf30",
+				"8acd2d29-cb8f-430a-846f-7773f74e4d9b",
+				"5695cc10-f7f9-4405-8e08-86e695b038c2"
 			]
 		},
 		{
 			"uuid": "3d3279a4-96a1-41d1-9e4f-18f516edac9e",
 			"title": "Doing",
 			"tasks": [
-				"16e81012-0e55-453b-9e1c-34334d8de87c"
+				"6761cb6a-7cfb-4b28-a6a5-ed79bf4efac8"
 			]
 		},
 		{
@@ -37,7 +41,10 @@
 				"de0aee57-9c19-4e99-8f2a-c3a69f9a47ee",
 				"e6212c30-32c4-4280-99bb-8df3cacc274e",
 				"e1202c19-3762-4f34-af2d-8a5e7b0e7a6b",
-				"898a356d-139a-45d6-8cf9-883a28497454"
+				"bd06a9d1-837f-4865-a0ae-c8209436b9e9",
+				"898a356d-139a-45d6-8cf9-883a28497454",
+				"a903e824-ee78-482c-a598-97dd661bfc7d",
+				"16e81012-0e55-453b-9e1c-34334d8de87c"
 			]
 		}
 	],
@@ -143,6 +150,55 @@
 		{
 			"uuid": "16e81012-0e55-453b-9e1c-34334d8de87c",
 			"title": "Pantalla de inicio",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "e6d0848e-63cf-4b09-b96c-366168a968a4",
+			"title": "Musica de fondo",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "8acd2d29-cb8f-430a-846f-7773f74e4d9b",
+			"title": "Llamadas a la API",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "4cdea3e2-e75f-4361-bbc6-6486fb8ea9fb",
+			"title": "Opciones para modificar el sonido",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "bb7744d5-ec5c-4fdc-a0ec-e1a92e4ddf30",
+			"title": "Guardar el jwt",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "db82bd02-0a50-4596-8061-0b10ac875ca2",
+			"title": "Iniciar sesion y registrarse",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "5695cc10-f7f9-4405-8e08-86e695b038c2",
+			"title": "Acabar pantalla start",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "6761cb6a-7cfb-4b28-a6a5-ed79bf4efac8",
+			"title": "Añadir techo a game",
 			"description": "",
 			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
 			"steps": []

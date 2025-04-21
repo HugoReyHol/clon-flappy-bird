@@ -102,6 +102,9 @@ func _spawn_pipe():
 
 # La funcion que aumenta la puntuacion
 func _on_point_scored() -> void:
+	if game_state != GameState.PLAY:
+		return
+	
 	score += 1
 	score_label.set_numbers(score)
 	
