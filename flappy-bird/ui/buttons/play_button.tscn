@@ -13,7 +13,6 @@ events = [SubResource("InputEventAction_xk4rl")]
 offset_right = 52.0
 offset_bottom = 29.0
 mouse_default_cursor_shape = 2
-disabled = true
 shortcut = SubResource("Shortcut_navwl")
 texture_normal = ExtResource("1_0r50d")
 texture_pressed = ExtResource("2_bhtho")
