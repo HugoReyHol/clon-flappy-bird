@@ -13,6 +13,7 @@ config_version=5
 config/name="Flappy Bird"
 run/main_scene="uid://cmrjjs3ank70y"
 config/features=PackedStringArray("4.4", "Mobile")
+config/icon="uid://bi1ylgyitjye"
 
 [display]
 
