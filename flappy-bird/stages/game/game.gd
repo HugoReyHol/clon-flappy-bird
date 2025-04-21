@@ -144,3 +144,8 @@ func _on_pipe_screen_entered() -> void:
 func _on_pipe_screen_exited() -> void:
 	pipes[0].queue_free()
 	pipes.remove_at(0)
+
+
+# Llama a la funcion de jugador golpeado cuando este toca el techo
+func _on_roof_body_entered(_body: Node2D) -> void:
+	_on_player_hitted()

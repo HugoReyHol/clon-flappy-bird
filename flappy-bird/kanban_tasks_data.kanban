@@ -18,20 +18,20 @@
 				"db82bd02-0a50-4596-8061-0b10ac875ca2",
 				"bb7744d5-ec5c-4fdc-a0ec-e1a92e4ddf30",
 				"8acd2d29-cb8f-430a-846f-7773f74e4d9b",
-				"5695cc10-f7f9-4405-8e08-86e695b038c2"
+				"5695cc10-f7f9-4405-8e08-86e695b038c2",
+				"acd1bb3b-0243-458f-874b-08f2d16c9032"
 			]
 		},
 		{
 			"uuid": "3d3279a4-96a1-41d1-9e4f-18f516edac9e",
 			"title": "Doing",
-			"tasks": [
-				"6761cb6a-7cfb-4b28-a6a5-ed79bf4efac8"
-			]
+			"tasks": []
 		},
 		{
 			"uuid": "15f8f3ce-aef7-4dc1-a92b-78afc5adedfe",
 			"title": "Done",
 			"tasks": [
+				"6761cb6a-7cfb-4b28-a6a5-ed79bf4efac8",
 				"369a34ae-7f56-4045-84ed-7ebf6fc6a63f",
 				"5d6c21a0-c6a2-4970-8801-4467fb528331",
 				"881f2377-543c-4005-a1a3-10c9cce9b43d",
@@ -199,6 +199,13 @@
 		{
 			"uuid": "6761cb6a-7cfb-4b28-a6a5-ed79bf4efac8",
 			"title": "Añadir techo a game",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "acd1bb3b-0243-458f-874b-08f2d16c9032",
+			"title": "En game añadir volver al menu inicio",
 			"description": "",
 			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
 			"steps": []
