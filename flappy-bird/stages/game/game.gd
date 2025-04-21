@@ -1,6 +1,8 @@
 extends Node2D
 
 
+signal change_scene_requested(new_scene)
+
 enum GameState {
 	WAIT,
 	PLAY,
@@ -149,3 +151,8 @@ func _on_pipe_screen_exited() -> void:
 # Llama a la funcion de jugador golpeado cuando este toca el techo
 func _on_roof_body_entered(_body: Node2D) -> void:
 	_on_player_hitted()
+
+
+# Repite la señal a su nodo padre
+func _on_change_scene_requested(new_scene: String) -> void:
+	change_scene_requested.emit(new_scene)

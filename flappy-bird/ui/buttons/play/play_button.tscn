@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://hqlah311jhj"]
 
-[ext_resource type="Texture2D" uid="uid://bwd7x6y016n0y" path="res://ui/buttons/sprites/button_play_normal.png" id="1_0r50d"]
-[ext_resource type="Texture2D" uid="uid://cejcab7c053vp" path="res://ui/buttons/sprites/button_play_pressed.png" id="2_bhtho"]
+[ext_resource type="Texture2D" uid="uid://bwd7x6y016n0y" path="res://ui/buttons/play/sprites/button_play_normal.png" id="1_0r50d"]
+[ext_resource type="Texture2D" uid="uid://cejcab7c053vp" path="res://ui/buttons/play/sprites/button_play_pressed.png" id="2_bhtho"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_xk4rl"]
 action = &"ui_accept"

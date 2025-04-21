@@ -50,3 +50,4 @@ size_flags_vertical = 0
 position = Vector2(82, 222)
 
 [connection signal="body_entered" from="roof" to="." method="_on_roof_body_entered"]
+[connection signal="change_scene_requested" from="UI/LoseUI" to="." method="_on_change_scene_requested"]

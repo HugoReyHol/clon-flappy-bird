@@ -2,6 +2,9 @@ extends Control
 
 
 signal game_restarted
+signal change_scene_requested(new_scene)
+
+const MENU_SCENE = "res://stages/start/start.tscn"
 
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var replay_button: TextureButton = $ReplayButton
@@ -25,3 +28,8 @@ func show_ui(show: bool = true) -> void:
 func _on_texture_button_up() -> void:
 	if replay_button.is_hovered():
 		game_restarted.emit()
+
+
+# Repite la señal a su nodo padre
+func _on_menu_button_pressed() -> void:
+	change_scene_requested.emit(MENU_SCENE)

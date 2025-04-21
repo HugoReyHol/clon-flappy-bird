@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://crxpxc2y20cyy"]
+
+[ext_resource type="Texture2D" uid="uid://cadkdatlusli7" path="res://ui/buttons/menu/sprites/button_menu.png" id="1_nqd3r"]
+[ext_resource type="Script" uid="uid://b3y6dgmoueje8" path="res://ui/buttons/menu/menu_button.gd" id="2_5bpga"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_nqd3r"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_5bpga"]
+events = [SubResource("InputEventAction_nqd3r")]
+
+[node name="MenuButton" type="TextureButton"]
+mouse_default_cursor_shape = 2
+shortcut = SubResource("Shortcut_5bpga")
+texture_normal = ExtResource("1_nqd3r")
+script = ExtResource("2_5bpga")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]
