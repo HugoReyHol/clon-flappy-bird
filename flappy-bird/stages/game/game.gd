@@ -11,6 +11,7 @@ enum GameState {
 
 const PIPES = preload("res://obstacles/pipes/pipes.tscn")
 
+@export var audio_player: AudioStreamPlayer
 @export var initial_speed: int = 60
 @export var speed_add: int = 10
 @export var pipe_spawn: int = 320
@@ -112,6 +113,7 @@ func _on_point_scored() -> void:
 	
 	score += 1
 	score_label.set_numbers(score)
+	audio_player.play()
 	
 	if score % score_diff_add == 0:
 		speed += speed_add

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0khe3ikpx1co"]
+[gd_scene load_steps=10 format=3 uid="uid://b0khe3ikpx1co"]
 
 [ext_resource type="PackedScene" uid="uid://fn2e83tewp4k" path="res://locations/city/city.tscn" id="1_her1c"]
 [ext_resource type="Script" uid="uid://dggk7ntjd15jh" path="res://stages/game/game.gd" id="1_ossee"]
@@ -7,12 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://blpr1lk6o154o" path="res://ui/score/score_label.tscn" id="5_r5fb2"]
 [ext_resource type="PackedScene" uid="uid://dxp44a28ss46c" path="res://ui/lose/lose_ui.tscn" id="6_rsoik"]
 [ext_resource type="PackedScene" uid="uid://bjimqd62rodpg" path="res://player/fake_player/fake_player.tscn" id="7_a5xyx"]
+[ext_resource type="AudioStream" uid="uid://bo5auj1o52uk7" path="res://stages/game/sfx/point.ogg" id="8_mqy30"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5xyx"]
 size = Vector2(20, 35)
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("audio_player")]
 script = ExtResource("1_ossee")
+audio_player = NodePath("AudioStreamPlayer")
 pipe_spawn = 420
 
 [node name="City" parent="." instance=ExtResource("1_her1c")]
@@ -48,6 +50,10 @@ size_flags_vertical = 0
 
 [node name="FakePlayer" parent="." instance=ExtResource("7_a5xyx")]
 position = Vector2(82, 222)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_mqy30")
+bus = &"SFX"
 
 [connection signal="body_entered" from="roof" to="." method="_on_roof_body_entered"]
 [connection signal="change_scene_requested" from="UI/LoseUI" to="." method="_on_change_scene_requested"]
