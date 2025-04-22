@@ -10,10 +10,16 @@ enum State {
 }
 
 @export var sprite: AnimatedSprite2D
+@export var audio_stream: AudioStreamPlayer2D
 @export var jump_speed: int = -300
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var actual_state: State = State.JUMP
+
+
+func _ready() -> void:
+	#audio_stream.play()
+	pass
 
 
 # Calcula el movimiento del jugador en cada frame
@@ -52,12 +58,16 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("Jump") and actual_state != State.JUMP:
 		actual_state = State.JUMP
+		audio_stream.pitch_scale = randf_range(0.8, 1.2)
+		audio_stream["parameters/switch_to_clip"] = "Jump"
+		print(audio_stream.pitch_scale)
 
 
 # Funcion para cambiar el estado del player tras perder
 func kill() -> void:
 	actual_state = State.DEAD
-	print("Muerto")
+	audio_stream.pitch_scale = 1.0
+	audio_stream["parameters/switch_to_clip"] = "Die"
 
 
 # Funcion para anadir la velocidad de la gravedad al player

@@ -44,6 +44,7 @@ func _input(event: InputEvent) -> void:
 		player.position = fake_player.position
 		player.set_physics_process(true)
 		player.visible = true
+		player.audio_stream.play()
 		
 		# Oculta el fake player y para sus procesos
 		fake_player.visible = false
@@ -70,6 +71,8 @@ func reset() -> void:
 	player.set_physics_process(false)
 	player.actual_state = Player.State.JUMP
 	player.rotation_degrees = 0
+	player.audio_stream.stop()
+	player.audio_stream["parameters/switch_to_clip"] = "Jump"
 	
 	speed = initial_speed
 	
