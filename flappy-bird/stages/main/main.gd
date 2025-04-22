@@ -16,6 +16,12 @@ func _init() -> void:
 	add_child(stage)
 
 
+# Maneja las teclas pulsadas por el usuario
+func _input(event: InputEvent) -> void:
+	if event.is_action("ui_cancel"):
+		get_tree().quit()
+
+
 # Cambia la escena actual por la pedida en su señal de cambio
 func _change_scene(new_scene: String) -> void:
 	var new_scene_res: PackedScene = load(new_scene)

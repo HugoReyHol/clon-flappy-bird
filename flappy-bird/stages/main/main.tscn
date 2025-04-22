@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmrjjs3ank70y"]
+[gd_scene load_steps=4 format=3 uid="uid://cmrjjs3ank70y"]
 
 [ext_resource type="Script" uid="uid://btigbou4751hs" path="res://stages/main/main.gd" id="1_6almw"]
 [ext_resource type="AudioStream" uid="uid://dtofww0r0x60p" path="res://stages/main/music/mother_bird.ogg" id="2_60rri"]
+[ext_resource type="PackedScene" uid="uid://cw42iupdc8nof" path="res://ui/options/options.tscn" id="3_5powy"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_6almw")
@@ -10,3 +11,10 @@ script = ExtResource("1_6almw")
 stream = ExtResource("2_60rri")
 autoplay = true
 bus = &"Music"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(144, 256)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Options" parent="CanvasLayer" instance=ExtResource("3_5powy")]
