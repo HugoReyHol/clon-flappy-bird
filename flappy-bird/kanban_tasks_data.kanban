@@ -22,7 +22,8 @@
 			"uuid": "3d3279a4-96a1-41d1-9e4f-18f516edac9e",
 			"title": "Doing",
 			"tasks": [
-				"4cdea3e2-e75f-4361-bbc6-6486fb8ea9fb"
+				"4cdea3e2-e75f-4361-bbc6-6486fb8ea9fb",
+				"db232afc-e2eb-4d42-9970-8e82812c44cb"
 			]
 		},
 		{
@@ -207,6 +208,13 @@
 		{
 			"uuid": "acd1bb3b-0243-458f-874b-08f2d16c9032",
 			"title": "En game añadir volver al menu inicio",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "db232afc-e2eb-4d42-9970-8e82812c44cb",
+			"title": "Ajustar las teclas y botones para abrir menú de opciones",
 			"description": "",
 			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
 			"steps": []

@@ -1,17 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cw42iupdc8nof"]
+[gd_scene load_steps=7 format=3 uid="uid://cw42iupdc8nof"]
 
 [ext_resource type="Texture2D" uid="uid://cuo3eolrryi4i" path="res://ui/options/sprites/panel_text.png" id="1_gsckh"]
 [ext_resource type="Script" uid="uid://chn1fuxvma1td" path="res://ui/options/options.gd" id="1_klkak"]
+[ext_resource type="FontFile" uid="uid://c2bx8wchml5yv" path="res://ui/font/EXEPixelPerfect.ttf" id="3_3baf4"]
+[ext_resource type="LabelSettings" uid="uid://c4mis4qel0xtn" path="res://ui/font/options_title.tres" id="3_lpsnn"]
+[ext_resource type="LabelSettings" uid="uid://ddvipivo5sqgc" path="res://ui/font/options_subtitle.tres" id="4_2j2dl"]
+[ext_resource type="LabelSettings" uid="uid://c1101slkm582e" path="res://ui/font/options_option.tres" id="5_f75v3"]
 
 [node name="Options" type="Control" node_paths=PackedStringArray("cont", "patchRect")]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_klkak")
 cont = NodePath("NinePatchRect/MarginContainer")
 patchRect = NodePath("NinePatchRect")
@@ -42,66 +40,81 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer/CenterContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="LabOptions" type="Label" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "OPTIONS"
+label_settings = ExtResource("3_lpsnn")
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="LabVolume" type="Label" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Volume:"
+label_settings = ExtResource("4_2j2dl")
 
-[node name="HSeparator" type="HSeparator" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="SepVolume" type="HSeparator" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="LabMaster" type="Label" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Master"
+label_settings = ExtResource("5_f75v3")
 
-[node name="HSlider" type="HSlider" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="SliderMaster" type="HSlider" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 0.5
 
-[node name="Label4" type="Label" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="LabMusic" type="Label" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Music"
+label_settings = ExtResource("5_f75v3")
 
-[node name="HSlider2" type="HSlider" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="SliderMusic" type="HSlider" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 0.5
 
-[node name="Label5" type="Label" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="LabSFX" type="Label" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "SFX"
+label_settings = ExtResource("5_f75v3")
 
-[node name="HSlider3" type="HSlider" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="SliderSFX" type="HSlider" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 0.5
 
-[node name="Label6" type="Label" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="LabSession" type="Label" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Sesion:"
+label_settings = ExtResource("4_2j2dl")
 
-[node name="HSeparator2" type="HSeparator" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="SepSession" type="HSeparator" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="LogOutButton" type="Button" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3baf4")
+theme_override_font_sizes/font_size = 16
 text = "Log out"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="CancelButton" type="Button" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_3baf4")
+theme_override_font_sizes/font_size = 32
 text = "Cancel"
 
-[node name="Button2" type="Button" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="SaveButton" type="Button" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_3baf4")
+theme_override_font_sizes/font_size = 32
 text = "Save"
