@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bpq4hjs007urw" path="res://ui/titles/gameover.png" id="1_b343i"]
 [ext_resource type="Script" uid="uid://f1h6jwc4eh2o" path="res://ui/lose/lose_ui.gd" id="1_xk4rl"]
 [ext_resource type="PackedScene" uid="uid://hqlah311jhj" path="res://ui/buttons/play/play_button.tscn" id="3_b343i"]
-[ext_resource type="PackedScene" uid="uid://crxpxc2y20cyy" path="res://ui/buttons/menu/menu_button.tscn" id="4_xk4rl"]
+[ext_resource type="PackedScene" uid="uid://u7v4f8f027rc" path="res://ui/buttons/pixel/pixel_button.tscn" id="5_e076d"]
 
 [sub_resource type="Animation" id="Animation_navwl"]
 length = 0.001
@@ -46,7 +46,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MenuButton:position")
+tracks/3/path = NodePath("MenuPixelButton:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -58,7 +58,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("MenuButton:disabled")
+tracks/4/path = NodePath("MenuPixelButton:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -110,7 +110,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MenuButton:position")
+tracks/3/path = NodePath("MenuPixelButton:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -122,7 +122,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("MenuButton:disabled")
+tracks/4/path = NodePath("MenuPixelButton:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -166,20 +166,18 @@ offset_right = 170.0
 offset_bottom = 541.0
 disabled = true
 
-[node name="MenuButton" parent="." instance=ExtResource("4_xk4rl")]
+[node name="MenuPixelButton" parent="." instance=ExtResource("5_e076d")]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = 299.0
+offset_top = 555.0
 offset_right = 20.0
-offset_bottom = 313.0
+offset_bottom = 571.0
 grow_horizontal = 2
-grow_vertical = 2
 disabled = true
+text = "MENU"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -187,4 +185,4 @@ libraries = {
 }
 
 [connection signal="button_up" from="ReplayButton" to="." method="_on_texture_button_up"]
-[connection signal="menu_button_pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="button_up" from="MenuPixelButton" to="." method="_on_menu_button_pressed"]
