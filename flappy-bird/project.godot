@@ -21,6 +21,10 @@ buses/default_bus_layout="uid://ccwo841c7o11b"
 buses/channel_disable_threshold_db=-40.0
 buses/channel_disable_time=0.1
 
+[autoload]
+
+ConfigSaveHandler="*res://singletons/ConfigSaveHandler.gd"
+
 [display]
 
 window/size/viewport_width=288

@@ -8,12 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://dvqqnn0pxigmm" path="res://ui/volume_sliders/volume_slider.tscn" id="6_hrjyy"]
 [ext_resource type="PackedScene" uid="uid://u7v4f8f027rc" path="res://ui/buttons/pixel/pixel_button.tscn" id="7_hrjyy"]
 
-[node name="Options" type="Control" node_paths=PackedStringArray("cont", "patchRect")]
+[node name="Options" type="Control" node_paths=PackedStringArray("cont", "patchRect", "master_slider", "music_slider", "sfx_slider")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_klkak")
 cont = NodePath("NinePatchRect/MarginContainer")
 patchRect = NodePath("NinePatchRect")
+master_slider = NodePath("NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/MasterSlider")
+music_slider = NodePath("NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/MusicSlider")
+sfx_slider = NodePath("NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/SFXSlider")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -101,7 +104,17 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "CANCEL"
 
-[node name="SavePixelButton2" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("7_hrjyy")]
+[node name="SavePixelButton" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("7_hrjyy")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "SAVE"
+
+[connection signal="muted_pressed" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/MasterSlider" to="." method="_on_master_slider_muted_pressed"]
+[connection signal="value_changed" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="muted_pressed" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/MusicSlider" to="." method="_on_music_slider_muted_pressed"]
+[connection signal="value_changed" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="muted_pressed" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_muted_pressed"]
+[connection signal="value_changed" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="button_up" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/LogOutPixelButton" to="." method="_on_log_out_button_up"]
+[connection signal="button_up" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/CancelPixelButton" to="." method="_on_cancel_button_up"]
+[connection signal="button_up" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/SavePixelButton" to="." method="_on_save_button_up"]
