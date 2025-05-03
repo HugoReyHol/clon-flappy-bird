@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cw42iupdc8nof"]
+[gd_scene load_steps=8 format=3 uid="uid://cw42iupdc8nof"]
 
 [ext_resource type="Texture2D" uid="uid://cuo3eolrryi4i" path="res://ui/options/sprites/panel_text.png" id="1_gsckh"]
 [ext_resource type="Script" uid="uid://chn1fuxvma1td" path="res://ui/options/options.gd" id="1_klkak"]
 [ext_resource type="LabelSettings" uid="uid://c4mis4qel0xtn" path="res://ui/font/options_title.tres" id="3_lpsnn"]
 [ext_resource type="LabelSettings" uid="uid://ddvipivo5sqgc" path="res://ui/font/options_subtitle.tres" id="4_2j2dl"]
 [ext_resource type="LabelSettings" uid="uid://c1101slkm582e" path="res://ui/font/options_option.tres" id="5_f75v3"]
+[ext_resource type="PackedScene" uid="uid://dvqqnn0pxigmm" path="res://ui/volume_sliders/volume_slider.tscn" id="6_hrjyy"]
 [ext_resource type="PackedScene" uid="uid://u7v4f8f027rc" path="res://ui/buttons/pixel/pixel_button.tscn" id="7_hrjyy"]
 
 [node name="Options" type="Control" node_paths=PackedStringArray("cont", "patchRect")]
@@ -27,8 +28,8 @@ patch_margin_bottom = 6
 
 [node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
 layout_mode = 0
-offset_right = 108.0
-offset_bottom = 304.0
+offset_right = 176.0
+offset_bottom = 250.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -60,33 +61,24 @@ layout_mode = 2
 text = "Master"
 label_settings = ExtResource("5_f75v3")
 
-[node name="SliderMaster" type="HSlider" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="MasterSlider" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer" instance=ExtResource("6_hrjyy")]
 layout_mode = 2
-max_value = 1.0
-step = 0.01
-value = 0.5
 
 [node name="LabMusic" type="Label" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Music"
 label_settings = ExtResource("5_f75v3")
 
-[node name="SliderMusic" type="HSlider" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="MusicSlider" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer" instance=ExtResource("6_hrjyy")]
 layout_mode = 2
-max_value = 1.0
-step = 0.01
-value = 0.5
 
 [node name="LabSFX" type="Label" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "SFX"
 label_settings = ExtResource("5_f75v3")
 
-[node name="SliderSFX" type="HSlider" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="SFXSlider" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer" instance=ExtResource("6_hrjyy")]
 layout_mode = 2
-max_value = 1.0
-step = 0.01
-value = 0.5
 
 [node name="LabSession" type="Label" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2

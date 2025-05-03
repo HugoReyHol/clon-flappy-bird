@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvqqnn0pxigmm"]
+
+[ext_resource type="Texture2D" uid="uid://bogdubk0opmus" path="res://ui/volume_sliders/sprites/speaker_on.png" id="1_4ynpv"]
+[ext_resource type="Theme" uid="uid://cew8gvf36th0g" path="res://ui/themes/pixel_theme.tres" id="1_dxgri"]
+[ext_resource type="Script" uid="uid://nculg78muhd5" path="res://ui/volume_sliders/volume_slider.gd" id="1_kvget"]
+
+[node name="VolumeSlider" type="Control" node_paths=PackedStringArray("slider", "muteButton")]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_kvget")
+slider = NodePath("HBox/Slider")
+muteButton = NodePath("HBox/TextureButton")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Slider" type="HSlider" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_dxgri")
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="TextureButton" type="TextureButton" parent="HBox"]
+layout_mode = 2
+texture_normal = ExtResource("1_4ynpv")

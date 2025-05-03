@@ -1,0 +1,60 @@
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://cew8gvf36th0g"]
+
+[ext_resource type="StyleBox" uid="uid://b2xyq3ysm144f" path="res://ui/buttons/pixel/style/pixel_button.tres" id="1_52ags"]
+[ext_resource type="Texture2D" uid="uid://bkjaijwr1rjww" path="res://ui/volume_sliders/sprites/icon_grabber.png" id="2_r1wug"]
+[ext_resource type="FontFile" uid="uid://c2bx8wchml5yv" path="res://ui/font/EXEPixelPerfect.ttf" id="2_s44lq"]
+[ext_resource type="Texture2D" uid="uid://cdiin62vot47i" path="res://ui/volume_sliders/sprites/icon_grabber_highlight.png" id="3_cyynu"]
+[ext_resource type="Texture2D" uid="uid://b1kv047mgggk4" path="res://ui/volume_sliders/sprites/style_grabber_area.png" id="4_2erkt"]
+[ext_resource type="Texture2D" uid="uid://dg7vu8fgclrag" path="res://ui/volume_sliders/sprites/style_slider.png" id="5_pyclh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o83nq"]
+texture = ExtResource("4_2erkt")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ibte7"]
+texture = ExtResource("4_2erkt")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8kxmc"]
+texture = ExtResource("5_pyclh")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 8, 8)
+draw_center = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_52ags"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s44lq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gghqo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kqhyt"]
+
+[resource]
+default_font = ExtResource("2_s44lq")
+default_font_size = 16
+Button/styles/disabled = ExtResource("1_52ags")
+Button/styles/focus = ExtResource("1_52ags")
+Button/styles/hover = ExtResource("1_52ags")
+Button/styles/normal = ExtResource("1_52ags")
+Button/styles/pressed = ExtResource("1_52ags")
+HSlider/icons/grabber = ExtResource("2_r1wug")
+HSlider/icons/grabber_disabled = ExtResource("2_r1wug")
+HSlider/icons/grabber_highlight = ExtResource("3_cyynu")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_o83nq")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_ibte7")
+HSlider/styles/slider = SubResource("StyleBoxTexture_8kxmc")
+SpinBox/styles/down_background_hovered = SubResource("StyleBoxEmpty_52ags")
+SpinBox/styles/down_background_pressed = SubResource("StyleBoxEmpty_s44lq")
+SpinBox/styles/up_background_hovered = SubResource("StyleBoxEmpty_gghqo")
+SpinBox/styles/up_background_pressed = SubResource("StyleBoxEmpty_kqhyt")

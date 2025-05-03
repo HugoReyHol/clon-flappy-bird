@@ -16,6 +16,7 @@ func _ready() -> void:
 	_set_disable()
 	patchRect.size = cont.size
 	position = hided_pos
+	show_ui()
 
 
 func show_ui(show_now: bool = true) -> void:
