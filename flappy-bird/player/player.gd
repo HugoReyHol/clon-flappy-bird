@@ -58,9 +58,10 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("Jump") and actual_state != State.JUMP:
 		actual_state = State.JUMP
+		
+		# Cambia el tono ligeramente para que el sonido no sea repetitivo
 		audio_stream.pitch_scale = randf_range(0.8, 1.2)
 		audio_stream["parameters/switch_to_clip"] = "Jump"
-		print(audio_stream.pitch_scale)
 
 
 # Funcion para cambiar el estado del player tras perder
