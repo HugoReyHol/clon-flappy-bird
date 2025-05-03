@@ -106,10 +106,10 @@ layout_mode = 2
 
 [node name="CancelPixelButton" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("7_hrjyy")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 32
 text = "CANCEL"
 
 [node name="SavePixelButton2" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("7_hrjyy")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 32
 text = "SAVE"
