@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://u7v4f8f027rc"]
+
+[ext_resource type="StyleBox" uid="uid://b2xyq3ysm144f" path="res://ui/buttons/pixel/style/pixel_button.tres" id="1_pif5w"]
+[ext_resource type="FontFile" uid="uid://c2bx8wchml5yv" path="res://ui/font/EXEPixelPerfect.ttf" id="2_pif5w"]
+
+[sub_resource type="Theme" id="Theme_iiho3"]
+default_font = ExtResource("2_pif5w")
+default_font_size = 16
+Button/colors/font_outline_color = Color(0.741176, 0.305882, 0.0823529, 1)
+Button/styles/disabled = ExtResource("1_pif5w")
+Button/styles/focus = ExtResource("1_pif5w")
+Button/styles/hover = ExtResource("1_pif5w")
+Button/styles/normal = ExtResource("1_pif5w")
+Button/styles/pressed = ExtResource("1_pif5w")
+
+[sub_resource type="GDScript" id="GDScript_acjev"]
+script/source = "class_name PixelButton
+extends Button
+"
+
+[node name="PixelButton" type="Button"]
+offset_right = 16.0
+offset_bottom = 16.0
+theme = SubResource("Theme_iiho3")
+script = SubResource("GDScript_acjev")
+metadata/_edit_horizontal_guides_ = [0.0]
