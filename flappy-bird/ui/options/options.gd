@@ -160,7 +160,7 @@ func _on_sfx_slider_muted_pressed(muted: bool) -> void:
 func _on_sfx_slider_value_changed(value: float) -> void:
 	ConfigSaveHandler.set_setting(
 		SettingsKeys.volume,
-		SettingsKeys.music_vol,
+		SettingsKeys.sfx_vol,
 		value
 	)
 	
