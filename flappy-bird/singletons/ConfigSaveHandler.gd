@@ -5,6 +5,10 @@ const SETTINGS_FILE_PATH: String = "user://settings.ini"
 
 var config: ConfigFile = ConfigFile.new()
 
+@onready var master_bus: int = AudioServer.get_bus_index("Master")
+@onready var music_bus: int = AudioServer.get_bus_index("Music")
+@onready var sfx_bus: int = AudioServer.get_bus_index("SFX")
+
 
 # Genera el archivo de configuracion o lo carga si ya existe uno
 func _ready() -> void:
@@ -32,6 +36,14 @@ func _ready() -> void:
 	
 	else:
 		config.load(SETTINGS_FILE_PATH)
+		
+		var volume_settings := ConfigSaveHandler.load_settings(SettingsKeys.volume)
+		AudioServer.set_bus_mute(master_bus, volume_settings[SettingsKeys.master_mute])
+		AudioServer.set_bus_volume_linear(master_bus, volume_settings[SettingsKeys.master_vol])
+		AudioServer.set_bus_mute(music_bus, volume_settings[SettingsKeys.music_mute])
+		AudioServer.set_bus_volume_linear(music_bus, volume_settings[SettingsKeys.music_vol])
+		AudioServer.set_bus_mute(sfx_bus, volume_settings[SettingsKeys.sfx_mute])
+		AudioServer.set_bus_volume_linear(sfx_bus, volume_settings[SettingsKeys.sfx_vol])
 
 
 # Guarda un nuevo valor en las variables de config

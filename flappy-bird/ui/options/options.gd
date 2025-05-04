@@ -2,6 +2,8 @@ class_name OptionMenu
 extends Control
 
 
+signal closed
+
 @export var cont: MarginContainer
 @export var patchRect: NinePatchRect
 @export var master_slider: VolumeSlider
@@ -95,12 +97,14 @@ func _on_cancel_button_up() -> void:
 	AudioServer.set_bus_volume_linear(sfx_bus, volume_settings[SettingsKeys.sfx_vol])
 	
 	show_ui(false)
+	closed.emit()
 
 
 # Guarda los cambios realizados
 func _on_save_button_up() -> void:
 	ConfigSaveHandler.save()
 	show_ui(false)
+	closed.emit()
 
 
 func _on_master_slider_muted_pressed(muted: bool) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://5pam05j4p6mw"]
+[gd_scene load_steps=12 format=3 uid="uid://5pam05j4p6mw"]
 
 [ext_resource type="Texture2D" uid="uid://bs645485s4fi" path="res://locations/city/sprites/background-day.png" id="1_r5tld"]
 [ext_resource type="Script" uid="uid://dbmehy44b85c6" path="res://stages/start/start.gd" id="1_scc6h"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bjimqd62rodpg" path="res://player/fake_player/fake_player.tscn" id="3_llgnx"]
 [ext_resource type="Texture2D" uid="uid://cce7ft72coojk" path="res://ui/titles/label_flappy_bird.png" id="4_82c0q"]
 [ext_resource type="PackedScene" uid="uid://hqlah311jhj" path="res://ui/buttons/play/play_button.tscn" id="4_wqnc0"]
+[ext_resource type="PackedScene" uid="uid://u7v4f8f027rc" path="res://ui/buttons/pixel/pixel_button.tscn" id="7_2qpmv"]
+[ext_resource type="PackedScene" uid="uid://cw42iupdc8nof" path="res://ui/options/options.tscn" id="8_7i16b"]
 
 [sub_resource type="Animation" id="Animation_2qpmv"]
 length = 0.001
@@ -24,7 +26,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/ReplayButton:disabled")
+tracks/1/path = NodePath("CanvasLayer/VBoxContainer/ReplayButton:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -36,26 +38,38 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/ReplayButton:position")
+tracks/2/path = NodePath("FakePlayer:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(118, 241.5)]
+"values": [Vector2(144, 200)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("FakePlayer:position")
+tracks/3/path = NodePath("CanvasLayer/VBoxContainer/OptionsButton:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/VBoxContainer:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(144, 200)]
+"values": [Vector2(115, 242.5)]
 }
 
 [sub_resource type="Animation" id="Animation_scc6h"]
@@ -76,7 +90,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/ReplayButton:disabled")
+tracks/1/path = NodePath("CanvasLayer/VBoxContainer/ReplayButton:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -88,40 +102,52 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/ReplayButton:position")
+tracks/2/path = NodePath("FakePlayer:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(118, 241.5), Vector2(118, 512.5)]
+"values": [Vector2(144, 200), Vector2(72, 200)]
 }
-tracks/3/type = "value"
+tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("FakePlayer:position")
+tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(144, 200), Vector2(72, 200)]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"change_scene"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/VBoxContainer:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(115, 242.5), Vector2(115, 516.5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/VBoxContainer/OptionsButton:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2qpmv"]
@@ -130,8 +156,13 @@ _data = {
 &"change_to_game": SubResource("Animation_scc6h")
 }
 
-[node name="Start" type="Node2D"]
+[node name="Start" type="Node2D" node_paths=PackedStringArray("options_button", "anim_player", "replay_button", "options_menu")]
 script = ExtResource("1_scc6h")
+options_button = NodePath("CanvasLayer/VBoxContainer/OptionsButton")
+anim_player = NodePath("AnimationPlayer")
+replay_button = NodePath("CanvasLayer/VBoxContainer/ReplayButton")
+options_menu = NodePath("CanvasLayer/Options")
+metadata/_edit_vertical_guides_ = [144.0]
 
 [node name="Background-day" type="Sprite2D" parent="."]
 position = Vector2(144, 256)
@@ -143,6 +174,13 @@ texture = ExtResource("1_r5tld")
 position = Vector2(144, 200)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Options" parent="CanvasLayer" instance=ExtResource("8_7i16b")]
+z_index = 1
+offset_left = 115.0
+offset_top = 317.5
+offset_right = 173.0
+offset_bottom = 317.5
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 5
@@ -159,22 +197,34 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 texture = ExtResource("4_82c0q")
 
-[node name="ReplayButton" parent="CanvasLayer" instance=ExtResource("4_wqnc0")]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -26.0
-offset_top = -14.5
-offset_right = 26.0
-offset_bottom = 14.5
+offset_left = -29.0
+offset_top = -13.5
+offset_right = 29.0
+offset_bottom = 51.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ReplayButton" parent="CanvasLayer/VBoxContainer" instance=ExtResource("4_wqnc0")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="OptionsButton" parent="CanvasLayer/VBoxContainer" instance=ExtResource("7_2qpmv")]
+layout_mode = 2
+text = "OPTIONS"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_2qpmv")
 }
 
-[connection signal="button_up" from="CanvasLayer/ReplayButton" to="." method="_on_replay_button_button_up"]
+[connection signal="closed" from="CanvasLayer/Options" to="." method="_on_options_closed"]
+[connection signal="button_up" from="CanvasLayer/VBoxContainer/ReplayButton" to="." method="_on_replay_button_button_up"]
+[connection signal="button_up" from="CanvasLayer/VBoxContainer/OptionsButton" to="." method="_on_options_button_up"]

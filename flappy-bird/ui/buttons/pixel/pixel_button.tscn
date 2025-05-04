@@ -5,5 +5,7 @@
 [node name="PixelButton" type="Button"]
 offset_right = 16.0
 offset_bottom = 16.0
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_q86q8")
 metadata/_edit_horizontal_guides_ = [0.0]
