@@ -10,8 +10,6 @@ signal closed
 @export var music_slider: VolumeSlider
 @export var sfx_slider: VolumeSlider
 
-var config_last: ConfigFile
-
 @onready var center_pos: Vector2 = get_viewport().get_visible_rect().size/2.0 - cont.size/2.0
 @onready var hidden_pos: Vector2 = Vector2(
 	center_pos.x,
@@ -22,17 +20,18 @@ var config_last: ConfigFile
 @onready var sfx_bus: int = AudioServer.get_bus_index("SFX")
 
 
+# Configuron inicial del menu
 func _ready() -> void:
 	_set_disable()
 	patchRect.size = cont.size
 	position = hidden_pos
 
 
+# Muestro o esconde la interfaz
 func show_ui(show_now: bool = true) -> void:
 	var tween: Tween = create_tween()
 	
 	if show_now:
-		config_last = ConfigSaveHandler.config
 		_set_controls_values()
 		tween.tween_property(self, "position", center_pos, 0.5)
 		tween.tween_callback(func() -> void: _set_disable(false))
@@ -64,8 +63,8 @@ func _set_disable(disable: bool = true) -> void:
 
 # Le da los valores correctos a los elementos de la ui
 func _set_controls_values() -> void:
-	var volume_settings := ConfigSaveHandler.load_settings(SettingsKeys.volume)
-	var user_settings := ConfigSaveHandler.load_settings(SettingsKeys.user)
+	var volume_settings := ConfigSaveHandler.get_settings(SettingsKeys.volume)
+	var user_settings := ConfigSaveHandler.get_settings(SettingsKeys.user)
 	
 	master_slider.set_values(
 		volume_settings[SettingsKeys.master_vol],
@@ -83,19 +82,9 @@ func _set_controls_values() -> void:
 	)
 
 
-# Cierra el menu de opciones sin guardar y restaura los valores de los buses de audio
+# Cierra el menu de opciones sin guardar y restaura los valores anteriores
 func _on_cancel_button_up() -> void:
-	ConfigSaveHandler.config = config_last
-	
-	var volume_settings := ConfigSaveHandler.load_settings(SettingsKeys.volume)
-	
-	AudioServer.set_bus_mute(master_bus, volume_settings[SettingsKeys.master_mute])
-	AudioServer.set_bus_volume_linear(master_bus, volume_settings[SettingsKeys.master_vol])
-	AudioServer.set_bus_mute(music_bus, volume_settings[SettingsKeys.music_mute])
-	AudioServer.set_bus_volume_linear(music_bus, volume_settings[SettingsKeys.music_vol])
-	AudioServer.set_bus_mute(sfx_bus, volume_settings[SettingsKeys.sfx_mute])
-	AudioServer.set_bus_volume_linear(sfx_bus, volume_settings[SettingsKeys.sfx_vol])
-	
+	ConfigSaveHandler.load_config()
 	show_ui(false)
 	closed.emit()
 
@@ -107,6 +96,7 @@ func _on_save_button_up() -> void:
 	closed.emit()
 
 
+# Mutea Master
 func _on_master_slider_muted_pressed(muted: bool) -> void:
 	ConfigSaveHandler.set_setting(
 		SettingsKeys.volume,
@@ -117,6 +107,7 @@ func _on_master_slider_muted_pressed(muted: bool) -> void:
 	AudioServer.set_bus_mute(master_bus, muted)
 
 
+# Cambia el volumen de Master
 func _on_master_slider_value_changed(value: float) -> void:
 	ConfigSaveHandler.set_setting(
 		SettingsKeys.volume,
@@ -127,6 +118,7 @@ func _on_master_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_linear(master_bus, value)
 
 
+# Mutea Music
 func _on_music_slider_muted_pressed(muted: bool) -> void:
 	ConfigSaveHandler.set_setting(
 		SettingsKeys.volume,
@@ -137,6 +129,7 @@ func _on_music_slider_muted_pressed(muted: bool) -> void:
 	AudioServer.set_bus_mute(music_bus, muted)
 
 
+# Cambia el volumen de Music
 func _on_music_slider_value_changed(value: float) -> void:
 	ConfigSaveHandler.set_setting(
 		SettingsKeys.volume,
@@ -147,6 +140,7 @@ func _on_music_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_linear(music_bus, value)
 
 
+# Mutea SFX
 func _on_sfx_slider_muted_pressed(muted: bool) -> void:
 	ConfigSaveHandler.set_setting(
 		SettingsKeys.volume,
@@ -157,6 +151,7 @@ func _on_sfx_slider_muted_pressed(muted: bool) -> void:
 	AudioServer.set_bus_mute(sfx_bus, muted)
 
 
+# Cambia el volumen de SFX
 func _on_sfx_slider_value_changed(value: float) -> void:
 	ConfigSaveHandler.set_setting(
 		SettingsKeys.volume,
@@ -167,6 +162,7 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_linear(sfx_bus, value)
 
 
+# Cierra la sesion borrando el jwt
 func _on_log_out_button_up() -> void:
 	ConfigSaveHandler.set_setting(
 		SettingsKeys.user,

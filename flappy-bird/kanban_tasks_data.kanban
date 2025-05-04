@@ -15,21 +15,22 @@
 				"db82bd02-0a50-4596-8061-0b10ac875ca2",
 				"bb7744d5-ec5c-4fdc-a0ec-e1a92e4ddf30",
 				"8acd2d29-cb8f-430a-846f-7773f74e4d9b",
-				"5695cc10-f7f9-4405-8e08-86e695b038c2"
+				"5695cc10-f7f9-4405-8e08-86e695b038c2",
+				"c2321f75-973f-4794-b499-8f295335c69a"
 			]
 		},
 		{
 			"uuid": "3d3279a4-96a1-41d1-9e4f-18f516edac9e",
 			"title": "Doing",
 			"tasks": [
-				"4cdea3e2-e75f-4361-bbc6-6486fb8ea9fb",
-				"db232afc-e2eb-4d42-9970-8e82812c44cb"
+				"34f811bb-a387-43af-957c-9baeaaa4ac8f"
 			]
 		},
 		{
 			"uuid": "15f8f3ce-aef7-4dc1-a92b-78afc5adedfe",
 			"title": "Done",
 			"tasks": [
+				"4cdea3e2-e75f-4361-bbc6-6486fb8ea9fb",
 				"acd1bb3b-0243-458f-874b-08f2d16c9032",
 				"6761cb6a-7cfb-4b28-a6a5-ed79bf4efac8",
 				"369a34ae-7f56-4045-84ed-7ebf6fc6a63f",
@@ -46,7 +47,8 @@
 				"a903e824-ee78-482c-a598-97dd661bfc7d",
 				"16e81012-0e55-453b-9e1c-34334d8de87c",
 				"8144e5d7-6514-4798-82b0-2714d919c37a",
-				"e6d0848e-63cf-4b09-b96c-366168a968a4"
+				"e6d0848e-63cf-4b09-b96c-366168a968a4",
+				"db232afc-e2eb-4d42-9970-8e82812c44cb"
 			]
 		}
 	],
@@ -110,13 +112,6 @@
 		{
 			"uuid": "8144e5d7-6514-4798-82b0-2714d919c37a",
 			"title": "Sonidos del player",
-			"description": "",
-			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
-			"steps": []
-		},
-		{
-			"uuid": "36f77fa9-8297-4b81-9c67-e321da6303d7",
-			"title": "Añadir sacudida al golpearse",
 			"description": "",
 			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
 			"steps": []
@@ -215,6 +210,27 @@
 		{
 			"uuid": "db232afc-e2eb-4d42-9970-8e82812c44cb",
 			"title": "Ajustar las teclas y botones para abrir menú de opciones",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "c2321f75-973f-4794-b499-8f295335c69a",
+			"title": "Traducciones",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "34f811bb-a387-43af-957c-9baeaaa4ac8f",
+			"title": "Boton cerrar app",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "36f77fa9-8297-4b81-9c67-e321da6303d7",
+			"title": "Añadir sacudida al golpearse",
 			"description": "",
 			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
 			"steps": []

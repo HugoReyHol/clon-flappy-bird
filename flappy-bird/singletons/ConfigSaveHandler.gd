@@ -35,15 +35,7 @@ func _ready() -> void:
 		config.save(SETTINGS_FILE_PATH)
 	
 	else:
-		config.load(SETTINGS_FILE_PATH)
-		
-		var volume_settings := ConfigSaveHandler.load_settings(SettingsKeys.volume)
-		AudioServer.set_bus_mute(master_bus, volume_settings[SettingsKeys.master_mute])
-		AudioServer.set_bus_volume_linear(master_bus, volume_settings[SettingsKeys.master_vol])
-		AudioServer.set_bus_mute(music_bus, volume_settings[SettingsKeys.music_mute])
-		AudioServer.set_bus_volume_linear(music_bus, volume_settings[SettingsKeys.music_vol])
-		AudioServer.set_bus_mute(sfx_bus, volume_settings[SettingsKeys.sfx_mute])
-		AudioServer.set_bus_volume_linear(sfx_bus, volume_settings[SettingsKeys.sfx_vol])
+		load_config()
 
 
 # Guarda un nuevo valor en las variables de config
@@ -56,8 +48,22 @@ func save() -> void:
 	config.save(SETTINGS_FILE_PATH)
 
 
+# Obtiene los valores y configura los buses
+func load_config() -> void:
+	config.load(SETTINGS_FILE_PATH)
+	
+	var volume_settings := ConfigSaveHandler.get_settings(SettingsKeys.volume)
+	
+	AudioServer.set_bus_mute(master_bus, volume_settings[SettingsKeys.master_mute])
+	AudioServer.set_bus_volume_linear(master_bus, volume_settings[SettingsKeys.master_vol])
+	AudioServer.set_bus_mute(music_bus, volume_settings[SettingsKeys.music_mute])
+	AudioServer.set_bus_volume_linear(music_bus, volume_settings[SettingsKeys.music_vol])
+	AudioServer.set_bus_mute(sfx_bus, volume_settings[SettingsKeys.sfx_mute])
+	AudioServer.set_bus_volume_linear(sfx_bus, volume_settings[SettingsKeys.sfx_vol])
+
+
 # Obtiene los valores de una seccion
-func load_settings(section: String) -> Dictionary[String, Variant]:
+func get_settings(section: String) -> Dictionary[String, Variant]:
 	var settings: Dictionary[String, Variant] = {}
 	for key in config.get_section_keys(section):
 		settings[key] = config.get_value(section, key)
