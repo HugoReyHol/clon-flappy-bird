@@ -24,6 +24,7 @@ buses/channel_disable_time=0.1
 [autoload]
 
 ConfigSaveHandler="*res://singletons/ConfigSaveHandler.gd"
+Supabase="*res://addons/supabase/Supabase/supabase.gd"
 
 [display]
 
@@ -36,7 +37,7 @@ window/handheld/orientation=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg", "res://addons/script-ide/plugin.cfg")
+enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/supabase/plugin.cfg")
 
 [input]
 
