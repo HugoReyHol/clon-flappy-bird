@@ -9,6 +9,11 @@ const GAME_SCENE: String = "res://stages/game/game.tscn"
 @export var anim_player: AnimationPlayer
 @export var replay_button: TextureButton
 @export var options_menu: OptionMenu
+@export var exit_button: Button
+
+
+func _ready() -> void:
+	exit_button.visible = not OS.has_feature("android")
 
 
 # Detecta los atajos de teclado
@@ -30,12 +35,21 @@ func _on_replay_button_button_up() -> void:
 
 # Desactiva los botones y muestra el menu de opciones
 func _on_options_button_up() -> void:
-	options_menu.show_ui()
-	replay_button.disabled = true
-	options_button.disabled = true
+	if options_button.is_hovered():
+		options_menu.show_ui()
+		replay_button.disabled = true
+		options_button.disabled = true
+		exit_button.disabled = true
 
 
 # Activa los botones cuando se cierra el menu de opciones
 func _on_options_closed() -> void:
 	replay_button.disabled = false
 	options_button.disabled = false
+	exit_button.disabled = false
+
+
+# Cierra el juego
+func _on_exit_button_up() -> void:
+	if exit_button.is_hovered():
+		get_tree().quit()
