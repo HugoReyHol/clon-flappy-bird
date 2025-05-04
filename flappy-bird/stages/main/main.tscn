@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://btigbou4751hs" path="res://stages/main/main.gd" id="1_6almw"]
 [ext_resource type="AudioStream" uid="uid://dtofww0r0x60p" path="res://stages/main/music/mother_bird.ogg" id="2_60rri"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("options")]
+[node name="Main" type="Node2D"]
 script = ExtResource("1_6almw")
-options = NodePath("")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_60rri")

@@ -3,8 +3,6 @@ extends Node2D
 
 const INITIAL_STAGE: String = "res://stages/start/start.tscn"
 
-@export var options: OptionMenu
-
 var stage: Node2D
 var options_open: bool = false
 
@@ -24,11 +22,6 @@ func _init() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action("ui_cancel"):
 		get_tree().quit()
-	
-	if event.is_action_pressed("ui_cancel"):
-		options_open = not options_open
-		options.show_ui(options_open)
-		print(options_open)
 
 
 # Cambia la escena actual por la pedida en su señal de cambio
