@@ -9,6 +9,7 @@ signal closed
 @export var master_slider: VolumeSlider
 @export var music_slider: VolumeSlider
 @export var sfx_slider: VolumeSlider
+@export var audio_player: AudioStreamPlayer
 
 @onready var center_pos: Vector2 = get_viewport().get_visible_rect().size/2.0 - cont.size/2.0
 @onready var hidden_pos: Vector2 = Vector2(
@@ -162,6 +163,11 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_linear(sfx_bus, value)
 
 
+# Al soltar el slider reproduce sonido de comprobación
+func _on_slider_drag_ended() -> void:
+	audio_player.play()
+
+
 # Cierra la sesion borrando el jwt
 func _on_log_out_button_up() -> void:
 	ConfigSaveHandler.set_setting(
@@ -174,4 +180,3 @@ func _on_log_out_button_up() -> void:
 		SettingsKeys.name,
 		null
 	)
-	

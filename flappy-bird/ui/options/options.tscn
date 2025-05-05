@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cw42iupdc8nof"]
+[gd_scene load_steps=9 format=3 uid="uid://cw42iupdc8nof"]
 
 [ext_resource type="Texture2D" uid="uid://cuo3eolrryi4i" path="res://ui/options/sprites/panel_text.png" id="1_gsckh"]
 [ext_resource type="Script" uid="uid://chn1fuxvma1td" path="res://ui/options/options.gd" id="1_klkak"]
@@ -7,8 +7,9 @@
 [ext_resource type="LabelSettings" uid="uid://c1101slkm582e" path="res://ui/font/options_option.tres" id="5_f75v3"]
 [ext_resource type="PackedScene" uid="uid://dvqqnn0pxigmm" path="res://ui/volume_sliders/volume_slider.tscn" id="6_hrjyy"]
 [ext_resource type="PackedScene" uid="uid://u7v4f8f027rc" path="res://ui/buttons/pixel/pixel_button.tscn" id="7_hrjyy"]
+[ext_resource type="AudioStream" uid="uid://bo5auj1o52uk7" path="res://stages/game/sfx/point.ogg" id="8_7oucm"]
 
-[node name="Options" type="Control" node_paths=PackedStringArray("cont", "patchRect", "master_slider", "music_slider", "sfx_slider")]
+[node name="Options" type="Control" node_paths=PackedStringArray("cont", "patchRect", "master_slider", "music_slider", "sfx_slider", "audio_player")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_klkak")
@@ -17,6 +18,7 @@ patchRect = NodePath("NinePatchRect")
 master_slider = NodePath("NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/MasterSlider")
 music_slider = NodePath("NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/MusicSlider")
 sfx_slider = NodePath("NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/SFXSlider")
+audio_player = NodePath("AudioPlayer")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -118,10 +120,16 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "SAVE"
 
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_7oucm")
+bus = &"SFX"
+
+[connection signal="drag_ended" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/MasterSlider" to="." method="_on_slider_drag_ended"]
 [connection signal="muted_pressed" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/MasterSlider" to="." method="_on_master_slider_muted_pressed"]
 [connection signal="value_changed" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="muted_pressed" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/MusicSlider" to="." method="_on_music_slider_muted_pressed"]
 [connection signal="value_changed" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="drag_ended" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/SFXSlider" to="." method="_on_slider_drag_ended"]
 [connection signal="muted_pressed" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/SFXSlider" to="." method="_on_sfx_slider_muted_pressed"]
 [connection signal="value_changed" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="button_up" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/User/LogOutPixelButton" to="." method="_on_log_out_button_up"]

@@ -4,6 +4,7 @@ extends Control
 
 signal value_changed(value: float)
 signal muted_pressed(muted: bool)
+signal drag_ended()
 
 const SPEAKER_ON = preload("res://ui/volume_sliders/sprites/speaker_on.png")
 const SPEAKER_MUTE = preload("res://ui/volume_sliders/sprites/speaker_mute.png")
@@ -36,3 +37,7 @@ func _on_mute_button_up() -> void:
 	muted = !muted
 	set_muted()
 	muted_pressed.emit(muted)
+
+
+func _on_sound_slider_drag_ended(value_changed: bool) -> void:
+	drag_ended.emit()

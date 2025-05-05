@@ -47,5 +47,6 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("1_4ynpv")
 
+[connection signal="drag_ended" from="HBox/SoundSlider" to="." method="_on_sound_slider_drag_ended"]
 [connection signal="value_changed" from="HBox/SoundSlider" to="." method="_on_sound_slider_value_changed"]
 [connection signal="button_up" from="HBox/MuteButton" to="." method="_on_mute_button_up"]
