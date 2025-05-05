@@ -21,7 +21,6 @@ func _ready() -> void:
 		config.set_value(SettingsKeys.volume, SettingsKeys.sfx_mute, false)
 		
 		config.set_value(SettingsKeys.user, SettingsKeys.jwt, null)
-		config.set_value(SettingsKeys.user, SettingsKeys.name, null)
 		
 		var user_locale: String = OS.get_locale_language()
 		config.set_value(
@@ -36,6 +35,11 @@ func _ready() -> void:
 	
 	else:
 		load_config()
+		
+		# Inicia sesion a partir del jwt almacenado
+		var jwt : String = get_settings(SettingsKeys.user)[SettingsKeys.jwt]
+		if jwt != null and not jwt.is_empty():
+			Supabase.auth.user("Bearer " + jwt)
 
 
 # Guarda un nuevo valor en las variables de config
@@ -52,7 +56,7 @@ func save() -> void:
 func load_config() -> void:
 	config.load(SETTINGS_FILE_PATH)
 	
-	var volume_settings := ConfigSaveHandler.get_settings(SettingsKeys.volume)
+	var volume_settings := get_settings(SettingsKeys.volume)
 	
 	AudioServer.set_bus_mute(master_bus, volume_settings[SettingsKeys.master_mute])
 	AudioServer.set_bus_volume_linear(master_bus, volume_settings[SettingsKeys.master_vol])

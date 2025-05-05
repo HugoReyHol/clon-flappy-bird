@@ -23,8 +23,8 @@ buses/channel_disable_time=0.1
 
 [autoload]
 
-ConfigSaveHandler="*res://singletons/ConfigSaveHandler.gd"
 Supabase="*res://addons/supabase/Supabase/supabase.gd"
+ConfigSaveHandler="*res://singletons/ConfigSaveHandler.gd"
 
 [display]
 
