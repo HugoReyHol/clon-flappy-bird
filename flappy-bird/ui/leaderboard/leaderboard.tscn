@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7jrf5srf23mw"]
+
+[ext_resource type="Script" uid="uid://jyg6u1w8nnsx" path="res://ui/leaderboard/leaderboard.gd" id="1_kdvsm"]
+
+[node name="Leaderboard" type="Control" node_paths=PackedStringArray("list")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_kdvsm")
+list = NodePath("List")
+
+[node name="List" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

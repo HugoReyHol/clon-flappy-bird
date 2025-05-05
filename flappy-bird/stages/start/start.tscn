@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://5pam05j4p6mw"]
+[gd_scene load_steps=13 format=3 uid="uid://5pam05j4p6mw"]
 
 [ext_resource type="Texture2D" uid="uid://bs645485s4fi" path="res://locations/city/sprites/background-day.png" id="1_r5tld"]
 [ext_resource type="Script" uid="uid://dbmehy44b85c6" path="res://stages/start/start.gd" id="1_scc6h"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://hqlah311jhj" path="res://ui/buttons/play/play_button.tscn" id="4_wqnc0"]
 [ext_resource type="PackedScene" uid="uid://u7v4f8f027rc" path="res://ui/buttons/pixel/pixel_button.tscn" id="7_2qpmv"]
 [ext_resource type="PackedScene" uid="uid://cw42iupdc8nof" path="res://ui/options/options.tscn" id="8_7i16b"]
+[ext_resource type="PackedScene" uid="uid://c7jrf5srf23mw" path="res://ui/leaderboard/leaderboard.tscn" id="8_q7oev"]
 
 [sub_resource type="Animation" id="Animation_2qpmv"]
 length = 0.001
@@ -217,6 +218,8 @@ text = "OPTIONS"
 [node name="ExitButton" parent="CanvasLayer/VBoxContainer" instance=ExtResource("7_2qpmv")]
 layout_mode = 2
 text = "EXIT"
+
+[node name="Leaderboard" parent="CanvasLayer" instance=ExtResource("8_q7oev")]
 
 [node name="Options" parent="CanvasLayer" instance=ExtResource("8_7i16b")]
 z_index = 1
