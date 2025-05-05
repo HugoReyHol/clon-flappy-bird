@@ -176,13 +176,6 @@ position = Vector2(144, 200)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Options" parent="CanvasLayer" instance=ExtResource("8_7i16b")]
-z_index = 1
-offset_left = 331.0
-offset_top = 312.5
-offset_right = 389.0
-offset_bottom = 312.5
-
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 5
 anchor_left = 0.5
@@ -225,12 +218,19 @@ text = "OPTIONS"
 layout_mode = 2
 text = "EXIT"
 
+[node name="Options" parent="CanvasLayer" instance=ExtResource("8_7i16b")]
+z_index = 1
+offset_left = 331.0
+offset_top = 312.5
+offset_right = 389.0
+offset_bottom = 312.5
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_2qpmv")
 }
 
-[connection signal="closed" from="CanvasLayer/Options" to="." method="_on_options_closed"]
 [connection signal="button_up" from="CanvasLayer/VBoxContainer/ReplayButton" to="." method="_on_replay_button_button_up"]
 [connection signal="button_up" from="CanvasLayer/VBoxContainer/OptionsButton" to="." method="_on_options_button_up"]
 [connection signal="button_up" from="CanvasLayer/VBoxContainer/ExitButton" to="." method="_on_exit_button_up"]
+[connection signal="closed" from="CanvasLayer/Options" to="." method="_on_options_closed"]
