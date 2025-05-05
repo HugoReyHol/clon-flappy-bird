@@ -1,17 +1,25 @@
+@tool
 class_name OptionMenu
 extends Control
 
 
 signal closed
 
-@export var cont: MarginContainer
-@export var patchRect: NinePatchRect
+const MARGIN_AREA: int = 10
+
+@export var patch_rect: NinePatchRect
 @export var master_slider: VolumeSlider
 @export var music_slider: VolumeSlider
 @export var sfx_slider: VolumeSlider
 @export var audio_player: AudioStreamPlayer
+@export var user_section: VBoxContainer
 
-@onready var center_pos: Vector2 = get_viewport().get_visible_rect().size/2.0 - cont.size/2.0
+@onready var v_box: VBoxContainer = $NinePatchRect/VBoxContainer
+@onready var center_pos: Vector2 = (
+	get_viewport().get_visible_rect().size 
+	- v_box.size 
+	- Vector2.ONE * MARGIN_AREA *2
+) / 2.0
 @onready var hidden_pos: Vector2 = Vector2(
 	center_pos.x,
 	get_viewport().get_visible_rect().size.y
@@ -24,8 +32,9 @@ signal closed
 # Configuron inicial del menu
 func _ready() -> void:
 	_set_disable()
-	patchRect.size = cont.size
-	position = hidden_pos
+	Supabase.auth.signed_out.connect(_set_user_controls_values)
+	Supabase.auth.signed_in.connect(_set_user_controls_values)
+	Supabase.auth.signed_up.connect(_set_user_controls_values)
 
 
 # Muestro o esconde la interfaz
@@ -33,7 +42,8 @@ func show_ui(show_now: bool = true) -> void:
 	var tween: Tween = create_tween()
 	
 	if show_now:
-		_set_controls_values()
+		_set_sound_controls_values()
+		_set_user_controls_values()
 		tween.tween_property(self, "position", center_pos, 0.5)
 		tween.tween_callback(func() -> void: _set_disable(false))
 	else:
@@ -45,7 +55,7 @@ func show_ui(show_now: bool = true) -> void:
 
 # Habilita/Deshabilita los nodos interactuables de la interfaz
 func _set_disable(disable: bool = true) -> void:
-	var childs: Array[Node] = cont.get_children()
+	var childs: Array[Node] = v_box.get_children()
 	
 	while not childs.is_empty():
 		if childs[0] is Control:
@@ -62,10 +72,9 @@ func _set_disable(disable: bool = true) -> void:
 		childs.remove_at(0)
 
 
-# Le da los valores correctos a los elementos de la ui
-func _set_controls_values() -> void:
+# Le da los valores correctos a los elementos de la ui de sonido
+func _set_sound_controls_values() -> void:
 	var volume_settings := ConfigSaveHandler.get_settings(SettingsKeys.volume)
-	var user_settings := ConfigSaveHandler.get_settings(SettingsKeys.user)
 	
 	master_slider.set_values(
 		volume_settings[SettingsKeys.master_vol],
@@ -81,6 +90,16 @@ func _set_controls_values() -> void:
 		volume_settings[SettingsKeys.sfx_vol],
 		volume_settings[SettingsKeys.sfx_mute]
 	)
+
+
+# Muestra o no el apartado de usuario si hay uno conectado
+func _set_user_controls_values() -> void:
+	var user: SupabaseUser = Supabase.auth.client
+	
+	user_section.visible = user != null
+	
+	v_box.reset_size()
+	center_pos = (get_viewport().get_visible_rect().size - patch_rect.size) / 2.0
 
 
 # Cierra el menu de opciones sin guardar y restaura los valores anteriores
@@ -170,13 +189,11 @@ func _on_slider_drag_ended() -> void:
 
 # Cierra la sesion borrando el jwt
 func _on_log_out_button_up() -> void:
-	ConfigSaveHandler.set_setting(
-		SettingsKeys.user,
-		SettingsKeys.jwt,
-		null
-	)
-	ConfigSaveHandler.set_setting(
-		SettingsKeys.user,
-		SettingsKeys.name,
-		null
-	)
+	# ConfigFile esta conectado a la señal emitida al cerrar sesion
+	Supabase.auth.sign_out()
+
+
+# Cambia el tamano del fondo cuando VBox cambia de tamano
+func _on_options_container_resized() -> void:
+	patch_rect.size = v_box.size + Vector2.ONE * MARGIN_AREA * 2
+	position = hidden_pos

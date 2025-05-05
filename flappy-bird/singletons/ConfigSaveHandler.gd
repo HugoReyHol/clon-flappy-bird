@@ -12,6 +12,8 @@ var config: ConfigFile = ConfigFile.new()
 
 # Genera el archivo de configuracion o lo carga si ya existe uno
 func _ready() -> void:
+	Supabase.auth.signed_out.connect(log_out)
+	
 	if !FileAccess.file_exists(SETTINGS_FILE_PATH):
 		config.set_value(SettingsKeys.volume, SettingsKeys.master_vol, 0.5)
 		config.set_value(SettingsKeys.volume, SettingsKeys.master_mute, false)
@@ -20,7 +22,7 @@ func _ready() -> void:
 		config.set_value(SettingsKeys.volume, SettingsKeys.sfx_vol, 0.5)
 		config.set_value(SettingsKeys.volume, SettingsKeys.sfx_mute, false)
 		
-		config.set_value(SettingsKeys.user, SettingsKeys.jwt, null)
+		config.set_value(SettingsKeys.user, SettingsKeys.jwt, "")
 		
 		var user_locale: String = OS.get_locale_language()
 		config.set_value(
@@ -72,3 +74,14 @@ func get_settings(section: String) -> Dictionary[String, Variant]:
 	for key in config.get_section_keys(section):
 		settings[key] = config.get_value(section, key)
 	return settings
+
+
+# Metodo para borrar el token del archivo guardado
+func log_out() -> void:
+	config.set_value(SettingsKeys.user, SettingsKeys.jwt, "")
+	
+	var temp_config: ConfigFile = ConfigFile.new()
+	temp_config.load(SETTINGS_FILE_PATH)
+	
+	temp_config.set_value(SettingsKeys.user, SettingsKeys.jwt, "")
+	temp_config.save(SETTINGS_FILE_PATH)

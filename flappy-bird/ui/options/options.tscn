@@ -9,16 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://u7v4f8f027rc" path="res://ui/buttons/pixel/pixel_button.tscn" id="7_hrjyy"]
 [ext_resource type="AudioStream" uid="uid://bo5auj1o52uk7" path="res://stages/game/sfx/point.ogg" id="8_7oucm"]
 
-[node name="Options" type="Control" node_paths=PackedStringArray("cont", "patchRect", "master_slider", "music_slider", "sfx_slider", "audio_player")]
+[node name="Options" type="Control" node_paths=PackedStringArray("patch_rect", "master_slider", "music_slider", "sfx_slider", "audio_player", "user_section")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_klkak")
-cont = NodePath("NinePatchRect/MarginContainer")
-patchRect = NodePath("NinePatchRect")
-master_slider = NodePath("NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/MasterSlider")
-music_slider = NodePath("NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/MusicSlider")
-sfx_slider = NodePath("NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/SFXSlider")
+patch_rect = NodePath("NinePatchRect")
+master_slider = NodePath("NinePatchRect/VBoxContainer/Volume/MasterSlider")
+music_slider = NodePath("NinePatchRect/VBoxContainer/Volume/MusicSlider")
+sfx_slider = NodePath("NinePatchRect/VBoxContainer/Volume/SFXSlider")
 audio_player = NodePath("AudioPlayer")
+user_section = NodePath("NinePatchRect/VBoxContainer/User")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -31,107 +31,101 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
-layout_mode = 0
-offset_right = 176.0
-offset_bottom = 250.0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="CenterContainer" type="CenterContainer" parent="NinePatchRect/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
 layout_mode = 2
-size_flags_vertical = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 166.0
+offset_bottom = 270.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer/CenterContainer"]
-layout_mode = 2
-
-[node name="LabOptions" type="Label" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="LabOptions" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
 text = "OPTIONS"
 label_settings = ExtResource("3_lpsnn")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Volume" type="VBoxContainer" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="Volume" type="VBoxContainer" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="LabVolume" type="Label" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume"]
+[node name="LabVolume" type="Label" parent="NinePatchRect/VBoxContainer/Volume"]
 layout_mode = 2
 text = "Volume:"
 label_settings = ExtResource("4_2j2dl")
 
-[node name="SepVolume" type="HSeparator" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume"]
+[node name="SepVolume" type="HSeparator" parent="NinePatchRect/VBoxContainer/Volume"]
 layout_mode = 2
 
-[node name="LabMaster" type="Label" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume"]
+[node name="LabMaster" type="Label" parent="NinePatchRect/VBoxContainer/Volume"]
 layout_mode = 2
 text = "Master"
 label_settings = ExtResource("5_f75v3")
 
-[node name="MasterSlider" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume" instance=ExtResource("6_hrjyy")]
+[node name="MasterSlider" parent="NinePatchRect/VBoxContainer/Volume" instance=ExtResource("6_hrjyy")]
 layout_mode = 2
 
-[node name="LabMusic" type="Label" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume"]
+[node name="LabMusic" type="Label" parent="NinePatchRect/VBoxContainer/Volume"]
 layout_mode = 2
 text = "Music"
 label_settings = ExtResource("5_f75v3")
 
-[node name="MusicSlider" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume" instance=ExtResource("6_hrjyy")]
+[node name="MusicSlider" parent="NinePatchRect/VBoxContainer/Volume" instance=ExtResource("6_hrjyy")]
 layout_mode = 2
 
-[node name="LabSFX" type="Label" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume"]
+[node name="LabSFX" type="Label" parent="NinePatchRect/VBoxContainer/Volume"]
 layout_mode = 2
 text = "SFX"
 label_settings = ExtResource("5_f75v3")
 
-[node name="SFXSlider" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume" instance=ExtResource("6_hrjyy")]
+[node name="SFXSlider" parent="NinePatchRect/VBoxContainer/Volume" instance=ExtResource("6_hrjyy")]
 layout_mode = 2
 
-[node name="User" type="VBoxContainer" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="User" type="VBoxContainer" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
 
-[node name="LabSession" type="Label" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/User"]
+[node name="LabSession" type="Label" parent="NinePatchRect/VBoxContainer/User"]
 layout_mode = 2
 text = "User:"
 label_settings = ExtResource("4_2j2dl")
 
-[node name="SepSession" type="HSeparator" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/User"]
+[node name="SepSession" type="HSeparator" parent="NinePatchRect/VBoxContainer/User"]
 layout_mode = 2
 
-[node name="LogOutPixelButton" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/User" instance=ExtResource("7_hrjyy")]
+[node name="LogOutPixelButton" parent="NinePatchRect/VBoxContainer/User" instance=ExtResource("7_hrjyy")]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 16
+disabled = true
 text = "Log out"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
 
-[node name="CancelPixelButton" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("7_hrjyy")]
+[node name="CancelPixelButton" parent="NinePatchRect/VBoxContainer/HBoxContainer" instance=ExtResource("7_hrjyy")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
+disabled = true
 text = "CANCEL"
 
-[node name="SavePixelButton" parent="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("7_hrjyy")]
+[node name="SavePixelButton" parent="NinePatchRect/VBoxContainer/HBoxContainer" instance=ExtResource("7_hrjyy")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
+disabled = true
 text = "SAVE"
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_7oucm")
 bus = &"SFX"
 
-[connection signal="drag_ended" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/MasterSlider" to="." method="_on_slider_drag_ended"]
-[connection signal="muted_pressed" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/MasterSlider" to="." method="_on_master_slider_muted_pressed"]
-[connection signal="value_changed" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/MasterSlider" to="." method="_on_master_slider_value_changed"]
-[connection signal="muted_pressed" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/MusicSlider" to="." method="_on_music_slider_muted_pressed"]
-[connection signal="value_changed" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="drag_ended" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/SFXSlider" to="." method="_on_slider_drag_ended"]
-[connection signal="muted_pressed" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/SFXSlider" to="." method="_on_sfx_slider_muted_pressed"]
-[connection signal="value_changed" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/Volume/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
-[connection signal="button_up" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/User/LogOutPixelButton" to="." method="_on_log_out_button_up"]
-[connection signal="button_up" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/CancelPixelButton" to="." method="_on_cancel_button_up"]
-[connection signal="button_up" from="NinePatchRect/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/SavePixelButton" to="." method="_on_save_button_up"]
+[connection signal="resized" from="NinePatchRect/VBoxContainer" to="." method="_on_options_container_resized"]
+[connection signal="drag_ended" from="NinePatchRect/VBoxContainer/Volume/MasterSlider" to="." method="_on_slider_drag_ended"]
+[connection signal="muted_pressed" from="NinePatchRect/VBoxContainer/Volume/MasterSlider" to="." method="_on_master_slider_muted_pressed"]
+[connection signal="value_changed" from="NinePatchRect/VBoxContainer/Volume/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="muted_pressed" from="NinePatchRect/VBoxContainer/Volume/MusicSlider" to="." method="_on_music_slider_muted_pressed"]
+[connection signal="value_changed" from="NinePatchRect/VBoxContainer/Volume/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="drag_ended" from="NinePatchRect/VBoxContainer/Volume/SFXSlider" to="." method="_on_slider_drag_ended"]
+[connection signal="muted_pressed" from="NinePatchRect/VBoxContainer/Volume/SFXSlider" to="." method="_on_sfx_slider_muted_pressed"]
+[connection signal="value_changed" from="NinePatchRect/VBoxContainer/Volume/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="button_up" from="NinePatchRect/VBoxContainer/User/LogOutPixelButton" to="." method="_on_log_out_button_up"]
+[connection signal="button_up" from="NinePatchRect/VBoxContainer/HBoxContainer/CancelPixelButton" to="." method="_on_cancel_button_up"]
+[connection signal="button_up" from="NinePatchRect/VBoxContainer/HBoxContainer/SavePixelButton" to="." method="_on_save_button_up"]
