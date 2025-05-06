@@ -13,14 +13,19 @@
 			"tasks": [
 				"36f77fa9-8297-4b81-9c67-e321da6303d7",
 				"5695cc10-f7f9-4405-8e08-86e695b038c2",
-				"c2321f75-973f-4794-b499-8f295335c69a"
+				"c2321f75-973f-4794-b499-8f295335c69a",
+				"5a21cf1e-11af-4418-89fa-43ad99723fe9",
+				"e437bfdf-0402-4f7f-84fa-820f676c1e03",
+				"6012242c-b089-42f4-b601-f3962a76781b",
+				"ea0246a1-079b-4f6c-bd76-b4386bc73463",
+				"d74f31fc-482f-4375-9943-ca6e7d30149e"
 			]
 		},
 		{
 			"uuid": "3d3279a4-96a1-41d1-9e4f-18f516edac9e",
 			"title": "Doing",
 			"tasks": [
-				"8acd2d29-cb8f-430a-846f-7773f74e4d9b",
+				"dc948520-38d3-4071-bb61-70a57d972e4a",
 				"db82bd02-0a50-4596-8061-0b10ac875ca2",
 				"bb7744d5-ec5c-4fdc-a0ec-e1a92e4ddf30"
 			]
@@ -159,13 +164,6 @@
 			"steps": []
 		},
 		{
-			"uuid": "8acd2d29-cb8f-430a-846f-7773f74e4d9b",
-			"title": "Llamadas a la API",
-			"description": "",
-			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
-			"steps": []
-		},
-		{
 			"uuid": "4cdea3e2-e75f-4361-bbc6-6486fb8ea9fb",
 			"title": "Opciones para modificar el sonido",
 			"description": "",
@@ -234,6 +232,61 @@
 			"description": "",
 			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
 			"steps": []
+		},
+		{
+			"uuid": "5a21cf1e-11af-4418-89fa-43ad99723fe9",
+			"title": "Hacer metodo para mostrar y ocultar UserForm",
+			"description": "Pasar como parametro si es registro o inicio de sesion",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "dc948520-38d3-4071-bb61-70a57d972e4a",
+			"title": "Hacer llamadas a la API en UserForm",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "e437bfdf-0402-4f7f-84fa-820f676c1e03",
+			"title": "Conectar métodos de respuesta para mostrar carga de la API",
+			"description": "Bloquear botones y lineedits mientras",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "6012242c-b089-42f4-b601-f3962a76781b",
+			"title": "Comprobar que la contraseña sea válida para la seguridad de Supabase",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "ea0246a1-079b-4f6c-bd76-b4386bc73463",
+			"title": "Ocultar botones de sesion cuando hay un usuario registrado",
+			"description": "Como en Options",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "d74f31fc-482f-4375-9943-ca6e7d30149e",
+			"title": "Hacer mensajes de alerta para errores en llamadas a API",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": [
+				{
+					"details": "Contraseña incorrecta",
+					"done": false
+				},
+				{
+					"details": "Usuario ya existe",
+					"done": false
+				},
+				{
+					"details": "No se puedo conectar con API",
+					"done": false
+				}
+			]
 		}
 	],
 	"layout": {
