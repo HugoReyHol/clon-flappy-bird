@@ -10,6 +10,9 @@ const GAME_SCENE: String = "res://stages/game/game.tscn"
 @export var replay_button: TextureButton
 @export var options_menu: OptionMenu
 @export var exit_button: Button
+@export var log_up_button: Button
+@export var log_in_button: Button
+@export var user_form: UserForm
 
 
 func _ready() -> void:
@@ -53,3 +56,13 @@ func _on_options_closed() -> void:
 func _on_exit_button_up() -> void:
 	if exit_button.is_hovered():
 		get_tree().quit()
+
+
+func _on_log_up_button_up() -> void:
+	if log_up_button.is_hovered():
+		pass
+
+
+func _on_log_in_button_up() -> void:
+	if log_in_button.is_hovered():
+		pass
