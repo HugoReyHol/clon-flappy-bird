@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=14 format=3 uid="uid://cew8gvf36th0g"]
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://cew8gvf36th0g"]
 
 [ext_resource type="StyleBox" uid="uid://b2xyq3ysm144f" path="res://ui/buttons/pixel/style/pixel_button.tres" id="1_52ags"]
 [ext_resource type="Texture2D" uid="uid://bkjaijwr1rjww" path="res://ui/volume_sliders/sprites/icon_grabber.png" id="2_r1wug"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cdiin62vot47i" path="res://ui/volume_sliders/sprites/icon_grabber_highlight.png" id="3_cyynu"]
 [ext_resource type="Texture2D" uid="uid://b1kv047mgggk4" path="res://ui/volume_sliders/sprites/style_grabber_area.png" id="4_2erkt"]
 [ext_resource type="Texture2D" uid="uid://dg7vu8fgclrag" path="res://ui/volume_sliders/sprites/style_slider.png" id="5_pyclh"]
+[ext_resource type="StyleBox" uid="uid://dymxk4qal6lo6" path="res://ui/user_form/themes/line_edit_background.tres" id="6_cyynu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o83nq"]
 texture = ExtResource("4_2erkt")
@@ -54,6 +55,12 @@ HSlider/icons/grabber_highlight = ExtResource("3_cyynu")
 HSlider/styles/grabber_area = SubResource("StyleBoxTexture_o83nq")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_ibte7")
 HSlider/styles/slider = SubResource("StyleBoxTexture_8kxmc")
+LineEdit/colors/caret_color = Color(0.901961, 0.380392, 0.113725, 1)
+LineEdit/colors/font_color = Color(0.901961, 0.380392, 0.113725, 1)
+LineEdit/colors/font_placeholder_color = Color(0.901961, 0.380392, 0.113725, 0.6)
+LineEdit/styles/focus = ExtResource("6_cyynu")
+LineEdit/styles/normal = ExtResource("6_cyynu")
+LineEdit/styles/read_only = ExtResource("6_cyynu")
 SpinBox/styles/down_background_hovered = SubResource("StyleBoxEmpty_52ags")
 SpinBox/styles/down_background_pressed = SubResource("StyleBoxEmpty_s44lq")
 SpinBox/styles/up_background_hovered = SubResource("StyleBoxEmpty_gghqo")
