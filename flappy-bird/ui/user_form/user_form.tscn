@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://ch8phxtpcjifr"]
+
+[ext_resource type="PackedScene" uid="uid://u7v4f8f027rc" path="res://ui/buttons/pixel/pixel_button.tscn" id="1_mmbv4"]
+[ext_resource type="Script" uid="uid://78vtfyoiawsp" path="res://ui/user_form/user_form.gd" id="1_w5k1k"]
+[ext_resource type="Texture2D" uid="uid://cuo3eolrryi4i" path="res://ui/options/sprites/panel_text.png" id="3_ai6pn"]
+[ext_resource type="Theme" uid="uid://cew8gvf36th0g" path="res://ui/themes/pixel_theme.tres" id="3_om1n1"]
+[ext_resource type="LabelSettings" uid="uid://c4mis4qel0xtn" path="res://ui/font/options_title.tres" id="3_uqecv"]
+[ext_resource type="LabelSettings" uid="uid://ddvipivo5sqgc" path="res://ui/font/options_subtitle.tres" id="4_ai6pn"]
+
+[node name="UserForm" type="Control" node_paths=PackedStringArray("data_form", "patch")]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+script = ExtResource("1_w5k1k")
+data_form = NodePath("NinePatchRect/DataForm")
+patch = NodePath("NinePatchRect")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 12.0
+offset_bottom = 12.0
+texture = ExtResource("3_ai6pn")
+region_rect = Rect2(0, 0, 18, 18)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="DataForm" type="VBoxContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_right = 172.0
+offset_bottom = 199.0
+
+[node name="Label" type="Label" parent="NinePatchRect/DataForm"]
+layout_mode = 2
+text = "WELCOME"
+label_settings = ExtResource("3_uqecv")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="NinePatchRect/DataForm"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="NinePatchRect/DataForm"]
+layout_mode = 2
+text = "Email:"
+label_settings = ExtResource("4_ai6pn")
+
+[node name="LineEdit" type="LineEdit" parent="NinePatchRect/DataForm"]
+layout_mode = 2
+theme = ExtResource("3_om1n1")
+placeholder_text = "user@email.com"
+caret_blink = true
+
+[node name="Label3" type="Label" parent="NinePatchRect/DataForm"]
+layout_mode = 2
+text = "Password:"
+label_settings = ExtResource("4_ai6pn")
+
+[node name="LineEdit2" type="LineEdit" parent="NinePatchRect/DataForm"]
+layout_mode = 2
+theme = ExtResource("3_om1n1")
+placeholder_text = "YourSecurePass"
+caret_blink = true
+secret = true
+secret_character = "*"
+
+[node name="Separation" type="Control" parent="NinePatchRect/DataForm"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/DataForm"]
+layout_mode = 2
+
+[node name="CancelButton" parent="NinePatchRect/DataForm/HBoxContainer" instance=ExtResource("1_mmbv4")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Cancel"
+
+[node name="AcceptButton" parent="NinePatchRect/DataForm/HBoxContainer" instance=ExtResource("1_mmbv4")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Accept"
