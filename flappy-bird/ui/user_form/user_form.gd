@@ -22,7 +22,7 @@ var hidden_pos: Vector2
 
 # Configuracion inicial de UserForm
 func _ready() -> void:
-	Supabase.auth.error.connect(_set_disable.bind(false))
+	Supabase.auth.error.connect(_on_error)
 	Supabase.auth.signed_in.connect(_on_supabase_task_ended)
 	Supabase.auth.signed_up.connect(_on_supabase_task_ended)
 	
@@ -53,6 +53,10 @@ func show_ui(show_now: bool = true, new_log: LogType = LogType.NONE) -> void:
 	
 	tween.play()
 
+
+func _on_error(error: SupabaseAuthError) -> void:
+	print(error)
+	_set_disable(false)
 
 # Deshabilita o habilita los controles
 func _set_disable(disable: bool = true) -> void:
