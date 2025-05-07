@@ -16,6 +16,9 @@ const GAME_SCENE: String = "res://stages/game/game.tscn"
 
 
 func _ready() -> void:
+	Supabase.auth.signed_in.connect(_hide_log_buttons)
+	Supabase.auth.signed_up.connect(_hide_log_buttons)
+	Supabase.auth.signed_out.connect(_hide_log_buttons)
 	exit_button.visible = not OS.has_feature("android")
 
 
@@ -30,12 +33,20 @@ func change_scene() -> void:
 	change_scene_requested.emit(GAME_SCENE)
 
 
+# Desahibila y habilita los botones del menu
 func _disable_buttons(disable: bool = true) -> void:
 	replay_button.disabled = disable
 	options_button.disabled = disable
 	exit_button.disabled = disable
-	log_up_button.disabled = disable
-	log_in_button.disabled = disable
+	log_up_button.disabled = disable or Supabase.auth.client != null
+	log_in_button.disabled = disable or Supabase.auth.client != null
+
+
+# Vuelve invisibles o visibles los botones de log
+func _hide_log_buttons() -> void:
+	log_up_button.visible = Supabase.auth.client == null
+	log_in_button.visible = Supabase.auth.client == null
+
 
 # Detecta los clics del usuario
 func _on_replay_button_button_up() -> void:

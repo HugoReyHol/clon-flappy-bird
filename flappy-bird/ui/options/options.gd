@@ -13,7 +13,7 @@ const MARGIN_AREA: int = 10
 @export var audio_player: AudioStreamPlayer
 @export var user_section: VBoxContainer
 
-var is_visible: bool = false
+var vis: bool = false
 
 @onready var v_box: VBoxContainer = $NinePatchRect/VBoxContainer
 @onready var center_pos: Vector2 = (
@@ -52,7 +52,7 @@ func show_ui(show_now: bool = true) -> void:
 		tween.tween_property(self, "position", hidden_pos, 0.5)
 	
 	tween.play()
-	is_visible = show_now
+	vis = show_now
 
 
 # Habilita/Deshabilita los nodos interactuables de la interfaz
@@ -199,4 +199,4 @@ func _on_options_container_resized() -> void:
 	center_pos = (get_viewport().get_visible_rect().size - patch_rect.size) / 2.0
 	hidden_pos.x = center_pos.x
 	
-	position = center_pos if is_visible else hidden_pos
+	position = center_pos if vis else hidden_pos

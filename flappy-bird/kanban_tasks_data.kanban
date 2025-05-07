@@ -30,7 +30,10 @@
 			"tasks": [
 				"dc948520-38d3-4071-bb61-70a57d972e4a",
 				"db82bd02-0a50-4596-8061-0b10ac875ca2",
-				"bb7744d5-ec5c-4fdc-a0ec-e1a92e4ddf30"
+				"bb7744d5-ec5c-4fdc-a0ec-e1a92e4ddf30",
+				"a871525e-c01f-4604-848f-bc10a0487cbc",
+				"be42c016-33f1-4449-9f6c-38b34d0b9ccf",
+				"36d99541-1275-4a95-a58f-663e97ac6e47"
 			]
 		},
 		{
@@ -308,6 +311,27 @@
 		{
 			"uuid": "bf4a6583-a4c8-4983-af88-8582b907a97c",
 			"title": "Cambiar titulo userform dependiendo de log",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "a871525e-c01f-4604-848f-bc10a0487cbc",
+			"title": "Cargar el jwt",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "be42c016-33f1-4449-9f6c-38b34d0b9ccf",
+			"title": "Ocultar los botones log cuando se modifica user",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "36d99541-1275-4a95-a58f-663e97ac6e47",
+			"title": "Arreglar bug abrir opciones despues de login ",
 			"description": "",
 			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
 			"steps": []
