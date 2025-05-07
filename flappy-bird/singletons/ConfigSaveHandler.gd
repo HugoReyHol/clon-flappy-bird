@@ -45,7 +45,7 @@ func _ready() -> void:
 		# Inicia sesion a partir del jwt almacenado
 		var jwt := str(config.get_value(SettingsKeys.user, SettingsKeys.jwt))
 		if not jwt.is_empty():
-			Supabase.auth._auth = jwt
+			#Supabase.auth._auth = jwt
 			Supabase.auth.user(jwt)
 
 
@@ -99,11 +99,12 @@ func _on_user_log(user: SupabaseUser) -> void:
 
 
 func _on_error(error: SupabaseAuthError) -> void:
-	print(error.code)
-	print(error.details)
-	print(error.hint)
-	print(error.message)
-	print(error.type)
+	#print(error.code)
+	#print(error.details)
+	#print(error.hint)
+	#print(error.message)
+	#print(error.type)
+	pass
 
 
 func _on_got_user() -> void:

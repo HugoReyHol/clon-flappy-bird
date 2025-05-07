@@ -21,7 +21,7 @@ func _ready() -> void:
 
 # Detecta los atajos de teclado
 func _shortcut_input(event: InputEvent) -> void:
-	if event.is_action("ui_accept"):
+	if event.is_action("ui_accept") and not replay_button.disabled:
 		anim_player.play("change_to_game")
 
 

@@ -13,6 +13,8 @@ const MARGIN_AREA: int = 10
 @export var audio_player: AudioStreamPlayer
 @export var user_section: VBoxContainer
 
+var is_visible: bool = false
+
 @onready var v_box: VBoxContainer = $NinePatchRect/VBoxContainer
 @onready var center_pos: Vector2 = (
 	get_viewport().get_visible_rect().size 
@@ -50,6 +52,7 @@ func show_ui(show_now: bool = true) -> void:
 		tween.tween_property(self, "position", hidden_pos, 0.5)
 	
 	tween.play()
+	is_visible = show_now
 
 
 # Habilita/Deshabilita los nodos interactuables de la interfaz
@@ -93,12 +96,9 @@ func _set_sound_controls_values() -> void:
 
 # Muestra o no el apartado de usuario si hay uno conectado
 func _set_user_controls_values() -> void:
-	var user: SupabaseUser = Supabase.auth.client
-	
-	user_section.visible = user != null
+	user_section.visible = Supabase.auth.client != null
 	
 	v_box.reset_size()
-	center_pos = (get_viewport().get_visible_rect().size - patch_rect.size) / 2.0
 
 
 # Cierra el menu de opciones sin guardar y restaura los valores anteriores
@@ -195,4 +195,8 @@ func _on_log_out_button_up() -> void:
 # Cambia el tamano del fondo cuando VBox cambia de tamano
 func _on_options_container_resized() -> void:
 	patch_rect.size = v_box.size + Vector2.ONE * MARGIN_AREA * 2
-	position = hidden_pos
+	
+	center_pos = (get_viewport().get_visible_rect().size - patch_rect.size) / 2.0
+	hidden_pos.x = center_pos.x
+	
+	position = center_pos if is_visible else hidden_pos
