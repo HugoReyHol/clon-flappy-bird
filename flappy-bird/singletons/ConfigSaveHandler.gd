@@ -13,6 +13,8 @@ var config: ConfigFile = ConfigFile.new()
 # Genera el archivo de configuracion o lo carga si ya existe uno
 func _ready() -> void:
 	Supabase.auth.signed_out.connect(log_out)
+	Supabase.auth.signed_in.connect(_on_user_log)
+	Supabase.auth.signed_up.connect(_on_user_log)
 	
 	if !FileAccess.file_exists(SETTINGS_FILE_PATH):
 		config.set_value(SettingsKeys.volume, SettingsKeys.master_vol, 0.5)
@@ -85,3 +87,9 @@ func log_out() -> void:
 	
 	temp_config.set_value(SettingsKeys.user, SettingsKeys.jwt, "")
 	temp_config.save(SETTINGS_FILE_PATH)
+
+
+# Metodo para guardar el usuario cuando inicie sesion
+func _on_user_log(user: SupabaseUser) -> void:
+	config.set_value(SettingsKeys.user, SettingsKeys.jwt, user.access_token)
+	config.save(SETTINGS_FILE_PATH)
