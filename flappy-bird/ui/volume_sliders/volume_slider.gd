@@ -39,5 +39,5 @@ func _on_mute_button_up() -> void:
 	muted_pressed.emit(muted)
 
 
-func _on_sound_slider_drag_ended(value_changed: bool) -> void:
+func _on_sound_slider_drag_ended(_value_changed: bool) -> void:
 	drag_ended.emit()

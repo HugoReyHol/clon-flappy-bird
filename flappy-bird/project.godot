@@ -25,6 +25,7 @@ buses/channel_disable_time=0.1
 
 Supabase="*res://addons/supabase/Supabase/supabase.gd"
 ConfigSaveHandler="*res://singletons/ConfigSaveHandler.gd"
+PruebasSupabase="res://pruebas_supabase.gd"
 
 [display]
 

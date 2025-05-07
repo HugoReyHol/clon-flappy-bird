@@ -12,6 +12,8 @@ var config: ConfigFile = ConfigFile.new()
 
 # Genera el archivo de configuracion o lo carga si ya existe uno
 func _ready() -> void:
+	Supabase.auth.error.connect(_on_error)
+	Supabase.auth.got_user.connect(_on_got_user)
 	Supabase.auth.signed_out.connect(log_out)
 	Supabase.auth.signed_in.connect(_on_user_log)
 	Supabase.auth.signed_up.connect(_on_user_log)
@@ -41,9 +43,10 @@ func _ready() -> void:
 		load_config()
 		
 		# Inicia sesion a partir del jwt almacenado
-		var jwt : String = get_settings(SettingsKeys.user)[SettingsKeys.jwt]
-		if jwt != null and not jwt.is_empty():
-			Supabase.auth.user("Bearer " + jwt)
+		var jwt := str(config.get_value(SettingsKeys.user, SettingsKeys.jwt))
+		if not jwt.is_empty():
+			Supabase.auth._auth = jwt
+			Supabase.auth.user(jwt)
 
 
 # Guarda un nuevo valor en las variables de config
@@ -93,3 +96,15 @@ func log_out() -> void:
 func _on_user_log(user: SupabaseUser) -> void:
 	config.set_value(SettingsKeys.user, SettingsKeys.jwt, user.access_token)
 	config.save(SETTINGS_FILE_PATH)
+
+
+func _on_error(error: SupabaseAuthError) -> void:
+	print(error.code)
+	print(error.details)
+	print(error.hint)
+	print(error.message)
+	print(error.type)
+
+
+func _on_got_user() -> void:
+	print("got")
