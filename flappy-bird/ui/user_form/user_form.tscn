@@ -7,13 +7,17 @@
 [ext_resource type="LabelSettings" uid="uid://c4mis4qel0xtn" path="res://ui/font/options_title.tres" id="3_uqecv"]
 [ext_resource type="LabelSettings" uid="uid://ddvipivo5sqgc" path="res://ui/font/options_subtitle.tres" id="4_ai6pn"]
 
-[node name="UserForm" type="Control" node_paths=PackedStringArray("data_form", "patch")]
+[node name="UserForm" type="Control" node_paths=PackedStringArray("data_form", "patch", "email_line", "password_line", "cancel_button", "accept_button")]
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 4
 script = ExtResource("1_w5k1k")
 data_form = NodePath("NinePatchRect/DataForm")
 patch = NodePath("NinePatchRect")
+email_line = NodePath("NinePatchRect/DataForm/EmailLineEdit")
+password_line = NodePath("NinePatchRect/DataForm/PassLineEdit")
+cancel_button = NodePath("NinePatchRect/DataForm/HBoxContainer/CancelButton")
+accept_button = NodePath("NinePatchRect/DataForm/HBoxContainer/AcceptButton")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
@@ -31,7 +35,7 @@ layout_mode = 0
 offset_right = 172.0
 offset_bottom = 199.0
 
-[node name="Label" type="Label" parent="NinePatchRect/DataForm"]
+[node name="Title" type="Label" parent="NinePatchRect/DataForm"]
 layout_mode = 2
 text = "WELCOME"
 label_settings = ExtResource("3_uqecv")
@@ -40,23 +44,23 @@ horizontal_alignment = 1
 [node name="HSeparator" type="HSeparator" parent="NinePatchRect/DataForm"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="NinePatchRect/DataForm"]
+[node name="EmailLabel" type="Label" parent="NinePatchRect/DataForm"]
 layout_mode = 2
 text = "Email:"
 label_settings = ExtResource("4_ai6pn")
 
-[node name="LineEdit" type="LineEdit" parent="NinePatchRect/DataForm"]
+[node name="EmailLineEdit" type="LineEdit" parent="NinePatchRect/DataForm"]
 layout_mode = 2
 theme = ExtResource("3_om1n1")
 placeholder_text = "user@email.com"
 caret_blink = true
 
-[node name="Label3" type="Label" parent="NinePatchRect/DataForm"]
+[node name="PassLabel" type="Label" parent="NinePatchRect/DataForm"]
 layout_mode = 2
 text = "Password:"
 label_settings = ExtResource("4_ai6pn")
 
-[node name="LineEdit2" type="LineEdit" parent="NinePatchRect/DataForm"]
+[node name="PassLineEdit" type="LineEdit" parent="NinePatchRect/DataForm"]
 layout_mode = 2
 theme = ExtResource("3_om1n1")
 placeholder_text = "YourSecurePass"
@@ -80,3 +84,6 @@ text = "Cancel"
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Accept"
+
+[connection signal="button_up" from="NinePatchRect/DataForm/HBoxContainer/CancelButton" to="." method="_on_cancel_button_up"]
+[connection signal="button_up" from="NinePatchRect/DataForm/HBoxContainer/AcceptButton" to="." method="_on_accept_button_up"]
