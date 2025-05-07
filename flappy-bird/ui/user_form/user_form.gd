@@ -2,6 +2,8 @@ class_name UserForm
 extends Control
 
 
+signal closed
+
 enum LogType {LOGUP, LOGIN, NONE}
 
 const MARGIN_SIZE: int = 10
@@ -47,6 +49,7 @@ func show_ui(show_now: bool = true, log: LogType = LogType.NONE) -> void:
 	else:
 		_set_disable()
 		tween.tween_property(patch, "position", hidden_pos, 0.5)
+		tween.tween_callback(func() -> void: closed.emit())
 	
 	tween.play()
 

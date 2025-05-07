@@ -30,6 +30,13 @@ func change_scene() -> void:
 	change_scene_requested.emit(GAME_SCENE)
 
 
+func _disable_buttons(disable: bool = true) -> void:
+	replay_button.disabled = disable
+	options_button.disabled = disable
+	exit_button.disabled = disable
+	log_up_button.disabled = disable
+	log_in_button.disabled = disable
+
 # Detecta los clics del usuario
 func _on_replay_button_button_up() -> void:
 	if replay_button.is_hovered():
@@ -40,16 +47,12 @@ func _on_replay_button_button_up() -> void:
 func _on_options_button_up() -> void:
 	if options_button.is_hovered():
 		options_menu.show_ui()
-		replay_button.disabled = true
-		options_button.disabled = true
-		exit_button.disabled = true
+		_disable_buttons()
 
 
 # Activa los botones cuando se cierra el menu de opciones
 func _on_options_closed() -> void:
-	replay_button.disabled = false
-	options_button.disabled = false
-	exit_button.disabled = false
+	_disable_buttons(false)
 
 
 # Cierra el juego
@@ -58,11 +61,20 @@ func _on_exit_button_up() -> void:
 		get_tree().quit()
 
 
+# Abre el formulario de usuario para registrarse
 func _on_log_up_button_up() -> void:
 	if log_up_button.is_hovered():
-		pass
+		user_form.show_ui(true, UserForm.LogType.LOGUP)
+		_disable_buttons()
 
 
+# Abre el formulario de usuario para iniciar sesion
 func _on_log_in_button_up() -> void:
 	if log_in_button.is_hovered():
-		pass
+		user_form.show_ui(true, UserForm.LogType.LOGIN)
+		_disable_buttons()
+
+
+# Activa los botones cuando se cierra el menu
+func _on_user_form_closed() -> void:
+	_disable_buttons(false)

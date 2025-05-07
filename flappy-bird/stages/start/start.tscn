@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://5pam05j4p6mw"]
+[gd_scene load_steps=14 format=3 uid="uid://5pam05j4p6mw"]
 
 [ext_resource type="Texture2D" uid="uid://bs645485s4fi" path="res://locations/city/sprites/background-day.png" id="1_r5tld"]
 [ext_resource type="Script" uid="uid://dbmehy44b85c6" path="res://stages/start/start.gd" id="1_scc6h"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://u7v4f8f027rc" path="res://ui/buttons/pixel/pixel_button.tscn" id="7_2qpmv"]
 [ext_resource type="PackedScene" uid="uid://cw42iupdc8nof" path="res://ui/options/options.tscn" id="8_7i16b"]
 [ext_resource type="PackedScene" uid="uid://c7jrf5srf23mw" path="res://ui/leaderboard/leaderboard.tscn" id="8_q7oev"]
+[ext_resource type="PackedScene" uid="uid://ch8phxtpcjifr" path="res://ui/user_form/user_form.tscn" id="10_oc18c"]
 
 [sub_resource type="Animation" id="Animation_2qpmv"]
 length = 0.001
@@ -157,7 +158,7 @@ _data = {
 &"change_to_game": SubResource("Animation_scc6h")
 }
 
-[node name="Start" type="Node2D" node_paths=PackedStringArray("options_button", "anim_player", "replay_button", "options_menu", "exit_button", "log_up_button", "log_in_button")]
+[node name="Start" type="Node2D" node_paths=PackedStringArray("options_button", "anim_player", "replay_button", "options_menu", "exit_button", "log_up_button", "log_in_button", "user_form")]
 script = ExtResource("1_scc6h")
 options_button = NodePath("CanvasLayer/VBoxContainer/OptionsButton")
 anim_player = NodePath("AnimationPlayer")
@@ -166,6 +167,7 @@ options_menu = NodePath("CanvasLayer/Options")
 exit_button = NodePath("CanvasLayer/VBoxContainer/ExitButton")
 log_up_button = NodePath("CanvasLayer/VBoxContainer/LogUpButton")
 log_in_button = NodePath("CanvasLayer/VBoxContainer/LogInButton")
+user_form = NodePath("CanvasLayer/UserForm")
 metadata/_edit_vertical_guides_ = [144.0]
 
 [node name="Background-day" type="Sprite2D" parent="."]
@@ -238,6 +240,12 @@ offset_top = 312.5
 offset_right = 389.0
 offset_bottom = 312.5
 
+[node name="UserForm" parent="CanvasLayer" instance=ExtResource("10_oc18c")]
+offset_left = 342.0
+offset_top = 315.0
+offset_right = 342.0
+offset_bottom = 315.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_2qpmv")
@@ -249,3 +257,4 @@ libraries = {
 [connection signal="button_up" from="CanvasLayer/VBoxContainer/LogInButton" to="." method="_on_log_in_button_up"]
 [connection signal="button_up" from="CanvasLayer/VBoxContainer/ExitButton" to="." method="_on_exit_button_up"]
 [connection signal="closed" from="CanvasLayer/Options" to="." method="_on_options_closed"]
+[connection signal="closed" from="CanvasLayer/UserForm" to="." method="_on_user_form_closed"]
