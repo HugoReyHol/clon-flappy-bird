@@ -37,8 +37,8 @@ func _ready() -> void:
 
 
 # Muestro o esconde la interfaz
-func show_ui(show_now: bool = true, log: LogType = LogType.NONE) -> void:
-	log_type = log
+func show_ui(show_now: bool = true, new_log: LogType = LogType.NONE) -> void:
+	log_type = new_log
 	var tween: Tween = create_tween()
 	
 	if show_now:
@@ -63,7 +63,8 @@ func _set_disable(disable: bool = true) -> void:
 
 
 # Si el inicio acaba correctamente cierra el formulario
-func _on_supabase_task_ended() -> void:
+func _on_supabase_task_ended(_user: SupabaseUser) -> void:
+	print("Acabado")
 	show_ui(false)
 
 
