@@ -33,7 +33,7 @@ func _ready() -> void:
 	center_pos = (get_viewport().get_visible_rect().size - patch.size) / 2
 	hidden_pos = Vector2(center_pos.x, get_viewport().get_visible_rect().size.y)
 	
-	patch.position = center_pos
+	position = hidden_pos
 
 
 # Muestro o esconde la interfaz
@@ -44,11 +44,11 @@ func show_ui(show_now: bool = true, log: LogType = LogType.NONE) -> void:
 	if show_now:
 		email_line.text = ""
 		password_line.text = ""
-		tween.tween_property(patch, "position", center_pos, 0.5)
+		tween.tween_property(self, "position", center_pos, 0.5)
 		tween.tween_callback(func() -> void: _set_disable(false))
 	else:
 		_set_disable()
-		tween.tween_property(patch, "position", hidden_pos, 0.5)
+		tween.tween_property(self, "position", hidden_pos, 0.5)
 		tween.tween_callback(func() -> void: closed.emit())
 	
 	tween.play()

@@ -241,10 +241,10 @@ offset_right = 389.0
 offset_bottom = 312.5
 
 [node name="UserForm" parent="CanvasLayer" instance=ExtResource("10_oc18c")]
-offset_left = 342.0
-offset_top = 315.0
-offset_right = 342.0
-offset_bottom = 315.0
+offset_left = 349.0
+offset_top = 67.0
+offset_right = 349.0
+offset_bottom = 67.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

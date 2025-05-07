@@ -1,4 +1,3 @@
-@tool
 class_name OptionMenu
 extends Control
 
