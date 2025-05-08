@@ -34,8 +34,6 @@ var vis: bool = false
 func _ready() -> void:
 	_set_disable()
 	Supabase.auth.signed_out.connect(_set_user_controls_values)
-	Supabase.auth.signed_in.connect(_set_user_controls_values)
-	Supabase.auth.signed_up.connect(_set_user_controls_values)
 
 
 # Muestro o esconde la interfaz

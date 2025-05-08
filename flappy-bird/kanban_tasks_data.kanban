@@ -14,7 +14,6 @@
 				"36f77fa9-8297-4b81-9c67-e321da6303d7",
 				"5695cc10-f7f9-4405-8e08-86e695b038c2",
 				"c2321f75-973f-4794-b499-8f295335c69a",
-				"5a21cf1e-11af-4418-89fa-43ad99723fe9",
 				"e437bfdf-0402-4f7f-84fa-820f676c1e03",
 				"d74f31fc-482f-4375-9943-ca6e7d30149e",
 				"1212e75c-fcbf-4aa4-8b84-acf69a95f469",
@@ -59,7 +58,9 @@
 				"bb7744d5-ec5c-4fdc-a0ec-e1a92e4ddf30",
 				"ea0246a1-079b-4f6c-bd76-b4386bc73463",
 				"6012242c-b089-42f4-b601-f3962a76781b",
-				"bf4a6583-a4c8-4983-af88-8582b907a97c"
+				"bf4a6583-a4c8-4983-af88-8582b907a97c",
+				"95e88286-0360-4b61-97c1-f399923552bc",
+				"5a21cf1e-11af-4418-89fa-43ad99723fe9"
 			]
 		}
 	],
@@ -332,6 +333,13 @@
 		{
 			"uuid": "50855078-cb88-42ca-8b0f-c56eda118071",
 			"title": "No mostrar el menu hasta que carge la configuracion",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "95e88286-0360-4b61-97c1-f399923552bc",
+			"title": "Guardar puntuaciones al acabar partidas",
 			"description": "",
 			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
 			"steps": []
