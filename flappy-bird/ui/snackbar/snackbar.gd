@@ -10,19 +10,19 @@ const MARGIN_SIZE_X: int = 10
 @export var snackbar_duration: float = 7.0
 
 
-func _ready() -> void:
-	_set_path_size()
+func show_msg(msg: String) -> void:
+	if msg == null or msg.is_empty():
+		return
+	
+	snack_label.text = msg
+	_set_patch_size()
 	_anim_play()
 
 
-func _set_path_size() -> void:
+func _set_patch_size() -> void:
 	patch_rect.size.x = snack_label.size.x + MARGIN_SIZE_X
 	patch_rect.size.y = snack_label.size.y + MARGIN_SIZE_Y
 	position.x = (get_viewport().get_visible_rect().size.x - patch_rect.size.x) / 2.0
-
-
-func _on_label_resized() -> void:
-	_set_path_size()
 
 
 func _anim_play() -> void:
