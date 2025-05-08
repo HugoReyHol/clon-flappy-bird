@@ -17,8 +17,8 @@ func _shortcut_input(event: InputEvent) -> void:
 
 
 # Funcion para mostrar la interfaz 
-func show_ui(show: bool = true) -> void:
-	if show:
+func show_ui(show_now: bool = true) -> void:
+	if show_now:
 		anim_player.play("show_lose_UI")
 	else:
 		anim_player.play("RESET")
