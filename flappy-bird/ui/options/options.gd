@@ -32,8 +32,10 @@ var vis: bool = false
 
 # Configuron inicial del menu
 func _ready() -> void:
-	_set_disable()
 	Supabase.auth.signed_out.connect(_set_user_controls_values)
+
+	_set_disable()
+	_on_options_container_resized()
 
 
 # Muestro o esconde la interfaz
