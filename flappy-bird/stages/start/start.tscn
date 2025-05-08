@@ -209,7 +209,6 @@ offset_bottom = 139.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
-alignment = 1
 
 [node name="ReplayButton" parent="CanvasLayer/VBoxContainer" instance=ExtResource("4_wqnc0")]
 layout_mode = 2
