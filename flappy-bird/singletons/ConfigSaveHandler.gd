@@ -111,9 +111,5 @@ func _on_user_log(user: SupabaseUser) -> void:
 		config_ended.emit()
 
 
-func _on_error(error: SupabaseAuthError) -> void:
-	print(error.code)
-	print(error.details)
-	print(error.hint)
-	print(error.message)
-	print(error.type)
+func _on_error(_error: SupabaseAuthError) -> void:
+	pass

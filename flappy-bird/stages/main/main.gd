@@ -2,13 +2,20 @@ extends Node2D
 
 
 const INITIAL_STAGE: String = "res://stages/start/start.tscn"
+const SNACK_BAR: PackedScene = preload("res://ui/snackbar/snackbar.tscn")
+const SNACK_BAR_POS = Vector2(144, 516)
+
+@export var canvas_layer: CanvasLayer
 
 var stage: Node2D
 var options_open: bool = false
+var snack_bar: SnackBar
 
 
 # Precarga la escena elegida en la constante y conecta su señal de cambio de escena
-func _init() -> void:
+func _ready() -> void:
+	Supabase.auth.error.connect(_on_error)
+	
 	var stage_res: PackedScene = load(INITIAL_STAGE)
 	stage = stage_res.instantiate()
 	
@@ -38,3 +45,19 @@ func _change_scene(new_scene: String) -> void:
 	if stage.has_signal("change_scene_requested"):
 		stage.connect("change_scene_requested", _change_scene)
 	add_child(stage)
+
+
+# Muestra el mensaje de error en el snackbar
+func _on_error(error: SupabaseAuthError) -> void:
+	print(error.code)
+	print(error.message)
+	
+	if snack_bar != null:
+		snack_bar.queue_free()
+	
+	snack_bar = SNACK_BAR.instantiate()
+	canvas_layer.add_child(snack_bar)
+	
+	snack_bar.position = SNACK_BAR_POS
+	snack_bar.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
+	snack_bar.show_msg(error.message)

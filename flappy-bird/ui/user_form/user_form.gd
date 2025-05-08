@@ -45,8 +45,8 @@ func show_ui(show_now: bool = true, new_log: LogType = LogType.NONE) -> void:
 	var tween: Tween = create_tween()
 	
 	if show_now:
-		email_line.text = ""
-		password_line.text = ""
+		email_line.clear()
+		password_line.clear()
 		tween.tween_property(self, "position", center_pos, 0.5)
 		tween.tween_callback(func() -> void: _set_disable(false))
 	else:
@@ -57,9 +57,11 @@ func show_ui(show_now: bool = true, new_log: LogType = LogType.NONE) -> void:
 	tween.play()
 
 
-func _on_error(error: SupabaseAuthError) -> void:
-	print(error)
+# Borra la contraseña y habilita los controles al detectar un error
+func _on_error(_error: SupabaseAuthError) -> void:
+	password_line.clear()
 	_set_disable(false)
+
 
 # Deshabilita o habilita los controles
 func _set_disable(disable: bool = true) -> void:
@@ -87,11 +89,6 @@ func _on_accept_button_up() -> void:
 		return
 	
 	_set_disable()
-	
-	if len(password_line.text) < 6:
-		# Hacer snackbar
-		_set_disable(false)
-		return
 	
 	match log_type:
 		LogType.LOGUP:

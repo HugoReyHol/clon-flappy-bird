@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://btigbou4751hs" path="res://stages/main/main.gd" id="1_6almw"]
 [ext_resource type="AudioStream" uid="uid://dtofww0r0x60p" path="res://stages/main/music/mother_bird.ogg" id="2_60rri"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("canvas_layer")]
 script = ExtResource("1_6almw")
+canvas_layer = NodePath("CanvasLayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_60rri")
@@ -13,3 +14,5 @@ bus = &"Music"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(144, 256)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
