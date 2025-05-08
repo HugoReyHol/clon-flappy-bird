@@ -13,8 +13,8 @@ var config: ConfigFile = ConfigFile.new()
 # Genera el archivo de configuracion o lo carga si ya existe uno
 func _ready() -> void:
 	Supabase.auth.error.connect(_on_error)
-	Supabase.auth.got_user.connect(_on_got_user)
-	Supabase.auth.signed_out.connect(log_out)
+	Supabase.auth.token_refreshed.connect(_on_user_log)
+	Supabase.auth.signed_out.connect(_on_log_out)
 	Supabase.auth.signed_in.connect(_on_user_log)
 	Supabase.auth.signed_up.connect(_on_user_log)
 	
@@ -45,8 +45,7 @@ func _ready() -> void:
 		# Inicia sesion a partir del jwt almacenado
 		var jwt := str(config.get_value(SettingsKeys.user, SettingsKeys.jwt))
 		if not jwt.is_empty():
-			#Supabase.auth._auth = jwt
-			Supabase.auth.user(jwt)
+			Supabase.auth.refresh_token(jwt, 10.5)
 
 
 # Guarda un nuevo valor en las variables de config
@@ -82,7 +81,7 @@ func get_settings(section: String) -> Dictionary[String, Variant]:
 
 
 # Metodo para borrar el token del archivo guardado
-func log_out() -> void:
+func _on_log_out() -> void:
 	config.set_value(SettingsKeys.user, SettingsKeys.jwt, "")
 	
 	var temp_config: ConfigFile = ConfigFile.new()
@@ -94,18 +93,14 @@ func log_out() -> void:
 
 # Metodo para guardar el usuario cuando inicie sesion
 func _on_user_log(user: SupabaseUser) -> void:
-	config.set_value(SettingsKeys.user, SettingsKeys.jwt, user.access_token)
+	config.set_value(SettingsKeys.user, SettingsKeys.jwt, user.refresh_token)
 	config.save(SETTINGS_FILE_PATH)
+	print("Sesion Iniciada")
 
 
 func _on_error(error: SupabaseAuthError) -> void:
-	#print(error.code)
-	#print(error.details)
-	#print(error.hint)
-	#print(error.message)
-	#print(error.type)
-	pass
-
-
-func _on_got_user() -> void:
-	print("got")
+	print(error.code)
+	print(error.details)
+	print(error.hint)
+	print(error.message)
+	print(error.type)

@@ -16,5 +16,5 @@ const master_mute: String = "master_muted"
 const music_mute: String = "music_muted"
 const sfx_mute: String = "sfx_muted"
 
-const jwt: String = "jwt"
+const jwt: String = "refresh_token"
 const locale: String = "locale"

@@ -60,5 +60,3 @@ func _on_task_completed(result : int, response_code : int, headers : PackedStrin
 func complete(_user : SupabaseUser = null, _data : Dictionary = {},  _error : SupabaseAuthError = null) -> void:
 	user = _user
 	super._complete(_data, _error)
-
-
