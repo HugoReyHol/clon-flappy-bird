@@ -7,7 +7,7 @@
 [ext_resource type="LabelSettings" uid="uid://c4mis4qel0xtn" path="res://ui/font/options_title.tres" id="3_uqecv"]
 [ext_resource type="LabelSettings" uid="uid://ddvipivo5sqgc" path="res://ui/font/options_subtitle.tres" id="4_ai6pn"]
 
-[node name="UserForm" type="Control" node_paths=PackedStringArray("data_form", "patch", "email_line", "password_line", "cancel_button", "accept_button")]
+[node name="UserForm" type="Control" node_paths=PackedStringArray("data_form", "patch", "email_line", "password_line", "cancel_button", "accept_button", "title_label")]
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 4
@@ -18,6 +18,7 @@ email_line = NodePath("NinePatchRect/DataForm/EmailLineEdit")
 password_line = NodePath("NinePatchRect/DataForm/PassLineEdit")
 cancel_button = NodePath("NinePatchRect/DataForm/HBoxContainer/CancelButton")
 accept_button = NodePath("NinePatchRect/DataForm/HBoxContainer/AcceptButton")
+title_label = NodePath("NinePatchRect/DataForm/Title")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
@@ -37,7 +38,6 @@ offset_bottom = 199.0
 
 [node name="Title" type="Label" parent="NinePatchRect/DataForm"]
 layout_mode = 2
-text = "WELCOME"
 label_settings = ExtResource("3_uqecv")
 horizontal_alignment = 1
 

@@ -14,6 +14,7 @@ const MARGIN_SIZE: int = 10
 @export var password_line: LineEdit
 @export var cancel_button: Button
 @export var accept_button: Button
+@export var title_label: Label
 
 var log_type: LogType
 var center_pos: Vector2
@@ -39,6 +40,8 @@ func _ready() -> void:
 # Muestro o esconde la interfaz
 func show_ui(show_now: bool = true, new_log: LogType = LogType.NONE) -> void:
 	log_type = new_log
+	title_label.text = "LOG IN" if log_type == LogType.LOGIN else "LOG UP"
+	
 	var tween: Tween = create_tween()
 	
 	if show_now:
