@@ -21,6 +21,7 @@ var speed: int = initial_speed
 var pipes: Array[Pipe] = []
 var score: int = 0
 var game_state: GameState = GameState.WAIT
+var initial_tick: int
 
 @onready var game_floor: Area2D = $Floor
 @onready var player: Player = $Player
@@ -51,6 +52,9 @@ func _input(event: InputEvent) -> void:
 		fake_player.visible = false
 		fake_player.set_process(false)
 		fake_player.stop()
+		
+		# Registra el tick de inicio
+		initial_tick = Time.get_ticks_msec()
 		
 		# Cambia en estado de la escena
 		game_state = GameState.PLAY
@@ -91,6 +95,7 @@ func reset() -> void:
 	
 	city.reset()
 
+
 # Genera las tuberias en el mapa
 func _spawn_pipe():
 	var pipe: Pipe = PIPES.instantiate()
@@ -104,6 +109,20 @@ func _spawn_pipe():
 	pipe.speed = speed
 	pipes.append(pipe)
 	add_child(pipe)
+
+
+# Envia los datos de la partida a la base de datos
+func _send_game() -> void:
+	if Supabase.auth.client == null:
+		return
+	
+	Supabase.database.query(SupabaseQuery.new()
+		.from("games")
+		.insert([{
+			score = score,
+			duration = Time.get_ticks_msec() - initial_tick
+		}])
+	)
 
 
 # La funcion que aumenta la puntuacion
@@ -138,6 +157,7 @@ func _on_player_hitted() -> void:
 		if pipe != null:
 			pipe.move = false
 	
+	_send_game()
 	player.kill()
 	lose_ui.show_ui()
 
