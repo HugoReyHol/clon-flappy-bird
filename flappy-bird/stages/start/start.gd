@@ -21,6 +21,11 @@ func _ready() -> void:
 	Supabase.auth.token_refreshed.connect(_on_log)
 	Supabase.auth.signed_out.connect(_on_log_out)
 	
+	if ConfigSaveHandler.loading_state == ConfigSaveHandler.LoadingState.LOADED:
+		anim_player.play("show_buttons_auto")
+	else:
+		ConfigSaveHandler.config_ended.connect(_on_config_ended)
+	
 	_hide_log_buttons(Supabase.auth.client != null)
 	
 	exit_button.visible = not OS.has_feature("android")
@@ -103,3 +108,8 @@ func _on_log(_user: SupabaseUser) -> void:
 # Se muestran los botones cuando se cierra sesion
 func _on_log_out() -> void:
 	_hide_log_buttons(false)
+
+
+# Muestra los botones cuando acaba de cargar el config
+func _on_config_ended() -> void:
+	anim_player.play("show_buttons")

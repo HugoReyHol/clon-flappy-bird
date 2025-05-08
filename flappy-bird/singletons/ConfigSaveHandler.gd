@@ -1,9 +1,14 @@
 extends Node
 
 
+signal config_ended
+
+enum LoadingState {READING, LOADING, LOADED}
+
 const SETTINGS_FILE_PATH: String = "user://settings.ini"
 
 var config: ConfigFile = ConfigFile.new()
+var loading_state: LoadingState = LoadingState.READING
 
 @onready var master_bus: int = AudioServer.get_bus_index("Master")
 @onready var music_bus: int = AudioServer.get_bus_index("Music")
@@ -45,7 +50,12 @@ func _ready() -> void:
 		# Inicia sesion a partir del jwt almacenado
 		var jwt := str(config.get_value(SettingsKeys.user, SettingsKeys.jwt))
 		if not jwt.is_empty():
+			loading_state = LoadingState.LOADING
 			Supabase.auth.refresh_token(jwt, 10.5)
+		
+		else:
+			loading_state = LoadingState.LOADED
+			config_ended.emit()
 
 
 # Guarda un nuevo valor en las variables de config
@@ -95,7 +105,10 @@ func _on_log_out() -> void:
 func _on_user_log(user: SupabaseUser) -> void:
 	config.set_value(SettingsKeys.user, SettingsKeys.jwt, user.refresh_token)
 	config.save(SETTINGS_FILE_PATH)
-	print("Sesion Iniciada")
+	
+	if loading_state == LoadingState.LOADING:
+		loading_state = LoadingState.LOADED
+		config_ended.emit()
 
 
 func _on_error(error: SupabaseAuthError) -> void:
