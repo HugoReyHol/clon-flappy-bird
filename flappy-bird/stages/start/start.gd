@@ -16,9 +16,13 @@ const GAME_SCENE: String = "res://stages/game/game.tscn"
 
 
 func _ready() -> void:
-	Supabase.auth.signed_in.connect(_hide_log_buttons)
-	Supabase.auth.signed_up.connect(_hide_log_buttons)
-	Supabase.auth.signed_out.connect(_hide_log_buttons)
+	Supabase.auth.signed_in.connect(_on_log)
+	Supabase.auth.signed_up.connect(_on_log)
+	Supabase.auth.token_refreshed.connect(_on_log)
+	Supabase.auth.signed_out.connect(_on_log_out)
+	
+	_hide_log_buttons(Supabase.auth.client != null)
+	
 	exit_button.visible = not OS.has_feature("android")
 
 
@@ -43,9 +47,9 @@ func _disable_buttons(disable: bool = true) -> void:
 
 
 # Vuelve invisibles o visibles los botones de log
-func _hide_log_buttons() -> void:
-	log_up_button.visible = Supabase.auth.client == null
-	log_in_button.visible = Supabase.auth.client == null
+func _hide_log_buttons(new_hide: bool = true) -> void:
+	log_up_button.visible = not new_hide
+	log_in_button.visible = not new_hide
 
 
 # Detecta los clics del usuario
@@ -89,3 +93,13 @@ func _on_log_in_button_up() -> void:
 # Activa los botones cuando se cierra el menu
 func _on_user_form_closed() -> void:
 	_disable_buttons(false)
+
+
+# Oculta los botones cuando se inicia sesion
+func _on_log(_user: SupabaseUser) -> void:
+	_hide_log_buttons()
+
+
+# Se muestran los botones cuando se cierra sesion
+func _on_log_out() -> void:
+	_hide_log_buttons(false)
