@@ -29,23 +29,19 @@ func _ready() -> void:
 	Supabase.auth.signed_in.connect(_on_supabase_task_ended)
 	Supabase.auth.signed_up.connect(_on_supabase_task_ended)
 	
-	var margins: Vector2 = Vector2.ONE * MARGIN_SIZE
-	data_form.position = margins
-	patch.size = data_form.size + margins * 2
+	data_form.position = Vector2.ONE * MARGIN_SIZE
 	
 	email_label.text = tr("EMAIL_LOG") + ":"
 	pass_label.text = tr("PASS_LOG") + ":"
-	
-	center_pos = (get_viewport().get_visible_rect().size - patch.size) / 2
-	hidden_pos = Vector2(center_pos.x, get_viewport().get_visible_rect().size.y)
-	
-	position = hidden_pos
 
 
 # Muestro o esconde la interfaz
 func show_ui(show_now: bool = true, new_log: LogType = LogType.NONE) -> void:
-	log_type = new_log
-	title_label.text = tr("LOG_IN") if log_type == LogType.LOGIN else tr("LOG_UP")
+	if show_now:
+		log_type = new_log
+		title_label.text = tr("LOG_IN") if log_type == LogType.LOGIN else tr("LOG_UP")
+		await get_tree().process_frame
+		_resize_patch()
 	
 	var tween: Tween = create_tween()
 	
@@ -60,6 +56,16 @@ func show_ui(show_now: bool = true, new_log: LogType = LogType.NONE) -> void:
 		tween.tween_callback(func() -> void: closed.emit())
 	
 	tween.play()
+
+
+# Cambia el tamaño de patch y la posicion oculta y centrada
+func _resize_patch() -> void:
+	patch.size = data_form.size + Vector2.ONE * MARGIN_SIZE * 2
+	
+	center_pos = (get_viewport().get_visible_rect().size - patch.size) / 2
+	hidden_pos = Vector2(center_pos.x, get_viewport().get_visible_rect().size.y)
+	
+	position = hidden_pos
 
 
 # Borra la contraseña y habilita los controles al detectar un error

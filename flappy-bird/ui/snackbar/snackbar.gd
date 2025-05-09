@@ -17,6 +17,8 @@ func show_msg(msg: String) -> void:
 		return
 	
 	snack_label.text = msg
+	await get_tree().process_frame
+	_set_patch_size()
 	_anim_play()
 
 
@@ -37,7 +39,3 @@ func _anim_play() -> void:
 	tween.tween_property(self, "position", original_pos, 0.3).set_delay(snackbar_duration)
 	
 	tween.play()
-
-
-func _on_label_resized() -> void:
-	_set_patch_size()

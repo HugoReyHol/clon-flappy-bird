@@ -36,5 +36,3 @@ offset_bottom = 6.5
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = ExtResource("2_1145h")
-
-[connection signal="resized" from="NinePatchRect/Label" to="." method="_on_label_resized"]
