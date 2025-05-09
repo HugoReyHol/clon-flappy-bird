@@ -12,6 +12,8 @@ const MARGIN_AREA: int = 10
 @export var sfx_slider: VolumeSlider
 @export var audio_player: AudioStreamPlayer
 @export var user_section: VBoxContainer
+@export var volume_lbl: Label
+@export var user_lbl: Label
 
 var vis: bool = false
 
@@ -33,6 +35,9 @@ var vis: bool = false
 # Configuron inicial del menu
 func _ready() -> void:
 	Supabase.auth.signed_out.connect(_set_user_controls_values)
+	
+	volume_lbl.text = tr("VOLUME_SECT") + ":"
+	user_lbl.text = tr("USER_SECT") + ":"
 
 	_set_disable()
 	_on_options_container_resized()

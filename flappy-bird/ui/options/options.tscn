@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://u7v4f8f027rc" path="res://ui/buttons/pixel/pixel_button.tscn" id="7_hrjyy"]
 [ext_resource type="AudioStream" uid="uid://bo5auj1o52uk7" path="res://stages/game/sfx/point.ogg" id="8_7oucm"]
 
-[node name="Options" type="Control" node_paths=PackedStringArray("patch_rect", "master_slider", "music_slider", "sfx_slider", "audio_player", "user_section")]
+[node name="Options" type="Control" node_paths=PackedStringArray("patch_rect", "master_slider", "music_slider", "sfx_slider", "audio_player", "user_section", "volume_lbl", "user_lbl")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_klkak")
@@ -19,6 +19,8 @@ music_slider = NodePath("NinePatchRect/VBoxContainer/Volume/MusicSlider")
 sfx_slider = NodePath("NinePatchRect/VBoxContainer/Volume/SFXSlider")
 audio_player = NodePath("AudioPlayer")
 user_section = NodePath("NinePatchRect/VBoxContainer/User")
+volume_lbl = NodePath("NinePatchRect/VBoxContainer/Volume/LabVolume")
+user_lbl = NodePath("NinePatchRect/VBoxContainer/User/LabUser")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -50,7 +52,6 @@ layout_mode = 2
 
 [node name="LabVolume" type="Label" parent="NinePatchRect/VBoxContainer/Volume"]
 layout_mode = 2
-text = "Volume:"
 label_settings = ExtResource("4_2j2dl")
 
 [node name="SepVolume" type="HSeparator" parent="NinePatchRect/VBoxContainer/Volume"]
@@ -58,7 +59,7 @@ layout_mode = 2
 
 [node name="LabMaster" type="Label" parent="NinePatchRect/VBoxContainer/Volume"]
 layout_mode = 2
-text = "Master"
+text = "MASTER_OPT"
 label_settings = ExtResource("5_f75v3")
 
 [node name="MasterSlider" parent="NinePatchRect/VBoxContainer/Volume" instance=ExtResource("6_hrjyy")]
@@ -66,7 +67,7 @@ layout_mode = 2
 
 [node name="LabMusic" type="Label" parent="NinePatchRect/VBoxContainer/Volume"]
 layout_mode = 2
-text = "Music"
+text = "MUSIC_OPT"
 label_settings = ExtResource("5_f75v3")
 
 [node name="MusicSlider" parent="NinePatchRect/VBoxContainer/Volume" instance=ExtResource("6_hrjyy")]
@@ -74,7 +75,7 @@ layout_mode = 2
 
 [node name="LabSFX" type="Label" parent="NinePatchRect/VBoxContainer/Volume"]
 layout_mode = 2
-text = "SFX"
+text = "SFX_OPT"
 label_settings = ExtResource("5_f75v3")
 
 [node name="SFXSlider" parent="NinePatchRect/VBoxContainer/Volume" instance=ExtResource("6_hrjyy")]
@@ -83,9 +84,8 @@ layout_mode = 2
 [node name="User" type="VBoxContainer" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
 
-[node name="LabSession" type="Label" parent="NinePatchRect/VBoxContainer/User"]
+[node name="LabUser" type="Label" parent="NinePatchRect/VBoxContainer/User"]
 layout_mode = 2
-text = "User:"
 label_settings = ExtResource("4_2j2dl")
 
 [node name="SepSession" type="HSeparator" parent="NinePatchRect/VBoxContainer/User"]
@@ -96,7 +96,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 16
 disabled = true
-text = "Log out"
+text = "LOG_OUT_BTN"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
@@ -105,13 +105,13 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 disabled = true
-text = "CANCEL"
+text = "CANCEL_BTN"
 
 [node name="SavePixelButton" parent="NinePatchRect/VBoxContainer/HBoxContainer" instance=ExtResource("7_hrjyy")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 disabled = true
-text = "SAVE"
+text = "SAVE_BTN"
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_7oucm")

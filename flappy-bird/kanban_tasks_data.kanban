@@ -13,7 +13,8 @@
 			"tasks": [
 				"36f77fa9-8297-4b81-9c67-e321da6303d7",
 				"e437bfdf-0402-4f7f-84fa-820f676c1e03",
-				"65acf0b4-0165-4a99-90bd-19673fba11f2"
+				"65acf0b4-0165-4a99-90bd-19673fba11f2",
+				"1a705372-66ec-4a9e-919c-6b346341ad8d"
 			]
 		},
 		{
@@ -348,6 +349,13 @@
 		{
 			"uuid": "65acf0b4-0165-4a99-90bd-19673fba11f2",
 			"title": "Mejorar estetica leaderboard",
+			"description": "",
+			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
+			"steps": []
+		},
+		{
+			"uuid": "1a705372-66ec-4a9e-919c-6b346341ad8d",
+			"title": "Corregir pos botones start",
 			"description": "",
 			"category": "a717d271-b8e0-4599-b96d-7f41d0cdb3df",
 			"steps": []
