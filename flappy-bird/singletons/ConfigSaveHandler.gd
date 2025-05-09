@@ -43,6 +43,8 @@ func _ready() -> void:
 		)
 		
 		config.save(SETTINGS_FILE_PATH)
+		loading_state = LoadingState.LOADED
+		config_ended.emit()
 	
 	else:
 		load_config()
@@ -80,6 +82,10 @@ func load_config() -> void:
 	AudioServer.set_bus_volume_linear(music_bus, volume_settings[SettingsKeys.music_vol])
 	AudioServer.set_bus_mute(sfx_bus, volume_settings[SettingsKeys.sfx_mute])
 	AudioServer.set_bus_volume_linear(sfx_bus, volume_settings[SettingsKeys.sfx_vol])
+	
+	var user_settings := get_settings(SettingsKeys.user)
+	
+	TranslationServer.set_locale(user_settings[SettingsKeys.locale])
 
 
 # Obtiene los valores de una seccion

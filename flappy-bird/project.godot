@@ -50,6 +50,10 @@ Jump={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://ui/translation/translations.en.translation", "res://ui/translation/translations.es.translation")
+
 [layer_names]
 
 2d_physics/layer_1="Player"
