@@ -15,6 +15,8 @@ const MARGIN_SIZE: int = 10
 @export var cancel_button: Button
 @export var accept_button: Button
 @export var title_label: Label
+@export var email_label: Label
+@export var pass_label: Label
 
 var log_type: LogType
 var center_pos: Vector2
@@ -31,6 +33,9 @@ func _ready() -> void:
 	data_form.position = margins
 	patch.size = data_form.size + margins * 2
 	
+	email_label.text = tr("EMAIL_LOG") + ":"
+	pass_label.text = tr("PASS_LOG") + ":"
+	
 	center_pos = (get_viewport().get_visible_rect().size - patch.size) / 2
 	hidden_pos = Vector2(center_pos.x, get_viewport().get_visible_rect().size.y)
 	
@@ -40,7 +45,7 @@ func _ready() -> void:
 # Muestro o esconde la interfaz
 func show_ui(show_now: bool = true, new_log: LogType = LogType.NONE) -> void:
 	log_type = new_log
-	title_label.text = "LOG IN" if log_type == LogType.LOGIN else "LOG UP"
+	title_label.text = tr("LOG_IN") if log_type == LogType.LOGIN else tr("LOG_UP")
 	
 	var tween: Tween = create_tween()
 	
