@@ -28,7 +28,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/VBoxContainer/ReplayButton:disabled")
+tracks/1/path = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/ReplayButton:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -52,7 +52,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/VBoxContainer/OptionsButton:disabled")
+tracks/3/path = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/OptionsButton:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -64,19 +64,19 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/VBoxContainer:position")
+tracks/4/path = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/LogUpButton:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.001),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(115, 520)]
+"update": 1,
+"values": [true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/VBoxContainer/LogUpButton:disabled")
+tracks/5/path = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/LogInButton:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -88,7 +88,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("CanvasLayer/VBoxContainer/LogInButton:disabled")
+tracks/6/path = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/ExitButton:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -100,14 +100,14 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("CanvasLayer/VBoxContainer/ExitButton:disabled")
+tracks/7/path = NodePath("CanvasLayer/ButtonsContainer:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(0, 520)]
 }
 
 [sub_resource type="Animation" id="Animation_scc6h"]
@@ -128,7 +128,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/VBoxContainer/ReplayButton:disabled")
+tracks/1/path = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/ReplayButton:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -166,19 +166,19 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/VBoxContainer:position")
+tracks/4/path = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/OptionsButton:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(115, 242.5), Vector2(115, 516.5)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/VBoxContainer/OptionsButton:disabled")
+tracks/5/path = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/LogUpButton:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -190,7 +190,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("CanvasLayer/VBoxContainer/LogUpButton:disabled")
+tracks/6/path = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/LogInButton:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -202,7 +202,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("CanvasLayer/VBoxContainer/LogInButton:disabled")
+tracks/7/path = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/ExitButton:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -214,14 +214,14 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("CanvasLayer/VBoxContainer/ExitButton:disabled")
+tracks/8/path = NodePath("CanvasLayer/ButtonsContainer:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 242.5), Vector2(0, 516.5)]
 }
 
 [sub_resource type="Animation" id="Animation_oc18c"]
@@ -230,19 +230,19 @@ length = 0.45
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/VBoxContainer:position")
+tracks/0/path = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/ReplayButton:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.45),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(115, 520), Vector2(115, 242.5)]
+"times": PackedFloat32Array(0.45),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/VBoxContainer/ReplayButton:disabled")
+tracks/1/path = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/OptionsButton:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -254,7 +254,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/VBoxContainer/OptionsButton:disabled")
+tracks/2/path = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/LogUpButton:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -266,7 +266,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/VBoxContainer/LogUpButton:disabled")
+tracks/3/path = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/LogInButton:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -278,7 +278,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/VBoxContainer/LogInButton:disabled")
+tracks/4/path = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/ExitButton:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -290,14 +290,14 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/VBoxContainer/ExitButton:disabled")
+tracks/5/path = NodePath("CanvasLayer/ButtonsContainer:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.45),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"times": PackedFloat32Array(0, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 520), Vector2(0, 242.5)]
 }
 
 [sub_resource type="Animation" id="Animation_kcd85"]
@@ -306,19 +306,19 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/VBoxContainer:position")
+tracks/0/path = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/ReplayButton:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(115, 242.5)]
+"update": 1,
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/VBoxContainer/ReplayButton:disabled")
+tracks/1/path = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/OptionsButton:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -330,7 +330,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/VBoxContainer/OptionsButton:disabled")
+tracks/2/path = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/LogUpButton:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -342,7 +342,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/VBoxContainer/LogUpButton:disabled")
+tracks/3/path = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/LogInButton:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -354,7 +354,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/VBoxContainer/LogInButton:disabled")
+tracks/4/path = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/ExitButton:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -366,14 +366,14 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/VBoxContainer/ExitButton:disabled")
+tracks/5/path = NodePath("CanvasLayer/ButtonsContainer:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(0, 242.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2qpmv"]
@@ -384,16 +384,17 @@ _data = {
 &"show_buttons_auto": SubResource("Animation_kcd85")
 }
 
-[node name="Start" type="Node2D" node_paths=PackedStringArray("options_button", "anim_player", "replay_button", "options_menu", "exit_button", "log_up_button", "log_in_button", "user_form")]
+[node name="Start" type="Node2D" node_paths=PackedStringArray("options_button", "anim_player", "replay_button", "options_menu", "exit_button", "log_up_button", "log_in_button", "user_form", "button_vbox")]
 script = ExtResource("1_scc6h")
-options_button = NodePath("CanvasLayer/VBoxContainer/OptionsButton")
+options_button = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/OptionsButton")
 anim_player = NodePath("AnimationPlayer")
-replay_button = NodePath("CanvasLayer/VBoxContainer/ReplayButton")
+replay_button = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/ReplayButton")
 options_menu = NodePath("CanvasLayer/Options")
-exit_button = NodePath("CanvasLayer/VBoxContainer/ExitButton")
-log_up_button = NodePath("CanvasLayer/VBoxContainer/LogUpButton")
-log_in_button = NodePath("CanvasLayer/VBoxContainer/LogInButton")
+exit_button = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/ExitButton")
+log_up_button = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/LogUpButton")
+log_in_button = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer/LogInButton")
 user_form = NodePath("CanvasLayer/UserForm")
+button_vbox = NodePath("CanvasLayer/ButtonsContainer/VBoxContainer")
 metadata/_edit_vertical_guides_ = [144.0]
 
 [node name="Background-day" type="Sprite2D" parent="."]
@@ -422,41 +423,39 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 texture = ExtResource("4_82c0q")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = 264.0
-offset_right = 32.0
-offset_bottom = 417.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ButtonsContainer" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 520.0
+offset_bottom = 520.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ButtonsContainer"]
+layout_mode = 1
+offset_right = 64.0
+offset_bottom = 153.0
 theme_override_constants/separation = 15
 
-[node name="ReplayButton" parent="CanvasLayer/VBoxContainer" instance=ExtResource("4_wqnc0")]
+[node name="ReplayButton" parent="CanvasLayer/ButtonsContainer/VBoxContainer" instance=ExtResource("4_wqnc0")]
 layout_mode = 2
 size_flags_horizontal = 4
 disabled = true
 
-[node name="OptionsButton" parent="CanvasLayer/VBoxContainer" instance=ExtResource("7_2qpmv")]
+[node name="OptionsButton" parent="CanvasLayer/ButtonsContainer/VBoxContainer" instance=ExtResource("7_2qpmv")]
 layout_mode = 2
 disabled = true
 text = "OPTIONS"
 
-[node name="LogUpButton" parent="CanvasLayer/VBoxContainer" instance=ExtResource("7_2qpmv")]
+[node name="LogUpButton" parent="CanvasLayer/ButtonsContainer/VBoxContainer" instance=ExtResource("7_2qpmv")]
 layout_mode = 2
 disabled = true
 text = "LOG_UP"
 
-[node name="LogInButton" parent="CanvasLayer/VBoxContainer" instance=ExtResource("7_2qpmv")]
+[node name="LogInButton" parent="CanvasLayer/ButtonsContainer/VBoxContainer" instance=ExtResource("7_2qpmv")]
 layout_mode = 2
 disabled = true
 text = "LOG_IN"
 
-[node name="ExitButton" parent="CanvasLayer/VBoxContainer" instance=ExtResource("7_2qpmv")]
+[node name="ExitButton" parent="CanvasLayer/ButtonsContainer/VBoxContainer" instance=ExtResource("7_2qpmv")]
 layout_mode = 2
 disabled = true
 text = "EXIT_BTN"
@@ -481,10 +480,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_2qpmv")
 }
 
-[connection signal="button_up" from="CanvasLayer/VBoxContainer/ReplayButton" to="." method="_on_replay_button_button_up"]
-[connection signal="button_up" from="CanvasLayer/VBoxContainer/OptionsButton" to="." method="_on_options_button_up"]
-[connection signal="button_up" from="CanvasLayer/VBoxContainer/LogUpButton" to="." method="_on_log_up_button_up"]
-[connection signal="button_up" from="CanvasLayer/VBoxContainer/LogInButton" to="." method="_on_log_in_button_up"]
-[connection signal="button_up" from="CanvasLayer/VBoxContainer/ExitButton" to="." method="_on_exit_button_up"]
+[connection signal="button_up" from="CanvasLayer/ButtonsContainer/VBoxContainer/ReplayButton" to="." method="_on_replay_button_button_up"]
+[connection signal="button_up" from="CanvasLayer/ButtonsContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_up"]
+[connection signal="button_up" from="CanvasLayer/ButtonsContainer/VBoxContainer/LogUpButton" to="." method="_on_log_up_button_up"]
+[connection signal="button_up" from="CanvasLayer/ButtonsContainer/VBoxContainer/LogInButton" to="." method="_on_log_in_button_up"]
+[connection signal="button_up" from="CanvasLayer/ButtonsContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_up"]
 [connection signal="closed" from="CanvasLayer/Options" to="." method="_on_options_closed"]
 [connection signal="closed" from="CanvasLayer/UserForm" to="." method="_on_user_form_closed"]

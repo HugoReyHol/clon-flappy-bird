@@ -13,6 +13,7 @@ const GAME_SCENE: String = "res://stages/game/game.tscn"
 @export var log_up_button: Button
 @export var log_in_button: Button
 @export var user_form: UserForm
+@export var button_vbox: VBoxContainer
 
 
 func _ready() -> void:
@@ -55,6 +56,10 @@ func _disable_buttons(disable: bool = true) -> void:
 func _hide_log_buttons(new_hide: bool = true) -> void:
 	log_up_button.visible = not new_hide
 	log_in_button.visible = not new_hide
+	
+	button_vbox.reset_size()
+	await get_tree().process_frame
+	button_vbox.position.x = (get_viewport().get_visible_rect().size.x - button_vbox.size.x) / 2.0
 
 
 # Detecta los clics del usuario
