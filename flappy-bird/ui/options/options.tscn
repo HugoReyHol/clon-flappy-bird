@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://u7v4f8f027rc" path="res://ui/buttons/pixel/pixel_button.tscn" id="7_hrjyy"]
 [ext_resource type="AudioStream" uid="uid://bo5auj1o52uk7" path="res://stages/game/sfx/point.ogg" id="8_7oucm"]
 
-[node name="Options" type="Control" node_paths=PackedStringArray("patch_rect", "master_slider", "music_slider", "sfx_slider", "audio_player", "user_section", "volume_lbl", "user_lbl")]
+[node name="Options" type="Control" node_paths=PackedStringArray("patch_rect", "master_slider", "music_slider", "sfx_slider", "audio_player", "user_section", "volume_lbl", "user_lbl", "v_box")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_klkak")
@@ -21,6 +21,7 @@ audio_player = NodePath("AudioPlayer")
 user_section = NodePath("NinePatchRect/VBoxContainer/User")
 volume_lbl = NodePath("NinePatchRect/VBoxContainer/Volume/LabVolume")
 user_lbl = NodePath("NinePatchRect/VBoxContainer/User/LabUser")
+v_box = NodePath("NinePatchRect/VBoxContainer")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1

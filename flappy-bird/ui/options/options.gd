@@ -14,10 +14,10 @@ const MARGIN_AREA: int = 10
 @export var user_section: VBoxContainer
 @export var volume_lbl: Label
 @export var user_lbl: Label
+@export var v_box: VBoxContainer
 
 var vis: bool = false
 
-@onready var v_box: VBoxContainer = $NinePatchRect/VBoxContainer
 @onready var center_pos: Vector2 = (
 	get_viewport().get_visible_rect().size 
 	- v_box.size 
