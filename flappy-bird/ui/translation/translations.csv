@@ -16,7 +16,7 @@ MUSIC_OPT,,Music,Música
 SFX_OPT,,SFX,SFX
 ,SECCION DE USUARIO,,
 USER_SECT,,User,Usuario
-SESION_OPT,,Name,Nombre
+SESION_OPT,,Session,Sesión
 LANG_OPT,,Language,Idioma
 ,,,
 ,MENU DE INICIO/REGISTRO,,
