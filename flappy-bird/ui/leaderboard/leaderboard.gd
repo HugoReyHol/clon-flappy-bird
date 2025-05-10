@@ -6,6 +6,7 @@ const MAX_USER: int = 3
 @export var anim_player: AnimationPlayer
 
 
+# Hace la peticion a supabase para obtener los 3 mejores jugadores
 func _ready() -> void:
 	Supabase.database.selected.connect(_update_leaderboard)
 	Supabase.database.query(SupabaseQuery.new()
@@ -17,6 +18,7 @@ func _ready() -> void:
 	)
 
 
+# Escribe los datos obtenidos en las etiquetas
 func _update_leaderboard(result: Array) -> void:
 	print("Longitud: ", len(result))
 	print(result)
