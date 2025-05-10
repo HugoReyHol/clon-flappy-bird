@@ -3,6 +3,7 @@ extends Resource
 
 
 const supported_locales: Array[String] = ["es", "en"]
+const supported_languages: Array[String] = ["Español", "English"]
 const default_locale: String = "en"
 
 const volume: String = "volume"

@@ -41,7 +41,11 @@ func _ready() -> void:
 	
 	volume_lbl.text = tr("VOLUME_SECT") + ":"
 	user_lbl.text = tr("USER_SECT") + ":"
-
+	
+	for index in SettingsKeys.supported_languages.size():
+		lang_opt.add_item(SettingsKeys.supported_languages[index], index)
+	
+	_set_language()
 	_set_disable()
 	_on_options_container_resized()
 
@@ -109,6 +113,14 @@ func _set_user_controls_values() -> void:
 	log_out_btn.visible = view_log_out
 	
 	v_box.reset_size()
+
+
+func _set_language() -> void:
+	var user_settings := ConfigSaveHandler.get_settings(SettingsKeys.user)
+	var loc: String = user_settings[SettingsKeys.locale]
+	var index: int = SettingsKeys.supported_locales.find(loc)
+	
+	lang_opt.select(index)
 
 
 # Cierra el menu de opciones sin guardar y restaura los valores anteriores
@@ -211,3 +223,11 @@ func _on_options_container_resized() -> void:
 	hidden_pos.x = center_pos.x
 	
 	position = center_pos if vis else hidden_pos
+
+
+func _on_lang_options_item_selected(index: int) -> void:
+	var loc: String = SettingsKeys.supported_locales[index]
+	
+	ConfigSaveHandler.set_setting(SettingsKeys.user, SettingsKeys.locale, loc)
+	
+	TranslationServer.set_locale(loc)

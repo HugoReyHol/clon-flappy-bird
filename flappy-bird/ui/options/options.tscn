@@ -22,7 +22,7 @@ audio_player = NodePath("AudioPlayer")
 volume_lbl = NodePath("NinePatchRect/VBoxContainer/Volume/LabVolume")
 user_lbl = NodePath("NinePatchRect/VBoxContainer/User/LabUser")
 lang_lbl = NodePath("NinePatchRect/VBoxContainer/User/LabLanguage")
-lang_opt = NodePath("NinePatchRect/VBoxContainer/User/OptionButton")
+lang_opt = NodePath("NinePatchRect/VBoxContainer/User/LangOptions")
 sesion_lbl = NodePath("NinePatchRect/VBoxContainer/User/LabSesion")
 log_out_btn = NodePath("NinePatchRect/VBoxContainer/User/LogOutPixelButton")
 v_box = NodePath("NinePatchRect/VBoxContainer")
@@ -101,15 +101,9 @@ layout_mode = 2
 text = "LANG_OPT"
 label_settings = ExtResource("5_f75v3")
 
-[node name="OptionButton" type="OptionButton" parent="NinePatchRect/VBoxContainer/User"]
+[node name="LangOptions" type="OptionButton" parent="NinePatchRect/VBoxContainer/User"]
 layout_mode = 2
 theme = ExtResource("7_m4e3p")
-selected = 0
-item_count = 2
-popup/item_0/text = "Español"
-popup/item_0/id = 0
-popup/item_1/text = "English"
-popup/item_1/id = 1
 
 [node name="LabSesion" type="Label" parent="NinePatchRect/VBoxContainer/User"]
 layout_mode = 2
@@ -155,6 +149,7 @@ bus = &"SFX"
 [connection signal="drag_ended" from="NinePatchRect/VBoxContainer/Volume/SFXSlider" to="." method="_on_slider_drag_ended"]
 [connection signal="muted_pressed" from="NinePatchRect/VBoxContainer/Volume/SFXSlider" to="." method="_on_sfx_slider_muted_pressed"]
 [connection signal="value_changed" from="NinePatchRect/VBoxContainer/Volume/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="item_selected" from="NinePatchRect/VBoxContainer/User/LangOptions" to="." method="_on_lang_options_item_selected"]
 [connection signal="button_up" from="NinePatchRect/VBoxContainer/User/LogOutPixelButton" to="." method="_on_log_out_button_up"]
 [connection signal="button_up" from="NinePatchRect/VBoxContainer/HBoxContainer/CancelPixelButton" to="." method="_on_cancel_button_up"]
 [connection signal="button_up" from="NinePatchRect/VBoxContainer/HBoxContainer/SavePixelButton" to="." method="_on_save_button_up"]
