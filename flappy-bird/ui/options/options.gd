@@ -11,9 +11,12 @@ const MARGIN_AREA: int = 10
 @export var music_slider: VolumeSlider
 @export var sfx_slider: VolumeSlider
 @export var audio_player: AudioStreamPlayer
-@export var user_section: VBoxContainer
 @export var volume_lbl: Label
 @export var user_lbl: Label
+@export var lang_lbl: Label
+@export var lang_opt: OptionButton
+@export var sesion_lbl: Label
+@export var log_out_btn: Button
 @export var v_box: VBoxContainer
 
 var vis: bool = false
@@ -101,7 +104,9 @@ func _set_sound_controls_values() -> void:
 
 # Muestra o no el apartado de usuario si hay uno conectado
 func _set_user_controls_values() -> void:
-	user_section.visible = Supabase.auth.client != null
+	var view_log_out: bool = Supabase.auth.client != null
+	sesion_lbl.visible = view_log_out
+	log_out_btn.visible = view_log_out
 	
 	v_box.reset_size()
 
@@ -194,7 +199,8 @@ func _on_slider_drag_ended() -> void:
 # Cierra la sesion borrando el jwt
 func _on_log_out_button_up() -> void:
 	# ConfigFile esta conectado a la señal emitida al cerrar sesion
-	Supabase.auth.sign_out()
+	if log_out_btn.is_hovered():
+		Supabase.auth.sign_out()
 
 
 # Cambia el tamano del fondo cuando VBox cambia de tamano
