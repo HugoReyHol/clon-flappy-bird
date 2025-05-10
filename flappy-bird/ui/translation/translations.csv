@@ -22,3 +22,11 @@ EMAIL_LOG,,Email,Email
 EMAIL_HINT,,user@email.com,usuario@email.com
 PASS_LOG,,Password,Contraseña
 PASS_HINT,,YourSecurePass123,TuContraSegura123
+,ERRORES API,,
+ERR_LIN_VACIO,,Missing email,Correo electrónico faltante
+ERR_LIN_INCOR,,Invalid login credentials,Credenciales de inicio de sesión no válidas
+ERR_LUP_VACIO,,Anonymous sign-ins are disabled,Los inicios de sesión anónimos están deshabilitados
+ERR_LUP_INCOR,,Signup requires a valid password,El registro requiere una contraseña válida
+ERR_LUP_MEN6,,Password should be at least 6 characters,La contraseña debe tener al menos 6 caracteres
+ERR_LUP_UEXIS,,User already registered,Usuario ya registrado
+ERR_LUP_INVAD,,Unable to validate email address: invalid format,No se puede validar la dirección de correo electrónico: formato no válido

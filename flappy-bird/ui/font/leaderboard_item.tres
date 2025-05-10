@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b8qcon1i1uk1m"]
+
+[ext_resource type="FontFile" uid="uid://c2bx8wchml5yv" path="res://ui/font/EXEPixelPerfect.ttf" id="1_fluw6"]
+
+[resource]
+font = ExtResource("1_fluw6")
+font_color = Color(0, 0, 0, 1)

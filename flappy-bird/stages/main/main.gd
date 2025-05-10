@@ -52,6 +52,29 @@ func _on_error(error: SupabaseAuthError) -> void:
 	print(error.code)
 	print(error.message)
 	
+	var msg: String
+	match error.message:
+		"missing email or phone":
+			msg = tr("ERR_LIN_VACIO")
+		
+		"Invalid login credentials":
+			msg = tr("ERR_LIN_INCOR")
+		
+		"Anonymous sign-ins are disabled":
+			msg = tr("ERR_LUP_VACIO")
+		
+		"Signup requires a valid password":
+			msg = tr("ERR_LUP_INCOR")
+		
+		"Password should be at least 6 characters.":
+			msg = tr("ERR_LUP_MEN6")
+		
+		"User already registered":
+			msg = tr("ERR_LUP_UEXIS")
+		
+		_:
+			msg = error.message
+	
 	if snack_bar != null:
 		snack_bar.queue_free()
 	
@@ -60,4 +83,4 @@ func _on_error(error: SupabaseAuthError) -> void:
 	
 	snack_bar.position = SNACK_BAR_POS
 	snack_bar.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
-	snack_bar.show_msg(error.message)
+	snack_bar.show_msg(msg)
