@@ -426,8 +426,8 @@ texture = ExtResource("4_82c0q")
 [node name="ButtonsContainer" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 242.5
-offset_bottom = 242.5
+offset_top = 520.0
+offset_bottom = 520.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ButtonsContainer"]
 layout_mode = 1

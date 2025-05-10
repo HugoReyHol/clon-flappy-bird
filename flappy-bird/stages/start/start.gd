@@ -16,11 +16,13 @@ const GAME_SCENE: String = "res://stages/game/game.tscn"
 @export var button_vbox: VBoxContainer
 
 
+# Ajustes iniciales de start
 func _ready() -> void:
 	Supabase.auth.signed_in.connect(_on_log)
 	Supabase.auth.signed_up.connect(_on_log)
 	Supabase.auth.token_refreshed.connect(_on_log)
 	Supabase.auth.signed_out.connect(_on_log_out)
+	EventBus.locale_changed.connect(_on_locale_changed)
 	
 	if ConfigSaveHandler.loading_state == ConfigSaveHandler.LoadingState.LOADED:
 		anim_player.play("show_buttons_auto")
@@ -52,14 +54,24 @@ func _disable_buttons(disable: bool = true) -> void:
 	log_in_button.disabled = disable or Supabase.auth.client != null
 
 
+# Reajusta el tamaño del contenedor de botones
+func _reset_buttons_vbox() -> void:
+	button_vbox.reset_size()
+	await get_tree().process_frame
+	button_vbox.position.x = (get_viewport().get_visible_rect().size.x - button_vbox.size.x) / 2.0
+
+
 # Vuelve invisibles o visibles los botones de log
 func _hide_log_buttons(new_hide: bool = true) -> void:
 	log_up_button.visible = not new_hide
 	log_in_button.visible = not new_hide
 	
-	button_vbox.reset_size()
-	await get_tree().process_frame
-	button_vbox.position.x = (get_viewport().get_visible_rect().size.x - button_vbox.size.x) / 2.0
+	_reset_buttons_vbox()
+
+
+# Ajusta los botones cuando cambia el idioma
+func _on_locale_changed() -> void:
+	_reset_buttons_vbox()
 
 
 # Detecta los clics del usuario

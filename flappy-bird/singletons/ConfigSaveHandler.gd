@@ -86,6 +86,7 @@ func load_config() -> void:
 	var user_settings := get_settings(SettingsKeys.user)
 	
 	TranslationServer.set_locale(user_settings[SettingsKeys.locale])
+	EventBus.locale_changed.emit()
 
 
 # Obtiene los valores de una seccion
