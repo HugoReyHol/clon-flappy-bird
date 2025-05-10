@@ -10,7 +10,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ReplayButton:disabled")
+tracks/0/path = NodePath("ButtonsPivot/ButtonsVContainer/ReplayButton:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -34,38 +34,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ReplayButton:position")
+tracks/2/path = NodePath("ButtonsPivot/ButtonsVContainer/MenuPixelButton:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(118, 512)]
+"update": 1,
+"values": [true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MenuPixelButton:position")
+tracks/3/path = NodePath("ButtonsPivot:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(124, 555)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MenuPixelButton:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"values": [Vector2(0, 512)]
 }
 
 [sub_resource type="Animation" id="Animation_mqy30"]
@@ -74,7 +62,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ReplayButton:disabled")
+tracks/0/path = NodePath("ButtonsPivot/ButtonsVContainer/ReplayButton:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -86,50 +74,38 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ReplayButton:position")
+tracks/1/path = NodePath("GameOverTitle:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(118, 512), Vector2(118, 241.5)]
+"values": [Vector2(48, -42), Vector2(48, 80)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("GameOverTitle:position")
+tracks/2/path = NodePath("ButtonsPivot/ButtonsVContainer/MenuPixelButton:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(48, -42), Vector2(48, 80)]
+"update": 1,
+"values": [true, false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MenuPixelButton:position")
+tracks/3/path = NodePath("ButtonsPivot:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(124, 555), Vector2(124, 285)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MenuPixelButton:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
+"values": [Vector2(0, 512), Vector2(0, 242.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_navwl"]
@@ -138,44 +114,45 @@ _data = {
 &"show_lose_UI": SubResource("Animation_mqy30")
 }
 
-[node name="LoseUI" type="Control"]
+[node name="LoseUI" type="Control" node_paths=PackedStringArray("anim_player", "replay_button", "buttons_cont")]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_xk4rl")
+anim_player = NodePath("AnimationPlayer")
+replay_button = NodePath("ButtonsPivot/ButtonsVContainer/ReplayButton")
+buttons_cont = NodePath("ButtonsPivot/ButtonsVContainer")
 
 [node name="GameOverTitle" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -96.0
+offset_left = 48.0
 offset_top = -42.0
-offset_right = 96.0
+offset_right = 240.0
 grow_horizontal = 2
 texture = ExtResource("1_b343i")
 
-[node name="ReplayButton" parent="." instance=ExtResource("3_b343i")]
-layout_mode = 0
-offset_left = 118.0
+[node name="ButtonsPivot" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
 offset_top = 512.0
-offset_right = 170.0
-offset_bottom = 541.0
+offset_right = 40.0
+offset_bottom = 552.0
+
+[node name="ButtonsVContainer" type="VBoxContainer" parent="ButtonsPivot"]
+layout_mode = 1
+offset_right = 64.0
+offset_bottom = 49.0
+theme_override_constants/separation = 15
+
+[node name="ReplayButton" parent="ButtonsPivot/ButtonsVContainer" instance=ExtResource("3_b343i")]
+layout_mode = 2
+size_flags_horizontal = 4
 disabled = true
 
-[node name="MenuPixelButton" parent="." instance=ExtResource("5_e076d")]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_top = 555.0
-offset_right = 44.0
-offset_bottom = 571.0
-grow_horizontal = 2
+[node name="MenuPixelButton" parent="ButtonsPivot/ButtonsVContainer" instance=ExtResource("5_e076d")]
+layout_mode = 2
 disabled = true
 text = "MENU_BTN"
 
@@ -184,5 +161,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_navwl")
 }
 
-[connection signal="button_up" from="ReplayButton" to="." method="_on_texture_button_up"]
-[connection signal="button_up" from="MenuPixelButton" to="." method="_on_menu_button_pressed"]
+[connection signal="button_up" from="ButtonsPivot/ButtonsVContainer/ReplayButton" to="." method="_on_texture_button_up"]
+[connection signal="button_up" from="ButtonsPivot/ButtonsVContainer/MenuPixelButton" to="." method="_on_menu_button_pressed"]
