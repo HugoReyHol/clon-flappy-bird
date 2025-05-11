@@ -119,4 +119,6 @@ func _on_user_log(user: SupabaseUser) -> void:
 
 
 func _on_error(_error: SupabaseAuthError) -> void:
-	pass
+	config.set_value(SettingsKeys.user, SettingsKeys.jwt, "")
+	config.save(SETTINGS_FILE_PATH)
+	config_ended.emit()
