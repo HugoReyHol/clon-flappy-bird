@@ -37,5 +37,6 @@ func _anim_play() -> void:
 	
 	tween.tween_property(self, "position", Vector2(position.x, position.y - show_margin), 0.3 )
 	tween.tween_property(self, "position", original_pos, 0.3).set_delay(snackbar_duration)
+	tween.tween_callback(queue_free)
 	
 	tween.play()
