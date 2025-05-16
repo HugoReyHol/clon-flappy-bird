@@ -6,9 +6,9 @@ Se ha realizado haciendo uso del motor [Godot](https://godotengine.org/), especi
 Permite registrarse en la base de datos para almacenar estadísticas de las partidas jugadas, estas se usan para crear una tabla de puntuaciones en las que se verán las 3 mejores, para alojar la base de datos y la API con la que se comunica se ha usado [Supabase](https://supabase.com/).
 
 ## Memoria y manual de usuario
-[Enlace a la memoria]()
+[Enlace a la memoria](https://github.com/HugoReyHol/clon-flappy-bird/blob/master/delRey_Holgueras_Hugo_Memoria_ProyectoFinal_DAM25.pdf)
 
-[Enlace al manual de usuario]()
+[Enlace al manual de usuario](https://github.com/HugoReyHol/clon-flappy-bird/blob/master/delRey_Holgueras_Hugo_Manual_ProyectoFinal_DAM25.pdf)
 
 ## Para instalar el juego
 &nbsp;&nbsp;**1.** Ir a la [última versión](https://github.com/HugoReyHol/clon-flappy-bird/releases/latest)\
