@@ -11,6 +11,6 @@ Permite registrarse en la base de datos para almacenar estadísticas de las part
 [Enlace al manual de usuario]()
 
 ## Para instalar el juego
-&nbsp;&nbsp;**1.** Ir a la [última versión](https://github.com/HugoReyHol/clon-flappy-bird/releases/l)\
+&nbsp;&nbsp;**1.** Ir a la [última versión](https://github.com/HugoReyHol/clon-flappy-bird/releases/latest)\
 &nbsp;&nbsp;**2.** Seleccionar la específica para nuestro equipo\
 &nbsp;&nbsp;**3.** Ejecutarla en Linux y Windows o instalar en caso de Android
