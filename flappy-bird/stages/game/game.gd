@@ -113,7 +113,7 @@ func _spawn_pipe():
 
 # Envia los datos de la partida a la base de datos
 func _send_game() -> void:
-	if Supabase.auth.client == null:
+	if Supabase.auth.client == null or score == 0:
 		return
 	
 	Supabase.database.query(SupabaseQuery.new()
