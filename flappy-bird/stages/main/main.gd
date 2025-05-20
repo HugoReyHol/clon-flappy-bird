@@ -75,6 +75,9 @@ func _on_error(error: SupabaseAuthError) -> void:
 		_:
 			msg = error.message
 	
+	if error.code == "3":
+		msg = tr("ERR_NO_CONEX")
+	
 	if snack_bar != null:
 		snack_bar.queue_free()
 	

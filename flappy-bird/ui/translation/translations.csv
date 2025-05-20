@@ -32,3 +32,4 @@ ERR_LUP_INCOR,,Signup requires a valid password,El registro requiere una contras
 ERR_LUP_MEN6,,Password should be at least 6 characters,La contraseña debe tener al menos 6 caracteres
 ERR_LUP_UEXIS,,User already registered,Usuario ya registrado
 ERR_LUP_INVAD,,Unable to validate email address: invalid format,No se puede validar la dirección de correo electrónico: formato no válido
+ERR_NO_CONEX,,Internet connection required,Se requiere conexión a Internet
