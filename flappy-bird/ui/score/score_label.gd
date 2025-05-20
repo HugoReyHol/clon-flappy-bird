@@ -18,7 +18,7 @@ const NUMBERS_TEXTURES: Dictionary[String, Resource] = {
 var numbers: Array[TextureRect] = []
 
 
-func reset() -> void:	
+func reset() -> void:
 	for number in numbers:
 		number.queue_free()
 		numbers.erase(number)

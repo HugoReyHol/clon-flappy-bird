@@ -17,11 +17,6 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var actual_state: State = State.JUMP
 
 
-func _ready() -> void:
-	#audio_stream.play()
-	pass
-
-
 # Calcula el movimiento del jugador en cada frame
 func _physics_process(delta: float) -> void:
 	match actual_state:
